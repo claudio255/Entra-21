@@ -10,6 +10,7 @@ Console.Write(@"------------MENU---------------
 7 - Exercicio07
 8 - Exercicio08
 9 - Exercicio09
+11 - Exercicio11
 Digite o numero desejado: ");
 
 int numeroDigitado = Convert.ToInt32(Console.ReadLine());
@@ -59,4 +60,9 @@ else if (numeroDigitado == 9)
 {
     Exercicio09 exercicio09 = new Exercicio09();
     exercicio09.Executar();
+}
+else if (numeroDigitado == 11)
+{
+    Exercicio11 exercicio11 = new Exercicio11();
+    exercicio11.Executar();
 }
