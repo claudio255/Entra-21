@@ -20,7 +20,7 @@ namespace Exerciciowhile
 
 
 
-            while (quantidadeJogadores < 4) ;
+            while (quantidadeJogadores < 3) 
             {
                 Console.WriteLine("Digite o nome do jogador: ");
                 nome = Console.ReadLine();
@@ -41,13 +41,13 @@ namespace Exerciciowhile
 
                 if (menorPeso < peso)
                 {
-                    menorPeso = menorPeso + peso;
-                    nomeMenorPeso = nomeMenorPeso + nome;
+                    menorPeso = peso;
+                    nomeMenorPeso = nome;
                 }
-                if (maiorAltura < altura)
+                if (maiorAltura > altura)
                 {
-                    maiorAltura = maiorAltura + altura;
-                    nomeMaiorAltura = nomeMaiorAltura + nome;
+                    maiorAltura = altura;
+                    nomeMaiorAltura = nome;
                 }
                 if (maiorNome.Length < nome.Length)
                 {
@@ -61,9 +61,9 @@ namespace Exerciciowhile
                 {
                     quantidadeJogadoresM = quantidadeJogadoresM + 1;
                 }
-                if (menorQuantidadeAmarelos < quantidadeCartoesAmarelos)
+                if (quantidadeCartoesAmarelos < menorQuantidadeAmarelos)
                 {
-                    menorQuantidadeAmarelos = menorQuantidadeAmarelos + quantidadeCartoesAmarelos;
+                    menorQuantidadeAmarelos = quantidadeCartoesAmarelos;
                     nomeMenorQuantidadeAmarelos = nome;
                 }
                 if (menorNome.Length < nome.Length)
