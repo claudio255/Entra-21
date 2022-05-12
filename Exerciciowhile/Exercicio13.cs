@@ -10,8 +10,8 @@ namespace Exerciciowhile
     {
         public void Executar()
         {
-            int quantidadeJogadores = 0; string nome = ""; int idade = 0; double peso = 0; string sexo = ""; double altura = 0;
-            int quantidadeGolsMarcados = 0; int quantidadeCartoesAmarelos = 0; int quantidadeCartoesVermelhos = 0;
+            int quantidadeJogadores = 0; int idade = 0; string sexo = ""; 
+             
             string nomeMaiorPeso = ""; double maiorPeso = 0; string nomeMenorPeso = ""; double menorPeso = double.MaxValue; string nomeMaiorAltura = ""; double maiorAltura = 0;
             string menorNome = ""; string maiorNome = ""; int quantidadeJogadoresF = 0; int quantidadeJogadoresM = 0;
             string nomeMenorQuantidadeAmarelos = ""; int menorQuantidadeAmarelos = int.MaxValue; string nomeMaiorQuantidadeAmarelos = ""; int maiorQuantidadeAmarelos = 0;
@@ -23,33 +23,33 @@ namespace Exerciciowhile
             while (quantidadeJogadores < 3) 
             {
                 Console.WriteLine("Digite o nome do jogador: ");
-                nome = Console.ReadLine();
+                string nome = Console.ReadLine();
                 Console.WriteLine("Digite a idade do jogador: ");
                 idade = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Digite o peso do jogador: ");
-                peso = Convert.ToDouble(Console.ReadLine());
+                double peso = Convert.ToDouble(Console.ReadLine());
                 Console.WriteLine("Digite o sexo do jogador ");
                 sexo = Console.ReadLine();
                 Console.WriteLine("Digite a altura do jogador: ");
-                altura = Convert.ToDouble(Console.ReadLine());
+                double altura = Convert.ToDouble(Console.ReadLine());
                 Console.WriteLine("Digite a quantidade de gols marcados pelo jogador: ");
-                quantidadeGolsMarcados = Convert.ToInt32(Console.ReadLine());
+                int quantidadeGolsMarcados = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Digite a quantidade de cartões amarelos recebidos pelo jogador: ");
-                quantidadeCartoesAmarelos = Convert.ToInt32(Console.ReadLine());
+                int quantidadeCartoesAmarelos = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Digite a quantidade de cartões vermelhos recebidos pelo jogador: ");
-                quantidadeCartoesVermelhos = Convert.ToInt32(Console.ReadLine());
+                int quantidadeCartoesVermelhos = Convert.ToInt32(Console.ReadLine());
 
-                if (menorPeso < peso)
+                if (peso < menorPeso)
                 {
                     menorPeso = peso;
                     nomeMenorPeso = nome;
                 }
-                if (maiorAltura > altura)
+                if (altura > maiorAltura)
                 {
                     maiorAltura = altura;
                     nomeMaiorAltura = nome;
                 }
-                if (maiorNome.Length < nome.Length)
+                if (nome.Length > maiorNome.Length)
                 {
                     maiorNome = nome;
                 }
@@ -66,28 +66,28 @@ namespace Exerciciowhile
                     menorQuantidadeAmarelos = quantidadeCartoesAmarelos;
                     nomeMenorQuantidadeAmarelos = nome;
                 }
-                if (menorNome.Length < nome.Length)
+                if (nome.Length < menorNome.Length)
                 {
                     menorNome = nome;
                 }
-                if (maiorPeso < peso)
+                if (peso > menorPeso)
                 {
-                    maiorPeso = maiorPeso + peso;
+                    maiorPeso = peso;
                     nomeMaiorPeso = nome;
                 }
-                if (maiorQuantidadeVermelhos < quantidadeCartoesVermelhos)
+                if (quantidadeCartoesVermelhos > maiorQuantidadeVermelhos)
                 {
-                    maiorQuantidadeVermelhos = maiorQuantidadeVermelhos + quantidadeCartoesVermelhos;
+                    maiorQuantidadeVermelhos = quantidadeCartoesVermelhos;
                     nomeMaiorQuantidadeVermelhos = nome;
                 }
-                if (maiorQuantidadeAmarelos < quantidadeCartoesAmarelos)
+                if (quantidadeCartoesAmarelos > maiorQuantidadeAmarelos)
                 {
-                    maiorQuantidadeAmarelos = maiorQuantidadeAmarelos + quantidadeCartoesAmarelos;
+                    maiorQuantidadeAmarelos = quantidadeCartoesAmarelos;
                     nomeMaiorQuantidadeAmarelos = nome;
                 }
-                if (menorQuantidadeVermelhos < quantidadeCartoesVermelhos)
+                if (quantidadeCartoesVermelhos < menorQuantidadeVermelhos)
                 {
-                    menorQuantidadeVermelhos = menorQuantidadeVermelhos + quantidadeCartoesVermelhos;
+                    menorQuantidadeVermelhos =quantidadeCartoesVermelhos;
                     nomeMenorQuantidadeVermelhos = nome;
                 }
 
