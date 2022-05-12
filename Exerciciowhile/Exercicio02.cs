@@ -10,13 +10,13 @@ namespace Exerciciowhile
     {
         public void Executar()
         {
-            string texto = "";
+            
             string nome = "";
             while (nome != "fim")
             {
                 Console.WriteLine("Digite o nome: ");
                 nome = Console.ReadLine().ToLower();
-                texto = texto + nome + "\n";
+                
             }
 
         }
