@@ -10,6 +10,7 @@ Console.Write(@"------------MENU---------------
 7 - Exercicio07
 8 - Exercicio08
 9 - Exercicio09
+10 - Exercicio10
 11 - Exercicio11
 12 - Exercicio12
 13 - Exercicio13
@@ -63,6 +64,11 @@ else if (numeroDigitado == 9)
 {
     Exercicio09 exercicio09 = new Exercicio09();
     exercicio09.Executar();
+}
+else if (numeroDigitado == 10)
+{
+    Exercicio10 exercicio10 = new Exercicio10();
+    exercicio10.Executar();
 }
 else if (numeroDigitado == 11)
 {
