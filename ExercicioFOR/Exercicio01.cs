@@ -12,10 +12,17 @@ namespace ExercicioFOR
         {
             for(int i = 0; i < 13; i++)
             {
-                Console.WriteLine("Digite o nome da peça: ");
-                var nome = Console.ReadLine();
-                Console.WriteLine("Digite o valor da peça: ");
-                var valor = Convert.ToDouble(Console.ReadLine());
+                try
+                {
+                    Console.WriteLine("Digite o nome da peça: ");
+                    var nome = Console.ReadLine();
+                    Console.WriteLine("Digite o valor da peça: ");
+                    var valor = Convert.ToDouble(Console.ReadLine());
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine("Erro por favor digitar novamente!!!!");
+                }
             }
         }
     }
