@@ -13,7 +13,7 @@ namespace ExercicioFOR
             var produtosDesejados = 0; var quantidadeBolos = 0; var quantidadeDoces = 0; var quantidadeSanduiches = 0; var quantidadePizzas = 0;
             var valorTotal = 0.0; var produtosConsumidos = 0; var mediaProdutos = 0.0;
 
-            for (int i = 0; i != 13; i++)
+            for (int i = 0; produtosDesejados != 13; i++)
             {
                 Console.WriteLine(@"-------------CARDAPÍO---------------
 1 - Bolo - Bolo de brigadeiro - R$29,50
