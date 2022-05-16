@@ -38,6 +38,7 @@ namespace ExercicioFOR
                 Console.WriteLine("Digite a quantidade de cartões vermelhos recebidos pelo jogador: ");
                 var quantidadeCartoesVermelhos = Convert.ToInt32(Console.ReadLine());
 
+                
                 if (peso < menorPeso)
                 {
                     menorPeso = peso;
