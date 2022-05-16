@@ -19,7 +19,7 @@ namespace ExercicioFOR
 
 
 
-            for (var i = 0; i < 22; i++)
+            for (var i = 0; i < 3; i++)
             {
                 Console.WriteLine("Digite o nome do jogador: ");
                 var nome = Console.ReadLine();
