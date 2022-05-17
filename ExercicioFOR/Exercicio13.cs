@@ -35,7 +35,7 @@ namespace ExercicioFOR
                 var quantidadeGols = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Digite a quantidade de cartões amarelos recebidos pelo jogador: ");
                 var quantidadeCartoesAmarelos = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Digite a quantidade de cartões vermelhos recebidos pelo jogador : ");
+                Console.WriteLine("Digite a quantidade de cartões vermelhos recebidos pelo jogador: ");
                 var quantidadeCartoesVermelhos = Convert.ToInt32(Console.ReadLine());
 
                 
