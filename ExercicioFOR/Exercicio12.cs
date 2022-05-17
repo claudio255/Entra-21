@@ -113,7 +113,7 @@ Escolha os produtos que deseja e quando quiser sair digite 13: ");
 
             }
             mediaProdutos = valorTotal / produtosConsumidos;
-            Console.WriteLine("O total de produtos escolhidos foi de: " + produtosConsumidos + " produtos");
+            Console.WriteLine("O total de produtos escolhidos foi de : " + produtosConsumidos + " produtos");
             Console.WriteLine("Sendo " + quantidadeBolos + " bolos; " + quantidadeDoces + " doces; " + quantidadeSanduiches + " sanduiches; " + quantidadePizzas + " pizzas");
             Console.WriteLine("O valor total foi de R$" + valorTotal);
             Console.WriteLine("A media de valores foi de R$" + mediaProdutos);
