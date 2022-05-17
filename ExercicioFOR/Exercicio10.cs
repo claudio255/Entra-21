@@ -15,12 +15,13 @@ namespace ExercicioFOR
 
             for (int i = 50; numero > 0; numero = numero - 1)
             {
+                
                 if (numero % 2 == 0)
                 {
                     Console.WriteLine(numero);
                 }
 
-
+                
             }
 
 

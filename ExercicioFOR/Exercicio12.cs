@@ -33,6 +33,7 @@ Escolha os produtos que deseja e quando quiser sair digite 13: ");
 
                 produtosDesejados = Convert.ToInt32(Console.ReadLine());
 
+
                 if (produtosDesejados == 1)
                 {
                     valorTotal = valorTotal + 29.50;
