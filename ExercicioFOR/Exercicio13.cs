@@ -44,48 +44,48 @@ namespace ExercicioFOR
                     menorPeso = peso;
                     nomeMenorPeso = nome;
                 }
-                else if (peso > maiorPeso)
+                if (peso > maiorPeso)
                 {
                     maiorPeso = peso;
                     nomeMaiorPeso = nome;
                 }
-                else if (altura > maiorAltura)
+                if (altura > maiorAltura)
                 {
                     maiorAltura = altura;
                     nomeMaiorAltura = nome;
                 }
-                else if (nome.Length > maiorNome.Length)
+                if (nome.Length > maiorNome.Length)
                 {
                     maiorNome = nome;
                 }
-                else if (nome.Length < menorNome.Length)
+                if (nome.Length < menorNome.Length)
                 {
                     menorNome = nome;
                 }
-                else if (sexo == "f")
+                if (sexo == "f")
                 {
                     quantidadeJogadoresF = quantidadeJogadoresF + 1;
                 }
-                else if (sexo == "m")
+                if (sexo == "m")
                 {
                     quantidadeJogadoresM = quantidadeJogadoresM + 1;
                 }
-                else if (quantidadeCartoesAmarelos < menorCartoesAmarelos)
+                if (quantidadeCartoesAmarelos < menorCartoesAmarelos)
                 {
                     nomeMenorCartoesAmarelos = nome;
                     menorCartoesAmarelos = quantidadeCartoesAmarelos;
                 }
-                else if (quantidadeCartoesAmarelos > maiorCartoesAmarelos)
+                if (quantidadeCartoesAmarelos > maiorCartoesAmarelos)
                 {
                     nomeMaiorCartoesAmarelos = nome;
                     maiorCartoesAmarelos = quantidadeCartoesAmarelos;
                 }
-                else if (quantidadeCartoesVermelhos < menorCartoesVermelhos)
+                if (quantidadeCartoesVermelhos < menorCartoesVermelhos)
                 {
                     nomeMenorCartoesVermelhos = nome;
                     menorCartoesVermelhos = quantidadeCartoesVermelhos;
                 }
-                else if (quantidadeCartoesVermelhos > maiorCartoesVermelhos)
+                if (quantidadeCartoesVermelhos > maiorCartoesVermelhos)
                 {
                     nomeMaiorCartoesVermelhos = nome;
                     maiorCartoesVermelhos = quantidadeCartoesVermelhos;
