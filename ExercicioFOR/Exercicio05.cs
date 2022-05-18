@@ -46,10 +46,19 @@ namespace ExercicioFOR
                     {
                         Console.WriteLine("Digite o valor do carro: ");
                         valor = Convert.ToDouble(Console.ReadLine());
+
+                        if (valor < 1000)
+                        {
+                            Console.WriteLine("O valor digitado é menor que o minimo permitido!");
+                        }
+                        else if(valor > 10000000)
+                        {
+                            Console.WriteLine("O valor digitado é superior ao valor maximo permitido!");
+                        }
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
-                        Console.WriteLine("Digite um valor valido!");
+                        Console.WriteLine("O valor digitado não é valido!");
                     }
                 }
                 while(ano < 2000 || ano > anoHoje)
@@ -58,10 +67,19 @@ namespace ExercicioFOR
                     {
                         Console.WriteLine("Digite o ano do carro: ");
                         ano = Convert.ToInt32(Console.ReadLine());
+
+                        if (ano < 2000)
+                        {
+                            Console.WriteLine("O ano digitado é menor do que o minimo permitido!");
+                        }
+                        else if (ano > anoHoje)
+                        {
+                            Console.WriteLine("O ano é superior ao ano atual!");
+                        }
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
-                        Console.WriteLine("O ano digitado é inferior ao minimo ou superior ao ano atual!");
+                        Console.WriteLine("Por favor digite um ano valido!");
                     }
                 }
                
