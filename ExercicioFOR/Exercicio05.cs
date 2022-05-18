@@ -10,28 +10,61 @@ namespace ExercicioFOR
     {
         public void Executar()
         {
-            Console.WriteLine("Digite a quantidade de carros que deseja cadastrar: ");
-            var quantidadeCarros = Convert.ToInt32(Console.ReadLine());
-
+            DateTime dataHoje = DateTime.Now;
+            var anoHoje = dataHoje.Year;
+            var quantidadeCarros = 0;
+            while (quantidadeCarros <= 0)
+            {
+                try
+                {
+                    Console.WriteLine("Digite a quantidade de carros que deseja cadastrar: ");
+                    quantidadeCarros = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Digite uma quantidade valida!");
+                }
+            }
             var modelo = ""; var valor = 0.0; var ano = 0; var mediaAno = 0; var mediaValor = 0.0; var quantidadeCarrosG = ""; var quantidadeCarrosA = "";
             var mediaAnoTotal = 0; var mediaValorTotal = 0.0;
 
-            for(int i = 0; i < quantidadeCarros; i++)
+            for (int i = 0; i < quantidadeCarros; i++)
             {
                 Console.WriteLine("Digite o modelo do carro: ");
                 modelo = Console.ReadLine().Trim().ToLower();
-                if(modelo.StartsWith("g"))
+                if (modelo.StartsWith("g"))
                 {
                     quantidadeCarrosG = quantidadeCarrosG + 1;
                 }
-                else if(modelo.StartsWith("a"))
+                else if (modelo.StartsWith("a"))
                 {
                     quantidadeCarrosA = quantidadeCarrosA + 1;
                 }
-                Console.WriteLine("Digite o valor do carro: ");
-                valor = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine("Digite o ano do carro: ");
-                ano = Convert.ToInt32(Console.ReadLine());
+                while(valor < 1000 || valor > 10000000)
+                {
+                    try
+                    {
+                        Console.WriteLine("Digite o valor do carro: ");
+                        valor = Convert.ToDouble(Console.ReadLine());
+                    }
+                    catch(Exception ex)
+                    {
+                        Console.WriteLine("Digite um valor valido!");
+                    }
+                }
+                while(ano < 2000 || ano > anoHoje)
+                {
+                    try
+                    {
+                        Console.WriteLine("Digite o ano do carro: ");
+                        ano = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch(Exception ex)
+                    {
+                        Console.WriteLine("O ano digitado é inferior ao minimo ou superior ao ano atual!");
+                    }
+                }
+               
 
                 mediaAno = ano * quantidadeCarros;
                 mediaAnoTotal = mediaAno / quantidadeCarros;
