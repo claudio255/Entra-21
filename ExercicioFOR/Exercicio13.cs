@@ -10,19 +10,29 @@ namespace ExercicioFOR
     {
         public void Executar()
         {
-            
+
             var nomeMenorCartoesAmarelos = ""; var menorCartoesAmarelos = int.MaxValue; var nomeMaiorCartoesAmarelos = ""; var maiorCartoesAmarelos = 0;
             var nomeMenorCartoesVermelhos = ""; var menorCartoesVermelhos = int.MaxValue; var nomeMaiorCartoesVermelhos = ""; var maiorCartoesVermelhos = 0;
             var quantidadeJogadoresF = 0; var quantidadeJogadoresM = 0; var maiorNome = ""; var menorNome = "";
             var nomeMaiorAltura = ""; var maiorAltura = 0.0; var nomeMenorPeso = ""; var menorPeso = double.MaxValue; var nomeMaiorPeso = ""; var maiorPeso = 0.0;
-            
+
 
 
 
             for (var i = 0; i < 3; i++)
             {
-                Console.WriteLine("Digite o nome do jogador: ");
-                var nome = Console.ReadLine();
+                var nome = "";
+
+                try
+                {
+                    Console.WriteLine("Digite o nome do jogador: ");
+                    nome = Console.ReadLine();
+                }
+                catch
+                {
+                    Console.WriteLine("O nome digitado nao é valido! Por favor digite novamente: ");
+                }
+
                 Console.WriteLine("Digite a idade do jogador: ");
                 var idade = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Digite o peso do jogador: ");
@@ -38,7 +48,7 @@ namespace ExercicioFOR
                 Console.WriteLine("Digite a quantidade de cartões vermelhos recebidos pelo jogador: ");
                 var quantidadeCartoesVermelhos = Convert.ToInt32(Console.ReadLine());
 
-                
+
                 if (peso < menorPeso)
                 {
                     menorPeso = peso;
@@ -103,8 +113,8 @@ O jogador com a menor quantidade de cartões amarelos é o " + nomeMenorCartoesA
 O jogador com a maior quantidade de cartões amarelos é o " + nomeMaiorCartoesAmarelos + " com um total de " + maiorCartoesAmarelos + @" cartões
 O jogador com a menor quantidade de cartões vermelhos é o " + nomeMenorCartoesVermelhos + " com um total de " + menorCartoesVermelhos + @" cartões
 O jogador com a maior quantidade de cartões vermelhos é o " + nomeMaiorCartoesVermelhos + " com um total de " + maiorCartoesVermelhos + " cartões");
-            
-            
+
+
 
         }
     }
