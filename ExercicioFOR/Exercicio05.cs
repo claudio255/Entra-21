@@ -40,7 +40,7 @@ namespace ExercicioFOR
                 {
                     quantidadeCarrosA = quantidadeCarrosA + 1;
                 }
-                while(valor < 1000 || valor > 10000000)
+                while (valor < 1000 || valor > 10000000)
                 {
                     try
                     {
@@ -51,7 +51,7 @@ namespace ExercicioFOR
                         {
                             Console.WriteLine("O valor digitado é menor que o minimo permitido!");
                         }
-                        else if(valor > 10000000)
+                        else if (valor > 10000000)
                         {
                             Console.WriteLine("O valor digitado é superior ao valor maximo permitido!");
                         }
@@ -61,7 +61,7 @@ namespace ExercicioFOR
                         Console.WriteLine("O valor digitado não é valido!");
                     }
                 }
-                while(ano < 2000 || ano > anoHoje)
+                while (ano < 2000 || ano > anoHoje)
                 {
                     try
                     {
@@ -82,7 +82,7 @@ namespace ExercicioFOR
                         Console.WriteLine("Por favor digite um ano valido!");
                     }
                 }
-               
+
 
                 mediaAno = ano * quantidadeCarros;
                 mediaAnoTotal = mediaAno / quantidadeCarros;
