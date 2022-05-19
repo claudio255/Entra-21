@@ -11,7 +11,7 @@ namespace ExercicioFOR
         public void Executar()
         {
             DateTime dataHoje = DateTime.Now;
-            var anoHoje = dataHoje.Year;
+            var anoHoje = dataHoje.Year + 2;
             var quantidadeCarros = 0;
             while (quantidadeCarros <= 0)
             {
@@ -30,8 +30,15 @@ namespace ExercicioFOR
 
             for (int i = 0; i < quantidadeCarros; i++)
             {
-                Console.WriteLine("Digite o modelo do carro: ");
-                modelo = Console.ReadLine().Trim().ToLower();
+                while (modelo.Length < 2)
+                {
+                    Console.WriteLine("Digite o modelo do carro: ");
+                    modelo = Console.ReadLine().Trim().ToLower();
+                    if(modelo.Length < 2)
+                    {
+                        Console.WriteLine("O modelo inserido não é valido!");
+                    }
+                }
                 if (modelo.StartsWith("g"))
                 {
                     quantidadeCarrosG = quantidadeCarrosG + 1;
