@@ -28,6 +28,8 @@ namespace ExercicioFOR
 12 - Pizza - Napolitana - R$0,42
 13 - Sair
 Escolha os produtos que deseja: ");
+            produtosDesejados = Convert.ToInt32(Console.ReadLine());
+
             for (int i = 0; produtosDesejados != 13; i++)
             {
                 Console.WriteLine("Escolha o proximo produto ou digite 13 para sair: ");
