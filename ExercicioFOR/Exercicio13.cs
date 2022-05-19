@@ -204,3 +204,4 @@ O jogador com a maior quantidade de cartões vermelhos é o " + nomeMaiorCartoes
             }
         }
     }
+}
