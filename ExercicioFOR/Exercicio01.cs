@@ -18,6 +18,10 @@ namespace ExercicioFOR
                 {
                     Console.WriteLine("Digite o nome da peça: ");
                     nome = Console.ReadLine();
+                    if(nome == "")
+                    {
+                        Console.WriteLine("Nome invalido!");
+                    }
                 }
                 while(valor <= 0.0 )
                 try
