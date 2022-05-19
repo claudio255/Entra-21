@@ -33,14 +33,20 @@ Escolha os produtos que deseja e quando quiser sair digite 13: ");
 
                 produtosDesejados = Convert.ToInt32(Console.ReadLine());
 
-
-                if (produtosDesejados == 1)
+                try
                 {
-                    valorTotal = valorTotal + 29.50;
-                    quantidadeBolos = quantidadeBolos + 1;
-                    produtosConsumidos = produtosConsumidos + 1;
+                    if (produtosDesejados == 1)
+                    {
+                        valorTotal = valorTotal + 29.50;
+                        quantidadeBolos = quantidadeBolos + 1;
+                        produtosConsumidos = produtosConsumidos + 1;
+                    }
                 }
-                else if (produtosDesejados == 2)
+                catch
+                {
+                    Console.WriteLine("O item digitado não é valido!");
+                }
+                if (produtosDesejados == 2)
                 {
                     valorTotal = valorTotal + 19.33;
                     quantidadeBolos = quantidadeBolos + 1;
