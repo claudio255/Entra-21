@@ -12,10 +12,13 @@ namespace ExercicioFOR
         {
             for(int i = 0; i < 13; i++)
             {
+                var nome = "";
                 var valor = 0.0;
-
+                while (nome == "")
+                {
                     Console.WriteLine("Digite o nome da peça: ");
-                    var nome = Console.ReadLine();
+                    nome = Console.ReadLine();
+                }
                 while(valor <= 0.0 )
                 try
                 {
