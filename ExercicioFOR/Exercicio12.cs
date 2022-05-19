@@ -27,88 +27,91 @@ namespace ExercicioFOR
 11 - Pizza - Peruana - R$18,36
 12 - Pizza - Napolitana - R$0,42
 13 - Sair
-Escolha os produtos que deseja e quando quiser sair digite 13: ");
+Escolha os produtos que deseja: ");
             for (int i = 0; produtosDesejados != 13; i++)
             {
+                Console.WriteLine("Escolha o proximo produto ou digite 13 para sair: ");
+                try
+                {
+                    produtosDesejados = Convert.ToInt32(Console.ReadLine());
 
-                produtosDesejados = Convert.ToInt32(Console.ReadLine());
+                    if (produtosDesejados == 1)
+                    {
+                        valorTotal = valorTotal + 29.50;
+                        quantidadeBolos = quantidadeBolos + 1;
+                        produtosConsumidos = produtosConsumidos + 1;
+                    }
 
-
-                if (produtosDesejados == 1)
-                {
-                    valorTotal = valorTotal + 29.50;
-                    quantidadeBolos = quantidadeBolos + 1;
-                    produtosConsumidos = produtosConsumidos + 1;
+                    if (produtosDesejados == 2)
+                    {
+                        valorTotal = valorTotal + 19.33;
+                        quantidadeBolos = quantidadeBolos + 1;
+                        produtosConsumidos = produtosConsumidos + 1;
+                    }
+                    if (produtosDesejados == 3)
+                    {
+                        quantidadeBolos = quantidadeBolos + 1;
+                        valorTotal = valorTotal + 29.23;
+                        produtosConsumidos = produtosConsumidos + 1;
+                    }
+                    if (produtosDesejados == 4)
+                    {
+                        valorTotal = valorTotal + 4.82;
+                        quantidadeDoces = quantidadeDoces + 1;
+                        produtosConsumidos = produtosConsumidos + 1;
+                    }
+                    if (produtosDesejados == 5)
+                    {
+                        valorTotal = valorTotal + 2.00;
+                        quantidadeDoces = quantidadeDoces + 1;
+                        produtosConsumidos = produtosConsumidos + 1;
+                    }
+                    if (produtosDesejados == 6)
+                    {
+                        valorTotal = valorTotal + 17.71;
+                        quantidadeDoces = quantidadeDoces + 1;
+                        produtosConsumidos = produtosConsumidos + 1;
+                    }
+                    if (produtosDesejados == 7)
+                    {
+                        valorTotal = valorTotal + 21.16;
+                        quantidadeSanduiches = quantidadeSanduiches + 1;
+                        produtosConsumidos = produtosConsumidos + 1;
+                    }
+                    if (produtosDesejados == 8)
+                    {
+                        valorTotal = valorTotal + 19.70;
+                        quantidadeSanduiches = quantidadeSanduiches + 1;
+                        produtosConsumidos = produtosConsumidos + 1;
+                    }
+                    if (produtosDesejados == 9)
+                    {
+                        valorTotal = valorTotal + 28.22;
+                        quantidadeSanduiches = quantidadeSanduiches + 1;
+                        produtosConsumidos = produtosConsumidos + 1;
+                    }
+                    if (produtosDesejados == 10)
+                    {
+                        valorTotal = valorTotal + 8.98;
+                        quantidadePizzas = quantidadePizzas + 1;
+                        produtosConsumidos = produtosConsumidos + 1;
+                    }
+                    if (produtosDesejados == 11)
+                    {
+                        valorTotal = valorTotal + 18.36;
+                        quantidadePizzas = quantidadePizzas + 1;
+                        produtosConsumidos = produtosConsumidos + 1;
+                    }
+                    if (produtosDesejados == 12)
+                    {
+                        valorTotal = valorTotal + 0.42;
+                        quantidadePizzas = quantidadePizzas + 1;
+                        produtosConsumidos = produtosConsumidos + 1;
+                    }
                 }
-                else if (produtosDesejados == 2)
+                catch (Exception ex)
                 {
-                    valorTotal = valorTotal + 19.33;
-                    quantidadeBolos = quantidadeBolos + 1;
-                    produtosConsumidos = produtosConsumidos + 1;
-                }
-                else if (produtosDesejados == 3)
-                {
-                    quantidadeBolos = quantidadeBolos + 1;
-                    valorTotal = valorTotal + 29.23;
-                    produtosConsumidos = produtosConsumidos + 1;
-                }
-                else if (produtosDesejados == 4)
-                {
-                    valorTotal = valorTotal + 4.82;
-                    quantidadeDoces = quantidadeDoces + 1;
-                    produtosConsumidos = produtosConsumidos + 1;
-                }
-                else if (produtosDesejados == 5)
-                {
-                    valorTotal = valorTotal + 2.00;
-                    quantidadeDoces = quantidadeDoces + 1;
-                    produtosConsumidos = produtosConsumidos + 1;
-                }
-                else if (produtosDesejados == 6)
-                {
-                    valorTotal = valorTotal + 17.71;
-                    quantidadeDoces = quantidadeDoces + 1;
-                    produtosConsumidos = produtosConsumidos + 1;
-                }
-                else if (produtosDesejados == 7)
-                {
-                    valorTotal = valorTotal + 21.16;
-                    quantidadeSanduiches = quantidadeSanduiches + 1;
-                    produtosConsumidos = produtosConsumidos + 1;
-                }
-                else if (produtosDesejados == 8)
-                {
-                    valorTotal = valorTotal + 19.70;
-                    quantidadeSanduiches = quantidadeSanduiches + 1;
-                    produtosConsumidos = produtosConsumidos + 1;
-                }
-                else if (produtosDesejados == 9)
-                {
-                    valorTotal = valorTotal + 28.22;
-                    quantidadeSanduiches = quantidadeSanduiches + 1;
-                    produtosConsumidos = produtosConsumidos + 1;
-                }
-                else if (produtosDesejados == 10)
-                {
-                    valorTotal = valorTotal + 8.98;
-                    quantidadePizzas = quantidadePizzas + 1;
-                    produtosConsumidos = produtosConsumidos + 1;
-                }
-                else if (produtosDesejados == 11)
-                {
-                    valorTotal = valorTotal + 18.36;
-                    quantidadePizzas = quantidadePizzas + 1;
-                    produtosConsumidos = produtosConsumidos + 1;
-                }
-                else if (produtosDesejados == 12)
-                {
-                    valorTotal = valorTotal + 0.42;
-                    quantidadePizzas = quantidadePizzas + 1;
-                    produtosConsumidos = produtosConsumidos + 1;
-                }
-                else
-                {
-
+                    Console.WriteLine("O numero do cardapío não existe!");
                 }
 
             }
