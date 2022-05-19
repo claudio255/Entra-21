@@ -84,13 +84,13 @@ namespace ExercicioFOR
                         Console.WriteLine("Por favor digite uma altura valida!");
                     }
                 }
-                while (quantidadeGols < -1)
+                while (quantidadeGols < 0)
                 {
                     try
                     {
                         Console.WriteLine("Digite a quantidade de gols marcados pelo jogador: ");
                         quantidadeGols = Convert.ToInt32(Console.ReadLine());
-                        if (quantidadeGols <= -1)
+                        if (quantidadeGols < 0)
                         {
                             Console.WriteLine("A quantidade de gols digitada é menor que zero!");
                         }
@@ -99,96 +99,98 @@ namespace ExercicioFOR
                     {
                         Console.WriteLine("Digite uma quantidade valida!");
                     }
-                    while (quantidadeCartoesAmarelos <= -1)
-                    {
-                        try
-                        {
-                            Console.WriteLine("Digite a quantidade de cartões amarelos recebidos pelo jogador: ");
-                            quantidadeCartoesAmarelos = Convert.ToInt32(Console.ReadLine());
-                            if (quantidadeCartoesAmarelos <= -1)
-                            {
-                                Console.WriteLine("A quantidade de cartões amarelos digitada não é permitida!");
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine("Digite uma quantidade de cartões valida!");
-                        }
-                    }
-                    while (quantidadeCartoesVermelhos <= -1)
-                    {
-                        try
-                        {
-                            Console.WriteLine("Digite a quantidade de cartões vermelhos recebidos pelo jogador: ");
-                            quantidadeCartoesVermelhos = Convert.ToInt32(Console.ReadLine());
-                            if (quantidadeCartoesVermelhos <= -1)
-                            {
-                                Console.WriteLine("A quantidade de cartões digitada não é permitida!");
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine("A quantidade digitada não é valid!");
-                        }
-                    }
-
-
-
-                    if (peso < menorPeso)
-                    {
-                        menorPeso = peso;
-                        nomeMenorPeso = nome;
-                    }
-                    if (peso > maiorPeso)
-                    {
-                        maiorPeso = peso;
-                        nomeMaiorPeso = nome;
-                    }
-                    if (altura > maiorAltura)
-                    {
-                        maiorAltura = altura;
-                        nomeMaiorAltura = nome;
-                    }
-                    if (nome.Length > maiorNome.Length)
-                    {
-                        maiorNome = nome;
-                    }
-                    if (nome.Length < menorNome.Length)
-                    {
-                        menorNome = nome;
-                    }
-                    if (sexo == "f")
-                    {
-                        quantidadeJogadoresF = quantidadeJogadoresF + 1;
-                    }
-                    if (sexo == "m")
-                    {
-                        quantidadeJogadoresM = quantidadeJogadoresM + 1;
-                    }
-                    if (quantidadeCartoesAmarelos < menorCartoesAmarelos)
-                    {
-                        nomeMenorCartoesAmarelos = nome;
-                        menorCartoesAmarelos = quantidadeCartoesAmarelos;
-                    }
-                    if (quantidadeCartoesAmarelos > maiorCartoesAmarelos)
-                    {
-                        nomeMaiorCartoesAmarelos = nome;
-                        maiorCartoesAmarelos = quantidadeCartoesAmarelos;
-                    }
-                    if (quantidadeCartoesVermelhos < menorCartoesVermelhos)
-                    {
-                        nomeMenorCartoesVermelhos = nome;
-                        menorCartoesVermelhos = quantidadeCartoesVermelhos;
-                    }
-                    if (quantidadeCartoesVermelhos > maiorCartoesVermelhos)
-                    {
-                        nomeMaiorCartoesVermelhos = nome;
-                        maiorCartoesVermelhos = quantidadeCartoesVermelhos;
-                    }
-
-
                 }
-                Console.WriteLine("O jogador com o menor peso é o " + nomeMenorPeso + " com um peso total de " + menorPeso + @" quilos
+                while (quantidadeCartoesAmarelos < 0)
+                {
+                    try
+                    {
+                        Console.WriteLine("Digite a quantidade de cartões amarelos recebidos pelo jogador: ");
+                        quantidadeCartoesAmarelos = Convert.ToInt32(Console.ReadLine());
+                        if (quantidadeCartoesAmarelos < 0)
+                        {
+                            Console.WriteLine("A quantidade de cartões amarelos digitada não é permitida!");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Digite uma quantidade de cartões valida!");
+                    }
+                }
+                while (quantidadeCartoesVermelhos < 0)
+                {
+                    try
+                    {
+                        Console.WriteLine("Digite a quantidade de cartões vermelhos recebidos pelo jogador: ");
+                        quantidadeCartoesVermelhos = Convert.ToInt32(Console.ReadLine());
+                        if (quantidadeCartoesVermelhos <= -1)
+                        {
+                            Console.WriteLine("A quantidade de cartões digitada não é permitida!");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("A quantidade digitada não é valida!");
+                    }
+                }
+
+
+
+                if (peso < menorPeso)
+                {
+                    menorPeso = peso;
+                    nomeMenorPeso = nome;
+                }
+                if (peso > maiorPeso)
+                {
+                    maiorPeso = peso;
+                    nomeMaiorPeso = nome;
+                }
+                if (altura > maiorAltura)
+                {
+                    maiorAltura = altura;
+                    nomeMaiorAltura = nome;
+                }
+                if (nome.Length > maiorNome.Length)
+                {
+                    maiorNome = nome;
+                }
+                if (nome.Length < menorNome.Length)
+                {
+                    menorNome = nome;
+                }
+                if (sexo == "f")
+                {
+                    quantidadeJogadoresF = quantidadeJogadoresF + 1;
+                }
+                if (sexo == "m")
+                {
+                    quantidadeJogadoresM = quantidadeJogadoresM + 1;
+                }
+                if (quantidadeCartoesAmarelos < menorCartoesAmarelos)
+                {
+                    nomeMenorCartoesAmarelos = nome;
+                    menorCartoesAmarelos = quantidadeCartoesAmarelos;
+                }
+                if (quantidadeCartoesAmarelos > maiorCartoesAmarelos)
+                {
+                    nomeMaiorCartoesAmarelos = nome;
+                    maiorCartoesAmarelos = quantidadeCartoesAmarelos;
+                }
+                if (quantidadeCartoesVermelhos < menorCartoesVermelhos)
+                {
+                    nomeMenorCartoesVermelhos = nome;
+                    menorCartoesVermelhos = quantidadeCartoesVermelhos;
+                }
+                if (quantidadeCartoesVermelhos > maiorCartoesVermelhos)
+                {
+                    nomeMaiorCartoesVermelhos = nome;
+                    maiorCartoesVermelhos = quantidadeCartoesVermelhos;
+                }
+
+
+            }
+        }
+        Console.WriteLine("O jogador com o menor peso é o " + nomeMenorPeso + " com um peso total de " + menorPeso + @" quilos
 O jogador com o maior peso é o " + nomeMaiorPeso + " com um peso total de " + maiorPeso + @" quilos
 O jogador com a maior altura é o " + nomeMaiorAltura + " com uma altura total de " + maiorAltura + @" metros
 O jogador com o maior nome é o " + maiorNome + " e o jogador com o menor nome é o " + menorNome + @"
@@ -201,7 +203,7 @@ O jogador com a maior quantidade de cartões vermelhos é o " + nomeMaiorCartoes
 
 
 
-            }
+            
         }
-    }
+}
 }
