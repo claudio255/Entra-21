@@ -21,7 +21,7 @@ namespace ExercicioFOR
 
             for (var i = 0; i < 3; i++)
             {
-                var idade = 0; var peso = 0.0; var altura = 0.0; var quantidadeGols = 0; var quantidadeCartoesAmarelos = 0; var quantidadeCartoesVermelhos = 0;
+                var idade = 0; var peso = 0.0; var altura = 0.0; var quantidadeGols = -1; var quantidadeCartoesAmarelos = -1; var quantidadeCartoesVermelhos = -1;
 
 
                 Console.WriteLine("Digite o nome do jogador: ");
@@ -68,13 +68,13 @@ namespace ExercicioFOR
                 }
                 Console.WriteLine("Digite o sexo do jogador: ");
                 var sexo = Console.ReadLine().Trim().ToLower();
-                while (altura < 140)
+                while (altura < 1.40)
                 {
                     try
                     {
                         Console.WriteLine("Digite a altura do jogador: ");
                         altura = Convert.ToDouble(Console.ReadLine());
-                        if (altura < 140)
+                        if (altura < 1.40)
                         {
                             Console.WriteLine("A altura do jogador esta abaixo do permitido!");
                         }
@@ -122,7 +122,7 @@ namespace ExercicioFOR
                     {
                         Console.WriteLine("Digite a quantidade de cartões vermelhos recebidos pelo jogador: ");
                         quantidadeCartoesVermelhos = Convert.ToInt32(Console.ReadLine());
-                        if (quantidadeCartoesVermelhos <= -1)
+                        if (quantidadeCartoesVermelhos < 0)
                         {
                             Console.WriteLine("A quantidade de cartões digitada não é permitida!");
                         }
@@ -189,8 +189,8 @@ namespace ExercicioFOR
 
 
             }
-        }
-        Console.WriteLine("O jogador com o menor peso é o " + nomeMenorPeso + " com um peso total de " + menorPeso + @" quilos
+
+            Console.WriteLine("O jogador com o menor peso é o " + nomeMenorPeso + " com um peso total de " + menorPeso + @" quilos
 O jogador com o maior peso é o " + nomeMaiorPeso + " com um peso total de " + maiorPeso + @" quilos
 O jogador com a maior altura é o " + nomeMaiorAltura + " com uma altura total de " + maiorAltura + @" metros
 O jogador com o maior nome é o " + maiorNome + " e o jogador com o menor nome é o " + menorNome + @"
@@ -203,7 +203,7 @@ O jogador com a maior quantidade de cartões vermelhos é o " + nomeMaiorCartoes
 
 
 
-            
+
         }
-}
+    }
 }
