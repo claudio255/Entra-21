@@ -13,7 +13,7 @@ namespace ExercicioFOR
 
             var nomeMenorCartoesAmarelos = ""; var menorCartoesAmarelos = int.MaxValue; var nomeMaiorCartoesAmarelos = ""; var maiorCartoesAmarelos = 0;
             var nomeMenorCartoesVermelhos = ""; var menorCartoesVermelhos = int.MaxValue; var nomeMaiorCartoesVermelhos = ""; var maiorCartoesVermelhos = 0;
-            var quantidadeJogadoresF = 0; var quantidadeJogadoresM = 0; var maiorNome = ""; var menorNome = "";
+            var quantidadeJogadoresF = 0; var quantidadeJogadoresM = 0; var maiorNome = ""; var menorNome = "                                                                ";
             var nomeMaiorAltura = ""; var maiorAltura = 0.0; var nomeMenorPeso = ""; var menorPeso = double.MaxValue; var nomeMaiorPeso = ""; var maiorPeso = 0.0;
 
 
