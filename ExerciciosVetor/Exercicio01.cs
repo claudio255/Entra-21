@@ -14,8 +14,16 @@ namespace ExerciciosVetor
 
             for(int i = 0; i < 16; i++)
             {
-                Console.WriteLine("Digite um numero inteiro: ");
-                numeros[i] = Convert.ToInt32(Console.ReadLine());
+                try
+                {
+                    Console.WriteLine("Digite um numero inteiro: ");
+                    numeros[i] = Convert.ToInt32(Console.ReadLine());
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine("O numero digitado não é valido para essa operação!");
+
+                }
             }
             Console.Clear();
 
