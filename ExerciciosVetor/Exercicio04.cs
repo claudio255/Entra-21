@@ -15,6 +15,8 @@ namespace ExerciciosVetor
             Console.WriteLine("Digite o seu nome: ");
             var nome = Console.ReadLine();
 
+            Console.Clear();
+
             for (int i = 0; i < 4; i++)
             {
                 try
@@ -34,6 +36,8 @@ Por favor digite novamente a nota: ");
                     notas[i] = Convert.ToDouble(Console.ReadLine());
                 }
             }
+            Console.Clear();
+
             double mediaNotas = (notas[0] + notas[1] + notas[2] + notas[3]) / 4;
 
             Console.WriteLine($@"A media do aluno {nome} é {mediaNotas}");
