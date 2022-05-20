@@ -12,7 +12,7 @@ namespace ExerciciosVetor
         {
             string[] nomes = new string[10];
 
-            for(int i = 0; i < 3; i++)
+            for(int i = 0; i < 10; i++)
             {
                 Console.WriteLine("Digite o nome que deseja: ");
                 nomes[i] = Console.ReadLine().Trim().ToLower();
@@ -26,7 +26,7 @@ Por favor digite o nome novamente: ");
             }
             Console.Clear();
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 10; i++)
             {
                 Console.WriteLine(nomes[i]);
             }
