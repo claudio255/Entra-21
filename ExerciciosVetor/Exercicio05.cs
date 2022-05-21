@@ -14,15 +14,21 @@ namespace ExerciciosVetor
 
             for (int i = 0; i < 5; i++)
             {
-                try
+                bool pesoValido = false;
+                while (pesoValido == false)
                 {
-                    Console.WriteLine("Digite o peso: ");
-                    pesos[i] = Convert.ToDouble(Console.ReadLine());
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("O peso digitado não é valido!\nPor favor digite o peso novamente: ");
-                    pesos[i] = Convert.ToDouble(Console.ReadLine());
+                    try
+                    {
+                        Console.WriteLine("Digite o peso: ");
+                        pesos[i] = Convert.ToDouble(Console.ReadLine());
+
+                        pesoValido = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("O peso digitado não é valido!");
+
+                    }
                 }
             }
             Console.Clear();
