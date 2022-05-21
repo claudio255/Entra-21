@@ -40,6 +40,7 @@ namespace ExerciciosVetor
                     nomeMaiorIdade = nome;
                 }
             }
+            Console.Clear();
 
             Console.WriteLine($"A pessoa com a maior idade é o(a) {nomeMaiorIdade} com uma idade de {maiorIdade} anos");
         }
