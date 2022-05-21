@@ -58,15 +58,15 @@ Por favor digite novamente a nota: ");
 
             double mediaNotas = (notas[0] + notas[1] + notas[2] + notas[3]) / 4;
 
-            if(mediaNotas < 5)
+            if(mediaNotas <= 5)
             {
                 classificacao = "Reprovado";
             }
-            else if(mediaNotas < 7 && mediaNotas > 5)
+            else if(mediaNotas >= 5.1 && mediaNotas <= 6.99)
             {
-                classificacao = "Em exame";
+                classificacao = "Em Exame";
             }
-            else
+            else if(mediaNotas >= 7)
             {
                 classificacao = "Aprovado";
             }
