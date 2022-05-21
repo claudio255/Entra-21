@@ -30,7 +30,7 @@ namespace ExerciciosVetor
                 }
                 catch(Exception ex)
                 {
-                    Console.WriteLine("A idade digitada não é valida!\nPor favor digite-a novamente: ");
+                    Console.WriteLine("A idade digitada não é valida!");
                     
                 }
 
