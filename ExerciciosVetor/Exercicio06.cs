@@ -18,15 +18,20 @@ namespace ExerciciosVetor
             {
                 Console.WriteLine("Digite o seu nome: ");
                 var nome = Console.ReadLine();
+
+                var idadeValida = false;
+                while(idadeValida == false)
                 try
                 {
                     Console.WriteLine("Digite a idade: ");
                     idades[i] = Convert.ToInt32(Console.ReadLine());
+
+                        idadeValida = true;
                 }
                 catch(Exception ex)
                 {
                     Console.WriteLine("A idade digitada não é valida!\nPor favor digite-a novamente: ");
-                    idades[i] = Convert.ToInt32(Console.ReadLine());
+                    
                 }
 
                 if (idades[i] > maiorIdade)
