@@ -8,6 +8,7 @@ Console.WriteLine(@"--------------MENU-------------
 5 - Exercicio 05
 6 - Exercicio 06
 7 - Exercicio 07
+8 - Exercicio 08
 19 - ExercicioProfesso
 Escolha a opção que deseja: ");
 var opcaoEscolhida = Convert.ToInt32(Console.ReadLine());
@@ -46,6 +47,11 @@ if(opcaoEscolhida == 7)
 {
     Exercicio07 exercicio07 = new Exercicio07();
     exercicio07.Executar();
+}
+if(opcaoEscolhida == 8)
+{
+    Exercicio08 exercicio08 = new Exercicio08();
+    exercicio08.Executar();
 }
 if(opcaoEscolhida == 19)
 {
