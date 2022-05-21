@@ -23,16 +23,23 @@ namespace ExerciciosVetor
 Por favor digite novamente: ");
                     nomesProdutos[i] = Console.ReadLine().Trim().ToLower();
                 }
-                try
+
+                var valorProdutosValido = false;
+                while (valorProdutosValido == false)
                 {
-                    Console.WriteLine("Digite o valor do produto que deseja: ");
-                    valorProdutos[i] = Convert.ToDouble(Console.ReadLine());
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(@"O valor digitado não é valido!
+                    try
+                    {
+                        Console.WriteLine("Digite o valor do produto que deseja: ");
+                        valorProdutos[i] = Convert.ToDouble(Console.ReadLine());
+
+                        valorProdutosValido = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(@"O valor digitado não é valido!
 Por favor digite o valor novamente: ");
-                    valorProdutos[i] = Convert.ToDouble(Console.ReadLine());
+                        valorProdutos[i] = Convert.ToDouble(Console.ReadLine());
+                    }
                 }
             }
             Console.Clear();
