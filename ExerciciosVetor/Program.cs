@@ -35,5 +35,9 @@ if(opcaoEscolhida == 5)
     Exercicio05 exercicio05 = new Exercicio05();
     exercicio05.Executar();
 }
-//if(opcaoEscolhida )
+if(opcaoEscolhida == 6)
+{
+    ExercicioProfessor exercicioProfesso = new ExercicioProfessor();
+    exercicioProfesso.Executar();
+}
 

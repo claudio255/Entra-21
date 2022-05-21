@@ -53,9 +53,25 @@ Por favor digite novamente a nota: ");
             }
             Console.Clear();
 
+            string classificacao = "";
+          
+
             double mediaNotas = (notas[0] + notas[1] + notas[2] + notas[3]) / 4;
 
-            Console.WriteLine($@"A media do aluno {nome} é {mediaNotas}");
+            if(mediaNotas < 5)
+            {
+                classificacao = "Reprovado";
+            }
+            else if(mediaNotas < 7 && mediaNotas > 5)
+            {
+                classificacao = "Em exame";
+            }
+            else
+            {
+                classificacao = "Aprovado";
+            }
+
+            Console.WriteLine($@"A media do aluno {nome} é {mediaNotas} o aluno esta {classificacao}");
         }
     }
 }
