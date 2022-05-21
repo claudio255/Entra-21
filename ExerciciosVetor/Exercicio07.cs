@@ -40,6 +40,8 @@ namespace ExerciciosVetor
                     nomeMenorAnimal = nomeAnimal;
                 }
             }
+            Console.Clear();
+
             Console.WriteLine($"O animal com a menor altura é o(a) {nomeMenorAnimal} com uma altura de {menorAltura}");
         }
     }
