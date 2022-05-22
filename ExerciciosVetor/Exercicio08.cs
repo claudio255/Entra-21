@@ -28,13 +28,22 @@ namespace ExerciciosVetor
                     {
                         Console.WriteLine("O numero digitado não é valido!");
                     }
-                    if(numeros[i] % 2 == 1)
+                    if(numeros[i] < 0)
                     {
-                        Console.WriteLine("Por favor digite um numero par!");
+                        Console.WriteLine("Por favor digite um numero maior que zero!");
                     }
                 }
             }
-                Console.WriteLine($"Os numeros pares digitados são: ")
+            int[] numerosPares = new int[10];
+
+            for(int i = 0; i < numeros.Length; i++)
+            {
+                if(numeros[i] % 2 == 0)
+                {
+                    numerosPares[i] = numeros[i];
+                }
+            }
+            Console.WriteLine($"Os numeros pares digitados são: {numerosPares[0]} {numerosPares[1]} {numerosPares[2]}");
         }
     }
 }
