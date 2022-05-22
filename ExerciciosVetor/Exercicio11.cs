@@ -19,24 +19,22 @@ namespace ExerciciosVetor
                 Console.WriteLine("Digite o numero que deseja: ");
                 numeros[i] = Convert.ToInt32(Console.ReadLine());
 
-                if (numeros[i] % 2 == 0)
-                {
-                    numerosPares[i] = numerosPares[i] + numeros[i];
-                }
-                else if (numeros[i] % 2 == 1)
-                {
-                    numerosImpares[i] = numerosImpares[i] + numeros[i];
-                }
             }
             Console.Clear();
 
-
-            //for (int i = 0; i < numeros.Length; i++)
-            //{
-            //}
-            //for (int i = 0; i < numeros.Length; i++)
-            //{
-            //}
+            for (int i = 0; i < numeros.Length; i++)
+            {
+                //foreach
+                if (numeros[i] % 2 == 0)
+                {
+                    numerosPares[i] = numeros[i];
+                }
+                else
+                {
+                    numerosImpares[i] = numeros[i];
+                }
+            }
+         
             Console.WriteLine($@"Os numeros pares são: {numerosPares[0]} {numerosPares[1]} {numerosPares[2]} {numerosPares[3]} {numerosPares[4]} {numerosPares[5]} {numerosPares[6]} {numerosPares[7]} {numerosPares[8]} {numerosPares[9]} 
 E os numeros impoares são: {numerosImpares[0]} {numerosImpares[1]} {numerosImpares[2]} {numerosImpares[3]} {numerosImpares[4]} {numerosImpares[5]} {numerosImpares[6]} {numerosImpares[7]} {numerosImpares[8]} {numerosImpares[9]}");
         }
