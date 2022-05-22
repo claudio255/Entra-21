@@ -34,7 +34,7 @@ namespace ExerciciosVetor
                     numerosImpares[i] = numeros[i];
                 }
             }
-         
+            
             Console.WriteLine($@"Os numeros pares são: {numerosPares[0]} {numerosPares[1]} {numerosPares[2]} {numerosPares[3]} {numerosPares[4]} {numerosPares[5]} {numerosPares[6]} {numerosPares[7]} {numerosPares[8]} {numerosPares[9]} 
 E os numeros impoares são: {numerosImpares[0]} {numerosImpares[1]} {numerosImpares[2]} {numerosImpares[3]} {numerosImpares[4]} {numerosImpares[5]} {numerosImpares[6]} {numerosImpares[7]} {numerosImpares[8]} {numerosImpares[9]}");
         }
