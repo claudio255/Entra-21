@@ -16,10 +16,14 @@ namespace ExerciciosVetor
             for (int i = 0; i < nomes.Length; i++)
             {
                 Console.WriteLine("Digite o nome desejado: ");
-                nomes[i] = Console.ReadLine();
+                nomes[i] = Console.ReadLine().Trim().ToLower();
 
-                
-               
+                while (nomes[i].Length < 3 || nomes[i].Length > 30)
+                {
+                    Console.WriteLine(@"O nome tem menos que a quantidade minima de caracteres ou mais que o maximo de caracteres!
+Por favor digite o nome novamente: ");
+                    nomes[i] = Console.ReadLine().Trim().ToLower();
+                }
             }
             Console.Clear();
 
