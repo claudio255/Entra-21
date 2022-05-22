@@ -16,9 +16,17 @@ namespace ExerciciosVetor
 
             for (int i = 0; i < numeros.Length; i++)
             {
-                Console.WriteLine("Digite o numero que deseja: ");
-                numeros[i] = Convert.ToInt32(Console.ReadLine());
+                var numerosFalsos = false;
+                try
+                {
+                    Console.WriteLine("Digite o numero que deseja: ");
+                    numeros[i] = Convert.ToInt32(Console.ReadLine());
 
+                    numerosFalsos = true;
+                }catch(Exception ex)
+                {
+                    Console.WriteLine("O numero digitado não é valido!");
+                }
             }
             Console.Clear();
 
