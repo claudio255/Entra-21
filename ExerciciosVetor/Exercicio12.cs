@@ -17,13 +17,12 @@ namespace ExerciciosVetor
             {
                 Console.WriteLine("Digite o numero que deseja: ");
                 numeros[i] = Convert.ToInt32(Console.ReadLine());
-
-               
             }
             Console.Clear();
 
-            Console.WriteLine(@$"Os numeros digitados em ordem crescente são: {numerosCrescentes[0]} {numerosCrescentes[1]} {numerosCrescentes[2]} {numerosCrescentes[3]} {numerosCrescentes[4]}");
-
+            
+            
+            
         }
     }
 }
