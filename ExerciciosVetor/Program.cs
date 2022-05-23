@@ -10,6 +10,7 @@ Console.WriteLine(@"--------------MENU-------------
 7 - Exercicio 07
 8 - Exercicio 08
 9 - Exercicio 09
+10 - Exercicio 10
 11 - Exercicio 11
 12 - Exercicio 12
 19 - ExercicioProfesso
@@ -60,6 +61,11 @@ if(opcaoEscolhida == 9)
 {
     Exercicio09 exercicio09 = new Exercicio09();
     exercicio09.Executar();
+}
+if(opcaoEscolhida == 10)
+{
+    Exercicio10 exercicio10 = new Exercicio10();
+    exercicio10.Executar();
 }
 if(opcaoEscolhida == 11)
 {
