@@ -20,7 +20,7 @@ namespace Entra21.ExerciciosOrientacaoObjeto.Tests.Exercicio02
             temperatura.TemperaturaValor = 300;
             
 
-            var calcularKelvinParaCelsius = temperatura.CalcularCelsius();
+            var calcularKelvinParaCelsius = temperatura.CalcularKelvinParaCelsius();
 
             var resultadoCelsius = temperatura.TemperaturaValor - 273.15;
             calcularKelvinParaCelsius.Should().Be(resultadoCelsius);
