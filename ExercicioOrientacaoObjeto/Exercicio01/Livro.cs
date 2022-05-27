@@ -13,8 +13,8 @@ namespace Entra21.ExerciciosOrientacaoObjeto.Exercicio01
         public DateTime DataLancamento;
         public string ApresentarTituloAutor()
         {
-            Console.WriteLine("O titulo do livro é: " + Titulo);
-            Console.WriteLine("O autor do livro é: " + Autor);
+            var apresentarTitulo = Titulo;
+            var apresentarAutor = Autor;
 
             return Titulo + Autor;
         }

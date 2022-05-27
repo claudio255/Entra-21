@@ -20,9 +20,10 @@ namespace Entra21.ExerciciosOrientacaoObjeto.Exercicio01
             livro.QuantidadeReleituras = 0;
             livro.DataLancamento = new DateTime(2002, 07, 18);
 
-            Console.WriteLine($@"{livro.ApresentarTituloAutor}
-A quantidade de paginas restantes é: {livro.ApresentarQuantidadePaginasLer}
-A quantidade paginas lidas ao total é de: {livro.ApresentarQuantidadePaginasLidasNoTotal}");
+            Console.WriteLine($@"{livro.ApresentarTituloAutor()}
+A quantidade de paginas restantes é: {livro.ApresentarQuantidadePaginasLer()}
+A quantidade paginas lidas ao total é de: {livro.ApresentarQuantidadePaginasLidasNoTotal()}");
+
         }
     }
 }
