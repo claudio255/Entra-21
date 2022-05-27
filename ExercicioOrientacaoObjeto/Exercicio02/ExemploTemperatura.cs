@@ -15,9 +15,8 @@ namespace Entra21.ExerciciosOrientacaoObjeto.Exercicio02
             temperatura.TemperaturaDeDestino = "fahrenheit";
             temperatura.TemperaturaValor = 300;
 
-            //Console.WriteLine(temperatura.CalcularCelsius());
-            //Console.WriteLine(temperatura.CalcularKelvin());
-            Console.WriteLine(temperatura.CalcularFahrenheit());
+            ;
+            Console.WriteLine($"A temperatura convertida é: {temperatura.ApresentarTemperaturaConvertida()}");
         }
     }
 }
