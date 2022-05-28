@@ -45,7 +45,7 @@ namespace Entra21.ExerciciosOrientacaoObjeto.Exercicio03
             }
             else if (letraDigitada.StartsWith("H"))
             {
-                letraDigitada =  "72";
+                letraDigitada = "72";
             }
             else if (letraDigitada.StartsWith("I"))
             {
@@ -115,6 +115,114 @@ namespace Entra21.ExerciciosOrientacaoObjeto.Exercicio03
             {
                 letraDigitada = "89";
             }
+            else if (letraDigitada.StartsWith("a"))
+            {
+                letraDigitada = "97";
+            }
+            else if (letraDigitada.StartsWith("b"))
+            {
+                letraDigitada = "98";
+            }
+            else if (letraDigitada.StartsWith("c"))
+            {
+                letraDigitada = "99";
+            }
+            else if (letraDigitada.StartsWith("d"))
+            {
+                letraDigitada = "100";
+            }
+            else if (letraDigitada.StartsWith("e"))
+            {
+                letraDigitada = "101";
+            }
+            else if (letraDigitada.StartsWith("f"))
+            {
+                letraDigitada = "102";
+            }
+            else if (letraDigitada.StartsWith("g"))
+            {
+                letraDigitada = "103";
+            }
+            else if (letraDigitada.StartsWith("h"))
+            {
+                letraDigitada = "104";
+            }
+            else if (letraDigitada.StartsWith("i"))
+            {
+                letraDigitada = "105";
+            }
+            else if (letraDigitada.StartsWith("j"))
+            {
+                letraDigitada = "106";
+            }
+            else if (letraDigitada.StartsWith("k"))
+            {
+                letraDigitada = "107";
+            }
+            else if (letraDigitada.StartsWith("l"))
+            {
+                letraDigitada = "108";
+            }
+            else if (letraDigitada.StartsWith("m"))
+            {
+                letraDigitada = "109";
+            }
+            else if (letraDigitada.StartsWith("n"))
+            {
+                letraDigitada = "110";
+            }
+            else if (letraDigitada.StartsWith("o"))
+            {
+                letraDigitada = "111";
+            }
+            else if (letraDigitada.StartsWith("p"))
+            {
+                letraDigitada = "112";
+            }
+            else if (letraDigitada.StartsWith("q"))
+            {
+                letraDigitada = "113";
+            }
+            else if (letraDigitada.StartsWith("r"))
+            {
+                letraDigitada = "114";
+            }
+            else if (letraDigitada.StartsWith("s"))
+            {
+                letraDigitada = "115";
+            }
+            else if (letraDigitada.StartsWith("t"))
+            {
+                letraDigitada = "116";
+            }
+            else if (letraDigitada.StartsWith("u"))
+            {
+                letraDigitada = "117";
+            }
+            else if (letraDigitada.StartsWith("v"))
+            {
+                letraDigitada = "118";
+            }
+            else if (letraDigitada.StartsWith("w"))
+            {
+                letraDigitada = "119";
+            }
+            else if (letraDigitada.StartsWith("x"))
+            {
+                letraDigitada = "120";
+            }
+            else if (letraDigitada.StartsWith("y"))
+            {
+                letraDigitada = "121";
+            }
+            else if (letraDigitada.StartsWith("z"))
+            {
+                letraDigitada = "122";
+            }
+
+
+
+
             return letraDigitada;
         }
 
