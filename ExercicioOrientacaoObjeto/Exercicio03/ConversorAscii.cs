@@ -10,14 +10,15 @@ namespace Entra21.ExerciciosOrientacaoObjeto.Exercicio03
     {
         public string Caracter;
 
+        //Console.WriteLine("Digite a letra que deseja: ");
         public string ObterCodigoAsciiDoCaracter()
         {
-            Console.WriteLine("Digite a letra que deseja: ");
             var letraDigitada = Console.ReadLine();
 
             if (letraDigitada.StartsWith("A"))
             {
                 letraDigitada = "65";
+                
             }
             else if (letraDigitada.StartsWith("B"))
             {
