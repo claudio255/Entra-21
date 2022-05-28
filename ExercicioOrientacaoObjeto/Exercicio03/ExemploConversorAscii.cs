@@ -10,11 +10,11 @@ namespace Entra21.ExerciciosOrientacaoObjeto.Exercicio03
     {
         public void Executar()
         {
-            
-            Console.WriteLine("Digite a letra que deseja: ");
-            caracter = Console.ReadLine();
+            var letraDigitada = new ConversorAscii();
+            letraDigitada.Caracter = "";
 
-            Console.WriteLine(caracter.ObterCodigoAsciiDoCaracter());
+
+            Console.WriteLine("O codigo ASCII correspondente a letra digitada é: " + letraDigitada.ObterCodigoAsciiDoCaracter());
         }
 
     }

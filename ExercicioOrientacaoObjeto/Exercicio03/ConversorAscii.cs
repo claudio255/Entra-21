@@ -12,108 +12,108 @@ namespace Entra21.ExerciciosOrientacaoObjeto.Exercicio03
 
         public string ObterCodigoAsciiDoCaracter()
         {
-
-            var letraDigitada = "";
+            Console.WriteLine("Digite a letra que deseja: ");
+            var letraDigitada = Console.ReadLine();
 
             if (letraDigitada.StartsWith("A"))
             {
-                Console.WriteLine("O codigo ASCII é 65");
+                letraDigitada = "65";
             }
             else if (letraDigitada.StartsWith("B"))
             {
-                Console.WriteLine("O codigo ASCII é 66");
+                letraDigitada = "66";
             }
             else if (letraDigitada.StartsWith("C"))
             {
-                Console.WriteLine("O codigo ASCII é 67");
+                letraDigitada = "67";
             }
             else if (letraDigitada.StartsWith("D"))
             {
-                Console.WriteLine("O codigo ASCII é 68");
+                letraDigitada = "68";
             }
             else if (letraDigitada.StartsWith("E"))
             {
-                Console.WriteLine("O codigo ASCII é 69");
+                letraDigitada = "69";
             }
             else if (letraDigitada.StartsWith("F"))
             {
-                Console.WriteLine("O codigo ASCII é 70");
+                letraDigitada = "70";
             }
             else if (letraDigitada.StartsWith("G"))
             {
-                Console.WriteLine("O codigo ASCII é 71");
+                letraDigitada = "71";
             }
             else if (letraDigitada.StartsWith("H"))
             {
-                Console.WriteLine("O codigo ASCII é 72");
+                letraDigitada =  "72";
             }
             else if (letraDigitada.StartsWith("I"))
             {
-                Console.WriteLine("O codigo ASCII é 73");
+                letraDigitada = "73";
             }
             else if (letraDigitada.StartsWith("J"))
             {
-                Console.WriteLine("O codigo ASCII é 74");
+                letraDigitada = "74";
             }
             else if (letraDigitada.StartsWith("K"))
             {
-                Console.WriteLine("O codigo ASCII é 75");
+                letraDigitada = "75";
             }
             else if (letraDigitada.StartsWith("L"))
             {
-                Console.WriteLine("O codigo ASCII é 76");
+                letraDigitada = "76";
             }
             else if (letraDigitada.StartsWith("M"))
             {
-                Console.WriteLine("O codigo ASCII é 77");
+                letraDigitada = "77";
             }
             else if (letraDigitada.StartsWith("N"))
             {
-                Console.WriteLine("O codigo ASCII é 78");
+                letraDigitada = "78";
             }
             else if (letraDigitada.StartsWith("O"))
             {
-                Console.WriteLine("O codigo ASCII é 79");
+                letraDigitada = "79";
             }
             else if (letraDigitada.StartsWith("P"))
             {
-                Console.WriteLine("O codigo ASCII é 80");
+                letraDigitada = "80";
             }
             else if (letraDigitada.StartsWith("Q"))
             {
-                Console.WriteLine("O codigo ASCII é 81");
+                letraDigitada = "81";
             }
             else if (letraDigitada.StartsWith("R"))
             {
-                Console.WriteLine("O codigo ASCII é 82");
+                letraDigitada = "82";
             }
             else if (letraDigitada.StartsWith("S"))
             {
-                Console.WriteLine("O codigo ASCII é 83");
+                letraDigitada = "83";
             }
             else if (letraDigitada.StartsWith("T"))
             {
-                Console.WriteLine("O codigo ASCII é 84");
+                letraDigitada = "84";
             }
             else if (letraDigitada.StartsWith("U"))
             {
-                Console.WriteLine("O codigo ASCII é 85");
+                letraDigitada = "85";
             }
             else if (letraDigitada.StartsWith("V"))
             {
-                Console.WriteLine("O codigo ASCII é 86");
+                letraDigitada = "86";
             }
             else if (letraDigitada.StartsWith("W"))
             {
-                Console.WriteLine("O codigo ASCII é 87");
+                letraDigitada = "87";
             }
             else if (letraDigitada.StartsWith("Y"))
             {
-                Console.WriteLine("O codigo ASCII é 88");
+                letraDigitada = "88";
             }
             else if (letraDigitada.StartsWith("Z"))
             {
-                Console.WriteLine("O codigo ASCII é 89");
+                letraDigitada = "89";
             }
             return letraDigitada;
         }
