@@ -11,7 +11,7 @@ namespace Entra21.ExerciciosOrientacaoObjeto.Exercicio03
         public void Executar()
         {
             var letraDigitada = new ConversorAscii();
-            letraDigitada.Caracter = "";
+            letraDigitada.Caracter = "A";
 
 
             Console.WriteLine("O codigo ASCII correspondente a letra digitada é: " + letraDigitada.ObterCodigoAsciiDoCaracter());
