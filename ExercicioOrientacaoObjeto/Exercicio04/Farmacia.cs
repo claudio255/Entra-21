@@ -69,15 +69,15 @@ namespace Entra21.ExerciciosOrientacaoObjeto.Exercicio04
 
             if(CategoriaProduto1 == "antibiotico")
             {
-                totalPorCategoriaAntibiotico = totalPorCategoriaAntibiotico + PrecoProduto1;
+                totalPorCategoriaAntibiotico = (totalPorCategoriaAntibiotico + PrecoProduto1);
             }
             else if(CategoriaProduto2 == "antibiotico")
             {
-                totalPorCategoriaAntibiotico = totalPorCategoriaAntibiotico + PrecoProduto2;
+                totalPorCategoriaAntibiotico = (totalPorCategoriaAntibiotico + PrecoProduto2);
             }
             else if(CategoriaProduto3 == "antibiotico")
             {
-                totalPorCategoriaAntibiotico = totalPorCategoriaAntibiotico + PrecoProduto3;
+                totalPorCategoriaAntibiotico = (totalPorCategoriaAntibiotico + PrecoProduto3);
             }
 
             return totalPorCategoriaAntibiotico;
