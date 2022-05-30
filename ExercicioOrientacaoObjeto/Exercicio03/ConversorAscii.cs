@@ -11,214 +11,213 @@ namespace Entra21.ExerciciosOrientacaoObjeto.Exercicio03
         public string Caracter;
 
         //Console.WriteLine("Digite a letra que deseja: ");
-        public string ObterCodigoAsciiDoCaracter()
+        public int ObterCodigoAsciiDoCaracter()
         {
-            var letraDigitada = Console.ReadLine();
-
-            if (letraDigitada.StartsWith("A"))
+            int letraDigitada = 0;
+            if (Caracter.StartsWith("A"))
             {
-                letraDigitada = "65";
+                letraDigitada = 65;
                 
             }
-            else if (letraDigitada.StartsWith("B"))
+            else if (Caracter.StartsWith("B"))
             {
-                letraDigitada = "66";
+                letraDigitada = 66;
             }
-            else if (letraDigitada.StartsWith("C"))
+            else if (Caracter.StartsWith("C"))
             {
-                letraDigitada = "67";
+                letraDigitada = 67;
             }
-            else if (letraDigitada.StartsWith("D"))
+            else if (Caracter.StartsWith("D"))
             {
-                letraDigitada = "68";
+                letraDigitada = 68;
             }
-            else if (letraDigitada.StartsWith("E"))
+            else if (Caracter.StartsWith("E"))
             {
-                letraDigitada = "69";
+                letraDigitada = 69;
             }
-            else if (letraDigitada.StartsWith("F"))
+            else if (Caracter.StartsWith("F"))
             {
-                letraDigitada = "70";
+                letraDigitada = 70;
             }
-            else if (letraDigitada.StartsWith("G"))
+            else if (Caracter.StartsWith("G"))
             {
-                letraDigitada = "71";
+                letraDigitada = 71;
             }
-            else if (letraDigitada.StartsWith("H"))
+            else if (Caracter.StartsWith("H"))
             {
-                letraDigitada = "72";
+                letraDigitada = 72;
             }
-            else if (letraDigitada.StartsWith("I"))
+            else if (Caracter.StartsWith("I"))
             {
-                letraDigitada = "73";
+                letraDigitada = 73;
             }
-            else if (letraDigitada.StartsWith("J"))
+            else if (Caracter.StartsWith("J"))
             {
-                letraDigitada = "74";
+                letraDigitada = 74;
             }
-            else if (letraDigitada.StartsWith("K"))
+            else if (Caracter.StartsWith("K"))
             {
-                letraDigitada = "75";
+                letraDigitada = 75;
             }
-            else if (letraDigitada.StartsWith("L"))
+            else if (Caracter.StartsWith("L"))
             {
-                letraDigitada = "76";
+                letraDigitada = 76;
             }
-            else if (letraDigitada.StartsWith("M"))
+            else if (Caracter.StartsWith("M"))
             {
-                letraDigitada = "77";
+                letraDigitada = 77;
             }
-            else if (letraDigitada.StartsWith("N"))
+            else if (Caracter.StartsWith("N"))
             {
-                letraDigitada = "78";
+                letraDigitada = 78;
             }
-            else if (letraDigitada.StartsWith("O"))
+            else if (Caracter.StartsWith("O"))
             {
-                letraDigitada = "79";
+                letraDigitada = 79;
             }
-            else if (letraDigitada.StartsWith("P"))
+            else if (Caracter.StartsWith("P"))
             {
-                letraDigitada = "80";
+                letraDigitada = 80;
             }
-            else if (letraDigitada.StartsWith("Q"))
+            else if (Caracter.StartsWith("Q"))
             {
-                letraDigitada = "81";
+                letraDigitada = 81;
             }
-            else if (letraDigitada.StartsWith("R"))
+            else if (Caracter.StartsWith("R"))
             {
-                letraDigitada = "82";
+                letraDigitada = 82;
             }
-            else if (letraDigitada.StartsWith("S"))
+            else if (Caracter.StartsWith("S"))
             {
-                letraDigitada = "83";
+                letraDigitada = 83;
             }
-            else if (letraDigitada.StartsWith("T"))
+            else if (Caracter.StartsWith("T"))
             {
-                letraDigitada = "84";
+                letraDigitada = 84;
             }
-            else if (letraDigitada.StartsWith("U"))
+            else if (Caracter.StartsWith("U"))
             {
-                letraDigitada = "85";
+                letraDigitada = 85;
             }
-            else if (letraDigitada.StartsWith("V"))
+            else if (Caracter.StartsWith("V"))
             {
-                letraDigitada = "86";
+                letraDigitada = 86;
             }
-            else if (letraDigitada.StartsWith("W"))
+            else if (Caracter.StartsWith("W"))
             {
-                letraDigitada = "87";
+                letraDigitada = 87;
             }
-            else if (letraDigitada.StartsWith("Y"))
+            else if (Caracter.StartsWith("Y"))
             {
-                letraDigitada = "88";
+                letraDigitada = 88;
             }
-            else if (letraDigitada.StartsWith("Z"))
+            else if (Caracter.StartsWith("Z"))
             {
-                letraDigitada = "89";
+                letraDigitada = 89;
             }
-            else if (letraDigitada.StartsWith("a"))
+            else if (Caracter.StartsWith("a"))
             {
-                letraDigitada = "97";
+                letraDigitada = 97;
             }
-            else if (letraDigitada.StartsWith("b"))
+            else if (Caracter.StartsWith("b"))
             {
-                letraDigitada = "98";
+                letraDigitada = 98;
             }
-            else if (letraDigitada.StartsWith("c"))
+            else if (Caracter.StartsWith("c"))
             {
-                letraDigitada = "99";
+                letraDigitada = 99;
             }
-            else if (letraDigitada.StartsWith("d"))
+            else if (Caracter.StartsWith("d"))
             {
-                letraDigitada = "100";
+                letraDigitada = 100;
             }
-            else if (letraDigitada.StartsWith("e"))
+            else if (Caracter.StartsWith("e"))
             {
-                letraDigitada = "101";
+                letraDigitada = 101;
             }
-            else if (letraDigitada.StartsWith("f"))
+            else if (Caracter.StartsWith("f"))
             {
-                letraDigitada = "102";
+                letraDigitada = 102;
             }
-            else if (letraDigitada.StartsWith("g"))
+            else if (Caracter.StartsWith("g"))
             {
-                letraDigitada = "103";
+                letraDigitada = 103;
             }
-            else if (letraDigitada.StartsWith("h"))
+            else if (Caracter.StartsWith("h"))
             {
-                letraDigitada = "104";
+                letraDigitada = 104;
             }
-            else if (letraDigitada.StartsWith("i"))
+            else if (Caracter.StartsWith("i"))
             {
-                letraDigitada = "105";
+                letraDigitada = 105;
             }
-            else if (letraDigitada.StartsWith("j"))
+            else if (Caracter.StartsWith("j"))
             {
-                letraDigitada = "106";
+                letraDigitada = 106;
             }
-            else if (letraDigitada.StartsWith("k"))
+            else if (Caracter.StartsWith("k"))
             {
-                letraDigitada = "107";
+                letraDigitada = 107;
             }
-            else if (letraDigitada.StartsWith("l"))
+            else if (Caracter.StartsWith("l"))
             {
-                letraDigitada = "108";
+                letraDigitada = 108;
             }
-            else if (letraDigitada.StartsWith("m"))
+            else if (Caracter.StartsWith("m"))
             {
-                letraDigitada = "109";
+                letraDigitada = 109;
             }
-            else if (letraDigitada.StartsWith("n"))
+            else if (Caracter.StartsWith("n"))
             {
-                letraDigitada = "110";
+                letraDigitada = 110;
             }
-            else if (letraDigitada.StartsWith("o"))
+            else if (Caracter.StartsWith("o"))
             {
-                letraDigitada = "111";
+                letraDigitada = 111;
             }
-            else if (letraDigitada.StartsWith("p"))
+            else if (Caracter.StartsWith("p"))
             {
-                letraDigitada = "112";
+                letraDigitada = 112;
             }
-            else if (letraDigitada.StartsWith("q"))
+            else if (Caracter.StartsWith("q"))
             {
-                letraDigitada = "113";
+                letraDigitada = 113;
             }
-            else if (letraDigitada.StartsWith("r"))
+            else if (Caracter.StartsWith("r"))
             {
-                letraDigitada = "114";
+                letraDigitada = 114;
             }
-            else if (letraDigitada.StartsWith("s"))
+            else if (Caracter.StartsWith("s"))
             {
-                letraDigitada = "115";
+                letraDigitada = 115;
             }
-            else if (letraDigitada.StartsWith("t"))
+            else if (Caracter.StartsWith("t"))
             {
-                letraDigitada = "116";
+                letraDigitada = 116;
             }
-            else if (letraDigitada.StartsWith("u"))
+            else if (Caracter.StartsWith("u"))
             {
-                letraDigitada = "117";
+                letraDigitada = 117;
             }
-            else if (letraDigitada.StartsWith("v"))
+            else if (Caracter.StartsWith("v"))
             {
-                letraDigitada = "118";
+                letraDigitada = 118;
             }
-            else if (letraDigitada.StartsWith("w"))
+            else if (Caracter.StartsWith("w"))
             {
-                letraDigitada = "119";
+                letraDigitada = 119;
             }
-            else if (letraDigitada.StartsWith("x"))
+            else if (Caracter.StartsWith("x"))
             {
-                letraDigitada = "120";
+                letraDigitada = 120;
             }
-            else if (letraDigitada.StartsWith("y"))
+            else if (Caracter.StartsWith("y"))
             {
-                letraDigitada = "121";
+                letraDigitada = 121;
             }
-            else if (letraDigitada.StartsWith("z"))
+            else if (Caracter.StartsWith("z"))
             {
-                letraDigitada = "122";
+                letraDigitada = 122;
             }
 
 
