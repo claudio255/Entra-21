@@ -107,13 +107,17 @@ namespace Entra21.ExerciciosOrientacaoObjeto.Exercicio03
             {
                 letraDigitada = 87;
             }
-            else if (Caracter.StartsWith("Y"))
+            else if (Caracter.StartsWith("X"))
             {
                 letraDigitada = 88;
             }
-            else if (Caracter.StartsWith("Z"))
+            else if (Caracter.StartsWith("Y"))
             {
                 letraDigitada = 89;
+            }
+            else if (Caracter.StartsWith("Z"))
+            {
+                letraDigitada = 90;
             }
             else if (Caracter.StartsWith("a"))
             {
