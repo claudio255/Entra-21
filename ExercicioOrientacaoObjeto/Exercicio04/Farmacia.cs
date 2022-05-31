@@ -123,18 +123,22 @@ namespace Entra21.ExerciciosOrientacaoObjeto.Exercicio04
             string menorNomeProduto = "";
             string nomeMenorCategoria = string.Empty;
             double menorValorProduto = double.MaxValue;
+           
             if (PrecoProduto1 < menorValorProduto)
             {
+                menorValorProduto = PrecoProduto1;
                 nomeMenorCategoria = CategoriaProduto1;
                 menorNomeProduto = NomeProduto1;
-            }
+            }   
             if (PrecoProduto2 < menorValorProduto)
             {
+                menorValorProduto = PrecoProduto2;
                 nomeMenorCategoria = CategoriaProduto2;
                 menorNomeProduto = NomeProduto2;
-            }
+            }           
             if (PrecoProduto3 < menorValorProduto)
             {
+                menorValorProduto = PrecoProduto3;
                 nomeMenorCategoria = CategoriaProduto3;
                 menorNomeProduto = NomeProduto3;
             }
@@ -144,18 +148,22 @@ namespace Entra21.ExerciciosOrientacaoObjeto.Exercicio04
 
         public string ApresentarNomeProdutoMaisCaro()
         {
-            var maiorValorProduto = 0;
+            var maiorValorProduto = 0.0;
             var nomeProdutoMaisCaro = string.Empty;
+
             if (PrecoProduto1 > maiorValorProduto)
             {
+                maiorValorProduto = PrecoProduto1;
                 nomeProdutoMaisCaro = NomeProduto1;
             }
             if (PrecoProduto2 > maiorValorProduto)
             {
+                maiorValorProduto = PrecoProduto2;
                 nomeProdutoMaisCaro = NomeProduto2;
             }
             if (PrecoProduto3 > maiorValorProduto)
             {
+                maiorValorProduto = PrecoProduto3;
                 nomeProdutoMaisCaro = NomeProduto3;
             }
 
