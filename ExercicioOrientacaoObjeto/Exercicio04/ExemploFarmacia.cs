@@ -24,7 +24,9 @@ namespace Entra21.ExerciciosOrientacaoObjeto.Exercicio04
             Console.WriteLine(@$"O valor total do pedido é {farmacia.ApresentarTotalDoPedido()}
 O preço total da categoria 1 é: {farmacia.ApresentarTotalPedidoCategoriaAntiflamatorio()}
 O preço total da categoria 2 é: {farmacia.ApresentarPorCategoriaAntibiotico()}
-O preço total da categoria 3 é: {farmacia.ApresentarPorCategoriaAntidepressivo()}");
+O preço total da categoria 3 é: {farmacia.ApresentarPorCategoriaAntidepressivo()}
+O produto mais barato é: {farmacia.ApresentarNomeCategoriaDoProdutoMaisBarato()}
+O produto mais caro é: {farmacia.ApresentarNomeProdutoMaisCaro()}");
         }
     }
 }

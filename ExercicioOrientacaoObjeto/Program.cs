@@ -9,8 +9,8 @@ using Entra21.ExerciciosOrientacaoObjeto.Exercicio04;
 //var exemploTemperatura = new ExemploTemperatura();
 //exemploTemperatura.Executar();
 
-var exemploConversorAscii = new ExemploConversorAscii();
-exemploConversorAscii.Executar();
+//var exemploConversorAscii = new ExemploConversorAscii();
+//exemploConversorAscii.Executar();
 
-//var exemploFarmacia = new ExemploFarmacia();
-//exemploFarmacia.Executar();
+var exemploFarmacia = new ExemploFarmacia();
+exemploFarmacia.Executar();

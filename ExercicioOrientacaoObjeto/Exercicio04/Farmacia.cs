@@ -36,6 +36,7 @@ namespace Entra21.ExerciciosOrientacaoObjeto.Exercicio04
         public string RazaoSocial, Cnpj, NomeProduto1, CategoriaProduto1, NomeProduto2, CategoriaProduto2, NomeProduto3, CategoriaProduto3;
         public double PrecoProduto1, PrecoProduto2, PrecoProduto3;
 
+
         public double ApresentarTotalDoPedido()
         {
             var precoFinal = (PrecoProduto1 + PrecoProduto2 + PrecoProduto3);
@@ -43,64 +44,122 @@ namespace Entra21.ExerciciosOrientacaoObjeto.Exercicio04
             return precoFinal;
         }
 
-            double totalPorCategoriaAntiflamatorio = 0.0;
-        public double ApresentarTotalPedidoCategoriaAntiflamatorio()
+        public string ApresentarTotalPedidoCategoriaAntiflamatorio()
         {
+            double totalPorCategoriaAntiflamatorio = 0.0;
+            var quantidadeAntiflamatorio = 0;
 
             if (CategoriaProduto1 == "antiflamatorio")
             {
                 totalPorCategoriaAntiflamatorio = totalPorCategoriaAntiflamatorio + PrecoProduto1;
+                quantidadeAntiflamatorio = quantidadeAntiflamatorio + 1;
             }
-            else if(CategoriaProduto2 == "antiflamatorio")
+            if (CategoriaProduto2 == "antiflamatorio")
             {
                 totalPorCategoriaAntiflamatorio = totalPorCategoriaAntiflamatorio + PrecoProduto2;
+                quantidadeAntiflamatorio = quantidadeAntiflamatorio + 1;
             }
-            else if(CategoriaProduto3 == "antiflamatorio")
+            if (CategoriaProduto3 == "antiflamatorio")
             {
                 totalPorCategoriaAntiflamatorio = totalPorCategoriaAntiflamatorio + PrecoProduto3;
+                quantidadeAntiflamatorio = quantidadeAntiflamatorio + 1;
             }
 
-            return totalPorCategoriaAntiflamatorio;
+            return totalPorCategoriaAntiflamatorio + "\nA quantidade de antiflamatorios adquiridos é: " + quantidadeAntiflamatorio;
         }
 
-            double totalPorCategoriaAntibiotico = 0.0;
-        public double ApresentarPorCategoriaAntibiotico()
+        public string ApresentarPorCategoriaAntibiotico()
         {
+            double totalPorCategoriaAntibiotico = 0.0;
+            var quantidadeAntibiotico = 0;
 
-            if(CategoriaProduto1 == "antibiotico")
+            if (CategoriaProduto1 == "antibiotico")
             {
                 totalPorCategoriaAntibiotico = (totalPorCategoriaAntibiotico + PrecoProduto1);
+                quantidadeAntibiotico = quantidadeAntibiotico + 1;
             }
-            else if(CategoriaProduto2 == "antibiotico")
+            if (CategoriaProduto2 == "antibiotico")
             {
                 totalPorCategoriaAntibiotico = (totalPorCategoriaAntibiotico + PrecoProduto2);
+                quantidadeAntibiotico = quantidadeAntibiotico + 1;
             }
-            else if(CategoriaProduto3 == "antibiotico")
+            if (CategoriaProduto3 == "antibiotico")
             {
                 totalPorCategoriaAntibiotico = (totalPorCategoriaAntibiotico + PrecoProduto3);
+                quantidadeAntibiotico = quantidadeAntibiotico + 1;
             }
 
-            return totalPorCategoriaAntibiotico;
+            return totalPorCategoriaAntibiotico + "\nA quantidade de antibioticos adquiridas é: " + quantidadeAntibiotico;
         }
 
-            double totalPorCategoriaAntidepressivo = 0.0;
-        public double ApresentarPorCategoriaAntidepressivo()
-        {
 
-            if(CategoriaProduto1 == "antidepressivo")
+        public string ApresentarPorCategoriaAntidepressivo()
+        {
+            double totalPorCategoriaAntidepressivo = 0.0;
+            var quantidadeAntidepressivo = 0;
+
+            if (CategoriaProduto1 == "antidepressivo")
             {
                 totalPorCategoriaAntidepressivo = totalPorCategoriaAntidepressivo + PrecoProduto1;
+                quantidadeAntidepressivo = quantidadeAntidepressivo + 1;
             }
-            else if(CategoriaProduto2 == "antidepressivo")
+            if (CategoriaProduto2 == "antidepressivo")
             {
                 totalPorCategoriaAntidepressivo = totalPorCategoriaAntidepressivo + PrecoProduto2;
+                quantidadeAntidepressivo = quantidadeAntidepressivo + 1;
             }
-            else if(CategoriaProduto3 == "antidepressivo")
+            if (CategoriaProduto3 == "antidepressivo")
             {
                 totalPorCategoriaAntidepressivo = totalPorCategoriaAntidepressivo + PrecoProduto3;
+                quantidadeAntidepressivo = quantidadeAntidepressivo + 1;
             }
 
-            return totalPorCategoriaAntidepressivo;
+            return totalPorCategoriaAntidepressivo + "\nA quantidade de antidepressivos adqueridos é: " + quantidadeAntidepressivo;
+
+        }
+
+        public string ApresentarNomeCategoriaDoProdutoMaisBarato()
+        {
+            string menorNomeProduto = "";
+            string nomeMenorCategoria = string.Empty;
+            double menorValorProduto = double.MaxValue;
+            if (PrecoProduto1 < menorValorProduto)
+            {
+                nomeMenorCategoria = CategoriaProduto1;
+                menorNomeProduto = NomeProduto1;
+            }
+            if (PrecoProduto2 < menorValorProduto)
+            {
+                nomeMenorCategoria = CategoriaProduto2;
+                menorNomeProduto = NomeProduto2;
+            }
+            if (PrecoProduto3 < menorValorProduto)
+            {
+                nomeMenorCategoria = CategoriaProduto3;
+                menorNomeProduto = NomeProduto3;
+            }
+
+            return menorNomeProduto + " e a sua categoria é: " + nomeMenorCategoria;
+        }
+
+        public string ApresentarNomeProdutoMaisCaro()
+        {
+            var maiorValorProduto = 0;
+            var nomeProdutoMaisCaro = string.Empty;
+            if (PrecoProduto1 > maiorValorProduto)
+            {
+                nomeProdutoMaisCaro = NomeProduto1;
+            }
+            if (PrecoProduto2 > maiorValorProduto)
+            {
+                nomeProdutoMaisCaro = NomeProduto2;
+            }
+            if (PrecoProduto3 > maiorValorProduto)
+            {
+                nomeProdutoMaisCaro = NomeProduto3;
+            }
+
+            return nomeProdutoMaisCaro;
         }
 
     }
