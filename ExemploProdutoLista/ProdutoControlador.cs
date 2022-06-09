@@ -123,6 +123,13 @@ namespace ExemploProdutoLista
         {
             var produtos = produtoServico.ObterTodos();
 
+            if(produtos.Count == 0)
+            {
+                Console.WriteLine("Nenhum produto cadastrado :'(");
+                //Para a execuçao deste metodo
+                return;
+            }
+
             for (var i = 0; i < produtos.Count; i++)
             {
                 var produtosAtual = produtos[i];
