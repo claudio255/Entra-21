@@ -95,6 +95,10 @@ namespace ExemploProdutoLista
             Console.WriteLine("Preço unitario: ");
             var precoUnitario = Convert.ToDouble(Console.ReadLine());
 
+            Console.WriteLine(@"Localizações disponiveis:
+Armazem
+Area Venda
+Loja");
             Console.WriteLine("Localização: ");
             var localizacao = Console.ReadLine();
 
