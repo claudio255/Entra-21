@@ -34,7 +34,7 @@
             Produto produtoParaAlterar = ObterPorCodigo(codigoParaAlterar);
 
             //verifica senão foi possivel encontrar o produto
-            if(produtoParaAlterar == null)
+            if (produtoParaAlterar == null)
             {
                 //retorna falso pq nao exite produto com o codigo dos parâmetros
                 return false;
