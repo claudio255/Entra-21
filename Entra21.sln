@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entra21.ExerciciosOrientaca
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entra21.ExerciciosOrientacaoObjeto.Tests", "Entra21.ExerciciosOrientacaoObjeto.Tests\Entra21.ExerciciosOrientacaoObjeto.Tests.csproj", "{18075A00-798C-4805-BAF6-9125F9F336EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExercicioLista", "ExercicioLista\ExercicioLista.csproj", "{BF526C13-EA90-40EE-A6FE-25F0195855EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExercicioLista", "ExercicioLista\ExercicioLista.csproj", "{BF526C13-EA90-40EE-A6FE-25F0195855EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExemploProdutoLista", "ExemploProdutoLista\ExemploProdutoLista.csproj", "{132DED9F-3169-4DBA-AAF6-B68545826B0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +69,10 @@ Global
 		{BF526C13-EA90-40EE-A6FE-25F0195855EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF526C13-EA90-40EE-A6FE-25F0195855EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF526C13-EA90-40EE-A6FE-25F0195855EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{132DED9F-3169-4DBA-AAF6-B68545826B0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{132DED9F-3169-4DBA-AAF6-B68545826B0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{132DED9F-3169-4DBA-AAF6-B68545826B0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{132DED9F-3169-4DBA-AAF6-B68545826B0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
