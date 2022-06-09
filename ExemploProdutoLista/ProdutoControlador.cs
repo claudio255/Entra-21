@@ -16,6 +16,7 @@ namespace ExemploProdutoLista
             //Repete enquanto o codigo nao for menu sair(6)
             while(codigo != 6)
             {
+                Console.Clear();
                 //apresentar o menu e solicitar o codigo
                 codigo = ApresentarSolicitarMenu();
 
@@ -44,6 +45,7 @@ namespace ExemploProdutoLista
                     //Menu escolhido para apresentar produto
                     //ApresentarProduto();
                 }
+                Thread.Sleep(1000);
             }
 
         }
@@ -125,7 +127,7 @@ namespace ExemploProdutoLista
             {
                 var produtosAtual = produtos[i];
 
-                Console.WriteLine("Nome: " + produtosAtual.Nome + " Preço unitario: " + produtosAtual.PrecoUnitario);
+                Console.WriteLine("Nome: " + produtosAtual.Nome + "\nPreço unitario: " + produtosAtual.PrecoUnitario);
 
             }
         }
