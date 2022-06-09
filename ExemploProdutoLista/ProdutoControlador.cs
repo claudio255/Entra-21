@@ -12,10 +12,74 @@ namespace ExemploProdutoLista
 
         public void GerenciarMenu()
         {
-            Cadastrar();
-            ApresentarProdutos();
-            Cadastrar();
-            ApresentarProdutos();
+            int codigo = 0;
+            //Repete enquanto o codigo nao for menu sair(6)
+            while(codigo != 6)
+            {
+                //apresentar o menu e solicitar o codigo
+                codigo = ApresentarSolicitarMenu();
+
+                if(codigo == 1)
+                {
+                    //menu escolhido para listar produtos
+                    ApresentarProdutos();
+                }
+                else if(codigo == 2)
+                {
+                    //Menu escolhido para cadastrar produto
+                    Cadastrar();
+                }
+                else if(codigo == 3)
+                {
+                    //Menu escolhido para editar produto
+                    //Editar();
+                }
+                else if (codigo == 4)
+                {
+                    //Menu escolhido para apgar produto
+                    //Apagar();
+                }
+                else if(codigo == 5)
+                {
+                    //Menu escolhido para apresentar produto
+                    //ApresentarProduto();
+                }
+            }
+
+        }
+
+        private int ApresentarSolicitarMenu()
+        {
+            Console.WriteLine(@"---------MENU---------
+1 - Listar todos
+2 - Cadastrar
+3 - Editar
+4 - Apagar
+5 - Apresentar produto desejado
+6 - Sair");
+
+            int codigo = SolicitarCodigo();
+
+            return codigo;
+        }
+
+        private int SolicitarCodigo()
+        {
+            int codigo = 0;
+            //Continua solicitando codigo ate que seja um codigo entre 1 e 6
+            while(codigo < 1 || codigo >= 6)
+            {
+                try
+                {
+                    Console.WriteLine("Digite o codigo: ");
+                    codigo = Convert.ToInt32(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Digite um menu valido!");
+                }
+            }
+            return codigo;
         }
 
         private void Cadastrar()
@@ -43,7 +107,7 @@ namespace ExemploProdutoLista
             {
                 return ProdutoLocalizacao.Armazem;
             }
-            else if(localizacao.ToLower() == "loja")
+            else if (localizacao.ToLower() == "loja")
             {
                 return ProdutoLocalizacao.Loja;
             }
@@ -57,7 +121,7 @@ namespace ExemploProdutoLista
         {
             var produtos = produtoServico.ObterTodos();
 
-            for(var i = 0; i < produtos.Count; i++)
+            for (var i = 0; i < produtos.Count; i++)
             {
                 var produtosAtual = produtos[i];
 
