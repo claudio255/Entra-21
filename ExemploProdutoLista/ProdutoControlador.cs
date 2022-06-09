@@ -36,6 +36,7 @@ namespace ExemploProdutoLista
 
             produtoServico.Adicionar(nome, precoUnitario, localizacaoProduto, quantidade);
         }
+
         private ProdutoLocalizacao ObterLocalizacaoProduto(string localizacao)
         {
             if (localizacao.ToLower() == "armazem")
@@ -51,7 +52,6 @@ namespace ExemploProdutoLista
                 return ProdutoLocalizacao.AreaVenda;
             }
         }
-
 
         private void ApresentarProdutos()
         {

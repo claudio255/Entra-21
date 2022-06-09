@@ -22,7 +22,26 @@
 
         public void Editar() { }
 
-        public void Apagar() { }
+        public void Apagar(int codigo)
+        {
+            for(int i = 0; i < produtos.Count; i++)
+            {
+                //Resgatando de uma lista de tipos primitivos
+                //int numero = numeros[i];
+
+                //Resgatando de uma lista de tipos primitivos
+                Produto produto = produtos[i];
+                if(produto.Codigo == codigo)
+                {
+                    //posso remover com o indice do objeto desejado
+                    //produtos.RemoveAt(i);
+
+                    //posso remover com o objeto desejado
+                    produtos.Remove(produto);
+                }
+                
+            }
+        }
 
         public List<Produto> ObterTodos()
         {
