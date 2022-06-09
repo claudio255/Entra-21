@@ -69,7 +69,7 @@ namespace ExemploProdutoLista
         {
             int codigo = 0;
             //Continua solicitando codigo ate que seja um codigo entre 1 e 6
-            while(codigo < 1 || codigo >= 6)
+            while(codigo < 1 || codigo > 6)
             {
                 try
                 {
