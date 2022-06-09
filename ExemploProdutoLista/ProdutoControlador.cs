@@ -61,7 +61,7 @@ namespace ExemploProdutoLista
             {
                 var produtosAtual = produtos[i];
 
-                Console.WriteLine("Nome: " + produtosAtual.Nome + "Preço unitario: " + produtosAtual.PrecoUnitario);
+                Console.WriteLine("Nome: " + produtosAtual.Nome + " Preço unitario: " + produtosAtual.PrecoUnitario);
 
             }
         }
