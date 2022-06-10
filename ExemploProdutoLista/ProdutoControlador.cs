@@ -33,19 +33,98 @@ namespace ExemploProdutoLista
                 else if(codigo == 3)
                 {
                     //Menu escolhido para editar produto
-                    //Editar();
+                    Editar();
                 }
                 else if (codigo == 4)
                 {
                     //Menu escolhido para apgar produto
-                    //Apagar();
+                    Apagar();
                 }
                 else if(codigo == 5)
                 {
                     //Menu escolhido para apresentar produto
-                    //ApresentarProduto();
+                    ApresentarProduto();
                 }
-                Thread.Sleep(1000);
+
+                Console.WriteLine("Aperte alguma tecla para continuar....");
+                Console.ReadKey();
+            }
+
+        }
+
+        private void ApresentarProduto()
+        {
+            ApresentarProdutos();
+
+            Console.WriteLine("Digite o codigo do produto a ser detalhado: ");
+            var codigo = Convert.ToInt32(Console.ReadLine());
+
+            var produto = produtoServico.ObterPorCodigo(codigo);
+
+            //verificar se o produto não esta cadastrado na lista de produtos
+            if(produto == null)
+            {
+                Console.WriteLine("Produto não cadastrado");
+
+                return;
+            }
+
+            Console.Clear();
+            Console.WriteLine(@$"Codigo: {produto.Codigo}
+Nome: {produto.Nome}
+Preço Unitario: {produto.PrecoUnitario}
+Quantidade: {produto.Quantidade}
+Total: {produto.CalcularPrecoTotal()}");
+        }
+
+        private void Apagar()
+        {
+            ApresentarProdutos();
+
+            Console.WriteLine("Digite o codigo do produto para apagar: ");
+            int codigo = Convert.ToInt32(Console.ReadLine());
+
+            var registroApagado = produtoServico.Apagar(codigo);
+
+            Console.WriteLine(registroApagado == true
+                ? "Registro removido com sucesso"
+                : "Nenhum produto cadastrado com o codigo informado");
+        }
+
+        private void Editar()
+        {
+            ApresentarProdutos();
+
+            Console.WriteLine("Codigo produto desejado: ");
+            var codigo = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Nome: ");
+            var nome = Console.ReadLine();
+
+            Console.WriteLine("Quantidade: ");
+            var quantidade = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Preço unitario: ");
+            var precoUnitario = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine(@"Localização disponiveis: 
+Armazem
+Area Venda
+Loja");
+            Console.WriteLine("Localização: ");
+            var localizacao = Console.ReadLine();
+
+            var localizacaoProduto = ObterLocalizacaoProduto(localizacao);
+
+            var alterou = produtoServico.Editar(codigo, nome, precoUnitario, localizacaoProduto, quantidade);
+
+            if(alterou == false)
+            {
+                Console.WriteLine("Codigo digitado não existe");
+            }
+            else
+            {
+                Console.WriteLine("Produto alterado com sucesso");
             }
 
         }
@@ -138,7 +217,7 @@ Loja");
             {
                 var produtosAtual = produtos[i];
 
-                Console.WriteLine("Nome: " + produtosAtual.Nome + "\nPreço unitario: " + produtosAtual.PrecoUnitario);
+                Console.WriteLine("\nCodigo: " + produtosAtual.Codigo + "\nNome: " + produtosAtual.Nome + "\n");
 
             }
         }
