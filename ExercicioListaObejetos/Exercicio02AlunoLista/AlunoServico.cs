@@ -91,6 +91,22 @@ namespace ExercicioListaObejetos.Exercicio02AlunoLista
 
             return medias;
         }
+
+        public List<double> ObterAprovados()
+        {
+            var aprovados = new List<string>();
+
+            for(int i = 0; i < alunos.Count; i++)
+            {
+                var aprovado = alunos[i];
+
+                if(aprovado.Status == AlunoStatus.Aprovado)
+                {
+                    aprovado.Add(Aluno);
+                }
+            }
+            return aprovados;
+        }
         public Aluno ObterAlunoPorMatricula(int codigoMatricula)
         {
             for (int i = 0; i < alunos.Count; i++)
