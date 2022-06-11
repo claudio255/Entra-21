@@ -12,6 +12,7 @@ namespace ExercicioListaObejetos
         public int Lado2;
         public int Lado3;
         public int Codigo;
+        public TiposTriangulos Triangulos;
 
 
         public bool ValidarTriangulo()
