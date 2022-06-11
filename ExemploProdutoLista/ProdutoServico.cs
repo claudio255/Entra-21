@@ -103,14 +103,20 @@
             double menorPrecoUnitario = double.MaxValue;
             Produto produtoMenorPrecoUnitario = null;
 
+
+            //Percorre a lista de produtos para obter o produto com o menor preço unitario
             for(int i = 0; i < produtos.Count; i++)
             {
+                //Obtem o produto atual da lista que esta sendo percorrida
                 Produto produto = produtos[i];
 
+                //verifica se o produto aual possui o menor preço unitario
                 if(produto.PrecoUnitario < menorPrecoUnitario)
                 {
+                    //armazena o preço unitario, pois é o menor preço unitario até o momento
                     menorPrecoUnitario = produto.PrecoUnitario;
 
+                    //armazena o produto para posteriormente saber qual é o produto com o menor unitario
                     produtoMenorPrecoUnitario = produto;
                 }
             }
@@ -119,12 +125,16 @@
 
         public List<double> ObtertodosPrecos()
         {
+            //Criar uma lista de preço totais
             var precos = new List<double>();
 
+            //Percorre todos os produtos
             for(int i = 0; i < produtos.Count; i++)
             {
+                //obtem o produto atual da lista de produtos
                 var produto = produtos[i];
 
+                //Adiciona o preço total na lista de preços
                 precos.Add(produto.CalcularPrecoTotal());
             }
             return precos;
@@ -132,14 +142,20 @@
 
         public List<double> ObterPrecosTotaisFiltrandoPorLocalizacao(ProdutoLocalizacao localizacao)
         {
+            //criar uma lista de preços totais
             var precos = new List<double>();
 
+
+            //Percorre todos os produtos
             for (int i = 0; i < produtos.Count; i++)
             {
+                //Obtem o produto atual da lista de produtos
                 var produto = produtos[i];
 
+                //Verifica se a localizaçao do produto atual é a localizaçao passada no parâmetro
                 if(produto.Localizacao == localizacao)
                 {
+                    //Adiciona o preço total do produto atual que foi filtrado por localização
                     precos.Add(produto.CalcularPrecoTotal());
                 }
             }
@@ -149,14 +165,19 @@
 
         public List<double> ObterPrecoTotaisDoArmazem()
         {
+            //Criar uma lista de preços totais
             var precos = new List<double>();
 
+            //Percorre todos os produtos
             for(int i = 0; i < produtos.Count; i++)
             {
+                //Obtem o produto atual da lista de produtos
                 var produto = produtos[i];
 
+                //Verifica se a localização do produto atual é Armazem
                 if(produto.Localizacao == ProdutoLocalizacao.Armazem)
                 {
+                    //Adiciona o preço total do produto atual que foi filtrado por armazem
                     precos.Add(produto.CalcularPrecoTotal());
                 }
             }
@@ -167,13 +188,18 @@
         public double ObterMediaPrecosTotais()
         {
             var somaPrecosTotais = 0.0;
+
+            //Percorre todos os produtos
             for(int i = 0; i < produtos.Count; i++)
             {
+                //Obtem o produto atual da lista de produtos
                 var produto = produtos[i];
 
+                //Adiona o preço total do produto na variavel soma de preços totais
                 somaPrecosTotais += produto.CalcularPrecoTotal();
             }
 
+            //Calcula a media de acordo com a quantidade de produtos
             var media = somaPrecosTotais / produtos.Count;
 
             return media;
