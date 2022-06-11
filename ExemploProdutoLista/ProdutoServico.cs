@@ -3,7 +3,7 @@
     internal class ProdutoServico
     {
         private List<Produto> produtos = new List<Produto>();
-        //Aramazenar o codigo do proximo produto
+        //Armazenar o codigo do proximo produto
         private int codigoAtual = 1;
 
         //encapsulamento + tipoRetorno + NomeMetodo(parâmetro) => tudo isso chama-se ASSINATURA do METODO
@@ -96,6 +96,87 @@
             }
             //retorna null, caso nao encontre um produto com o codigo passado como parâmetro
             return null;
+        }
+        
+        public Produto ObterMenorPrecoUnitario()
+        {
+            double menorPrecoUnitario = double.MaxValue;
+            Produto produtoMenorPrecoUnitario = null;
+
+            for(int i = 0; i < produtos.Count; i++)
+            {
+                Produto produto = produtos[i];
+
+                if(produto.PrecoUnitario < menorPrecoUnitario)
+                {
+                    menorPrecoUnitario = produto.PrecoUnitario;
+
+                    produtoMenorPrecoUnitario = produto;
+                }
+            }
+            return produtoMenorPrecoUnitario;
+        }
+
+        public List<double> ObtertodosPrecos()
+        {
+            var precos = new List<double>();
+
+            for(int i = 0; i < produtos.Count; i++)
+            {
+                var produto = produtos[i];
+
+                precos.Add(produto.CalcularPrecoTotal());
+            }
+            return precos;
+        }
+
+        public List<double> ObterPrecosTotaisFiltrandoPorLocalizacao(ProdutoLocalizacao localizacao)
+        {
+            var precos = new List<double>();
+
+            for (int i = 0; i < produtos.Count; i++)
+            {
+                var produto = produtos[i];
+
+                if(produto.Localizacao == localizacao)
+                {
+                    precos.Add(produto.CalcularPrecoTotal());
+                }
+            }
+
+            return precos;
+        }
+
+        public List<double> ObterPrecoTotaisDoArmazem()
+        {
+            var precos = new List<double>();
+
+            for(int i = 0; i < produtos.Count; i++)
+            {
+                var produto = produtos[i];
+
+                if(produto.Localizacao == ProdutoLocalizacao.Armazem)
+                {
+                    precos.Add(produto.CalcularPrecoTotal());
+                }
+            }
+
+            return precos;
+        }
+
+        public double ObterMediaPrecosTotais()
+        {
+            var somaPrecosTotais = 0.0;
+            for(int i = 0; i < produtos.Count; i++)
+            {
+                var produto = produtos[i];
+
+                somaPrecosTotais += produto.CalcularPrecoTotal();
+            }
+
+            var media = somaPrecosTotais / produtos.Count;
+
+            return media;
         }
     }
 }

@@ -13,11 +13,22 @@ namespace ExercicioListaObejetos
         public int Lado3;
         public int Codigo;
 
+
         public bool ValidarTriangulo()
         {
-            var triangulo = Lado1 + Lado2 > Lado3;
-
-            return triangulo;
+            if (Lado1 == Lado2 && Lado1 == Lado3 || Lado2 == Lado3)
+            {
+                return true;
+            }
+            if ((Lado1 == Lado2 && Lado1 != Lado3) || (Lado1 == Lado3 && Lado1 != Lado2) || (Lado2 == Lado3 && Lado2 != Lado1))
+            {
+                return true;
+            }
+            if(Lado1 != Lado2 && Lado2 != Lado3 && Lado3 != Lado1)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

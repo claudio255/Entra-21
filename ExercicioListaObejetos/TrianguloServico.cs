@@ -9,10 +9,13 @@ namespace ExercicioListaObejetos
     internal class TrianguloServico
     {
         private List<Triangulo> triangulos = new List<Triangulo>();
+        //Armazenar o codigo do proximo produto
         private int codigoAtual = 1;
 
+        //encapsulamento + tipoRetorno + NomeMetodo(parâmetro)
         public void Adicionar(int lado1, int lado2, int lado3)
         {
+            //Instanciar um trinagulo da classe triangulo
             var triangulo = new Triangulo();
 
             triangulo.Lado1 = lado1;
@@ -28,8 +31,10 @@ namespace ExercicioListaObejetos
 
         public bool Editar(int codigoParaAlterar, int lado1, int lado2, int lado3)
         {
+            //obtem o triangulo desejado da lista de triangulos
             Triangulo trianguloParaAlterar = ObterPorCodigo(codigoParaAlterar); 
 
+            //Verifica se o triangulo existe na lista
             if(trianguloParaAlterar == null)
             {
                 return false;
@@ -39,6 +44,7 @@ namespace ExercicioListaObejetos
             trianguloParaAlterar.Lado2 = lado2;
             trianguloParaAlterar.Lado3 = lado3;
 
+            //Retorna verdadeiro pq foi possivel editar o triangulo
             return true;
         }
 
@@ -46,16 +52,22 @@ namespace ExercicioListaObejetos
         {
             for(int i = 0; i < triangulos.Count; i++)
             {
+                //Resgata de uma lista de tipos primitivos
                 var triangulo = triangulos[i];
                 if(triangulo.Codigo == codigo)
                 {
+                    //Para remover um triangulo com o indice do objeto
+                    //triangulos.RemoveAt(i);
+
+                    //removendo com o objeto desejado
                     triangulos.Remove(triangulo);
 
+                    //Retornando como verdadeiro pq o objeto da lista foi removido
                     return true;
                 }
 
             }
-
+            //Retorna falso pq o triangulo ou codigo nao foi encontrado na lista, ou seja, nao foi removido o objeto
             return false;
         }
 
@@ -75,8 +87,8 @@ namespace ExercicioListaObejetos
                     return trianguloAtual;
                 }
 
-                return null;
             }
+                return null;
         }
 
     }
