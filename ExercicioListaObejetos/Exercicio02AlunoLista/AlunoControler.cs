@@ -103,7 +103,7 @@
 
             var notaAlterada = alunoServico.EditarNotasAluno(codigoMatricula, primeiraNota, segundaNota, terceiraNota);
 
-            if(notaAlterada == false)
+            if (notaAlterada == false)
             {
                 Console.WriteLine("O codigo de matricula é inexistente!");
             }
@@ -113,7 +113,9 @@
             }
         }
 
-        private void ApresentarNomes() { }
+        private void ApresentarNomes()
+        {
+        }
 
         private void ApresentarMedias() { }
 

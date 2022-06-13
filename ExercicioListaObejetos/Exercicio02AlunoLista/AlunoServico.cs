@@ -9,7 +9,7 @@ namespace ExercicioListaObejetos.Exercicio02AlunoLista
     internal class AlunoServico
     {
         private List<Aluno> alunos = new List<Aluno>();
-        
+
         public void AdicionarAluno(string nome, int idade, string materiaFavorita, int codigoMatricula,
             double nota1, double nota2, double nota3)
         {
@@ -82,6 +82,11 @@ namespace ExercicioListaObejetos.Exercicio02AlunoLista
         {
             var nomes = new List<string>();
 
+            for(int i = 0; i < alunos.Count; i++)
+            {
+                var aluno = alunos[i];
+                nomes.Add(aluno.Nome);
+            }
             return nomes;
         }
 
@@ -89,6 +94,11 @@ namespace ExercicioListaObejetos.Exercicio02AlunoLista
         {
             var medias = new List<double>();
 
+            for(int i = 0; i < alunos.Count; i++)
+            {
+                var media = alunos[i];
+                medias.Add(media.CalcularMedia());
+            }
             return medias;
         }
 
@@ -100,16 +110,31 @@ namespace ExercicioListaObejetos.Exercicio02AlunoLista
             //percorre toda a lista de alunos
             for (int i = 0; i < alunos.Count; i++)
             {
-                //obtem o aluno atual da lista de alunos
                 var aluno = alunos[i];
 
-                //verifica se o status do aluno é o mesmo passado no paraâmetro
                 if (aluno.Status == statusAluno)
                 {
-                    aprovados.Add(aluno);
+                    aprovados.Add(aluno.Nome);
                 }
             }
             return aprovados;
+        }
+
+        public List<string> ObterEmExame()
+        {
+            var exame = new List<string>();
+
+            for (int i = 0; i < alunos.Count; i++)
+            {
+                var aluno = alunos[i];
+
+                if (aluno.Status == AlunoStatus.EmExame)
+                {
+                    exame.Add(aluno.Nome);
+                }
+            }
+
+            return exame;
         }
 
         public List<string> ObterReprovados(AlunoStatus reprovado)
@@ -117,44 +142,27 @@ namespace ExercicioListaObejetos.Exercicio02AlunoLista
             //criar uma nova lista de alunos reprovados
             var reprovados = new List<string>();
 
-            for(int i = 0; i < alunos.Count; i++)
+            for (int i = 0; i < alunos.Count; i++)
             {
                 var aluno = alunos[i];
 
-                if(aluno.Status == reprovado)
+                if (aluno.Status == reprovado)
                 {
-                    reprovados.Add(aluno);
+                    reprovados.Add(aluno.Nome);
                 }
             }
             return reprovados;
-        }
-
-        public List<string> ObterEmExame()
-        {
-            var exame = new List<string>();
-
-            for(int i = 0; i < alunos.Count; i++)
-            {
-                var aluno = alunos[i];
-
-                if(aluno.Status == AlunoStatus.EmExame)
-                {
-                    exame.Add(aluno.ObterStatus());
-                }
-            }
-
-            return exame;
         }
 
         public double ObterMediaPorCodigoMatricula(int codigoMatricula)
         {
             var mediaAluno = 0.0;
 
-            for(int i = 0; i < alunos.Count; i++)
+            for (int i = 0; i < alunos.Count; i++)
             {
                 var aluno = alunos[i];
 
-                if(aluno.CodigoMatricula == codigoMatricula)
+                if (aluno.CodigoMatricula == codigoMatricula)
                 {
                     mediaAluno = mediaAluno + aluno.CalcularMedia();
                 }
@@ -165,23 +173,30 @@ namespace ExercicioListaObejetos.Exercicio02AlunoLista
 
         public AlunoStatus ObterStatusPorCodigoMatricula(int codigoMatricula)
         {
-            for(int i = 0; i < alunos.Count; i++)
-            {
-                var aluno = alunos[i];
+            var alunoStatus = ObterAlunoPorMatricula(codigoMatricula);
+            return alunoStatus.Status;
 
-                if(aluno.CodigoMatricula == codigoMatricula)
-                {
-                    return aluno;
-                }
-            }
-            return null;
+            //------Poderia usar desse jeito--------
+            //O metodo *ObterAlunoPorMatricula* já faz toda a parte de baixo;
+
+            //var alunoStatus = new Aluno();
+            //for (int i = 0; i < alunos.Count; i++)
+            //{
+            //    var aluno = alunos[i];
+
+            //    if (aluno.CodigoMatricula == codigoMatricula)
+            //    {
+            //        alunoStatus = aluno;
+            //    }
+            //}
+            //return alunoStatus.Status;
         }
 
         public double ObterMediaIdade()
         {
             var mediaIdades = 0;
 
-            for(int i = 0; i < alunos.Count; i++)
+            for (int i = 0; i < alunos.Count; i++)
             {
                 var aluno = alunos[i];
 

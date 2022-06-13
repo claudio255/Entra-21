@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ExercicioListaObejetos.Exercicio02AlunoLista
+﻿namespace ExercicioListaObejetos.Exercicio02AlunoLista
 {
     internal class Aluno
     {
@@ -22,7 +16,18 @@ namespace ExercicioListaObejetos.Exercicio02AlunoLista
 
         public AlunoStatus ObterStatus()
         {
-            return Status;
+            if(CalcularMedia() >= 7)
+            {
+                return AlunoStatus.Aprovado;
+            }
+            else if(CalcularMedia() < 7 && CalcularMedia() >= 5)
+            {
+                return AlunoStatus.EmExame;
+            }
+            else
+            {
+                return AlunoStatus.Reprovado;
+            }
         }
     }
 }
