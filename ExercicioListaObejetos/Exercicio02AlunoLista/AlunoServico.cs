@@ -106,7 +106,7 @@ namespace ExercicioListaObejetos.Exercicio02AlunoLista
                 //verifica se o status do aluno é o mesmo passado no paraâmetro
                 if (aluno.Status == statusAluno)
                 {
-                    aprovados.Add(aluno.CalcularMedia());
+                    aprovados.Add(aluno);
                 }
             }
             return aprovados;
