@@ -9,7 +9,7 @@ namespace ExercicioListaObejetos.Exercicio02AlunoLista
     internal class AlunoServico
     {
         private List<Aluno> alunos = new List<Aluno>();
-
+        
         public void AdicionarAluno(string nome, int idade, string materiaFavorita, int codigoMatricula,
             double nota1, double nota2, double nota3)
         {
@@ -92,21 +92,105 @@ namespace ExercicioListaObejetos.Exercicio02AlunoLista
             return medias;
         }
 
-        public List<double> ObterAprovados()
+        public List<string> ObterAprovados(AlunoStatus statusAluno)
         {
+            //criar um lista de alunos aprovados
             var aprovados = new List<string>();
 
-            for(int i = 0; i < alunos.Count; i++)
+            //percorre toda a lista de alunos
+            for (int i = 0; i < alunos.Count; i++)
             {
-                var aprovado = alunos[i];
+                //obtem o aluno atual da lista de alunos
+                var aluno = alunos[i];
 
-                if(aprovado.Status == AlunoStatus.Aprovado)
+                //verifica se o status do aluno é o mesmo passado no paraâmetro
+                if (aluno.Status == statusAluno)
                 {
-                    aprovado.Add(Aluno);
+                    aprovados.Add(aluno.CalcularMedia());
                 }
             }
             return aprovados;
         }
+
+        public List<string> ObterReprovados(AlunoStatus reprovado)
+        {
+            //criar uma nova lista de alunos reprovados
+            var reprovados = new List<string>();
+
+            for(int i = 0; i < alunos.Count; i++)
+            {
+                var aluno = alunos[i];
+
+                if(aluno.Status == reprovado)
+                {
+                    reprovados.Add(aluno);
+                }
+            }
+            return reprovados;
+        }
+
+        public List<string> ObterEmExame()
+        {
+            var exame = new List<string>();
+
+            for(int i = 0; i < alunos.Count; i++)
+            {
+                var aluno = alunos[i];
+
+                if(aluno.Status == AlunoStatus.EmExame)
+                {
+                    exame.Add(aluno.ObterStatus());
+                }
+            }
+
+            return exame;
+        }
+
+        public double ObterMediaPorCodigoMatricula(int codigoMatricula)
+        {
+            var mediaAluno = 0.0;
+
+            for(int i = 0; i < alunos.Count; i++)
+            {
+                var aluno = alunos[i];
+
+                if(aluno.CodigoMatricula == codigoMatricula)
+                {
+                    mediaAluno = mediaAluno + aluno.CalcularMedia();
+                }
+            }
+
+            return mediaAluno;
+        }
+
+        public AlunoStatus ObterStatusPorCodigoMatricula(int codigoMatricula)
+        {
+            for(int i = 0; i < alunos.Count; i++)
+            {
+                var aluno = alunos[i];
+
+                if(aluno.CodigoMatricula == codigoMatricula)
+                {
+                    return aluno;
+                }
+            }
+            return null;
+        }
+
+        public double ObterMediaIdade()
+        {
+            var mediaIdades = 0;
+
+            for(int i = 0; i < alunos.Count; i++)
+            {
+                var aluno = alunos[i];
+
+                mediaIdades = aluno.Idade / alunos.Count;
+            }
+
+            return mediaIdades;
+        }
+
         public Aluno ObterAlunoPorMatricula(int codigoMatricula)
         {
             for (int i = 0; i < alunos.Count; i++)
