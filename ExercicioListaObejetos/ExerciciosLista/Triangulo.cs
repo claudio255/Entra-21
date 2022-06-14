@@ -12,12 +12,12 @@ namespace ExercicioListaObejetos
         public int Lado2;
         public int Lado3;
         public int Codigo;
-        public TiposTriangulos Triangulos;
+        public TipoTriangulo Triangulos;
 
 
         public bool ValidarTriangulo()
         {
-            if (Lado1 == Lado2 && Lado1 == Lado3 || Lado2 == Lado3)
+            if (EhEquilatero())
             {
                 return true;
             }
@@ -25,10 +25,18 @@ namespace ExercicioListaObejetos
             {
                 return true;
             }
-            if(Lado1 != Lado2 && Lado2 != Lado3 && Lado3 != Lado1)
+            if (Lado1 != Lado2 && Lado2 != Lado3 && Lado3 != Lado1)
             {
                 return true;
             }
+            return false;
+        }
+
+        private bool EhEquilatero()
+        {
+            if (Lado1 == Lado2 && Lado1 == Lado3 && Lado2 == Lado3)
+                return true;
+
             return false;
         }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExercicioListaObejetos
 {
-    internal enum TiposTriangulos
+    internal enum TipoTriangulo
     {
         TrianguloIsosceles,
         TrianguloEquilatero,

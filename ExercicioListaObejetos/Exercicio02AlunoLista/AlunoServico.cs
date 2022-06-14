@@ -9,8 +9,9 @@ namespace ExercicioListaObejetos.Exercicio02AlunoLista
     internal class AlunoServico
     {
         private List<Aluno> alunos = new List<Aluno>();
+        private int codigoAtual = 0;
 
-        public void AdicionarAluno(string nome, int idade, string materiaFavorita, int codigoMatricula,
+        public void AdicionarAluno(string nome, int idade, string materiaFavorita,
             double nota1, double nota2, double nota3)
         {
             Aluno aluno = new Aluno();
@@ -18,10 +19,13 @@ namespace ExercicioListaObejetos.Exercicio02AlunoLista
             aluno.Nome = nome;
             aluno.Idade = idade;
             aluno.MateriaFavorita = materiaFavorita;
-            aluno.CodigoMatricula = codigoMatricula;
             aluno.Nota1 = nota1;
             aluno.Nota2 = nota2;
             aluno.Nota3 = nota3;
+            aluno.Status = aluno.ObterStatus();
+
+            aluno.CodigoMatricula = codigoAtual;
+            codigoAtual += 1;
 
             alunos.Add(aluno);
         }

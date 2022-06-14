@@ -20,7 +20,7 @@
             {
                 return AlunoStatus.Aprovado;
             }
-            else if(CalcularMedia() < 7 && CalcularMedia() >= 5)
+            else if(CalcularMedia() >= 5)
             {
                 return AlunoStatus.EmExame;
             }

@@ -4,6 +4,7 @@
     {
         private AlunoServico alunoServico = new AlunoServico();
 
+
         public void GerenciarMenu()
         {
             int codigo = 0;
@@ -13,6 +14,8 @@
                 Console.Clear();
 
                 codigo = ApresentarMenu();
+
+                Console.Clear();
 
                 if(codigo == 1)
                 {
@@ -93,7 +96,7 @@
         {
             int codigo = 0;
 
-            while(codigo < 1 || codigo > 6)
+            while(codigo < 1 || codigo > 13)
             {
                 try
                 {
@@ -119,9 +122,6 @@
             Console.WriteLine("Digite a idade do aluno(a): ");
             var idade = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Digite o codigo de matricula do aluno(a): ");
-            var codigoMatricula = Convert.ToInt32(Console.ReadLine());
-
             Console.WriteLine("Digite a primeira nota do aluno(a): ");
             var primeiraNota = Convert.ToDouble(Console.ReadLine());
 
@@ -131,7 +131,7 @@
             Console.WriteLine("Digite a terceira nota do aluno(a): ");
             var terceiraNota = Convert.ToDouble(Console.ReadLine());
 
-            alunoServico.AdicionarAluno(nome, idade, materiaFavorita, codigoMatricula, primeiraNota, segundaNota, terceiraNota);
+            alunoServico.AdicionarAluno(nome, idade, materiaFavorita, primeiraNota, segundaNota, terceiraNota);
         }
 
         private void Apagar()
