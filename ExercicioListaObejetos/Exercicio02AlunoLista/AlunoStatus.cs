@@ -9,7 +9,7 @@ namespace ExercicioListaObejetos.Exercicio02AlunoLista
     internal enum AlunoStatus
     {
         Aprovado,
-        Reprovado, 
-        EmExame
+        EmExame,
+        Reprovado 
     }
 }

@@ -133,7 +133,6 @@ namespace ExercicioListaObejetos.Exercicio02AlunoLista
                     exame.Add(aluno.Nome);
                 }
             }
-
             return exame;
         }
 
@@ -218,6 +217,11 @@ namespace ExercicioListaObejetos.Exercicio02AlunoLista
                 }
             }
             return null;
+        }
+
+        public List<Aluno> ApresentarTodosAlunos()
+        {
+            return alunos;
         }
     }
 }
