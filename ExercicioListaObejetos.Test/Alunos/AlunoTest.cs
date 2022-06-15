@@ -9,11 +9,12 @@ namespace ExercicioListaObejetos.Test.Alunos
         [Fact]
         public void Validar_RemoverAluno()
         {
-            var aluno = new AlunoServico();          
+            
+            var alunoServico = new AlunoServico();
+            var nome = alunoServico.AdicionarAluno()
+            
 
-            var apagarAluno = aluno.RemoverAluno("claudio");
-
-            apagarAluno.Should().Be(false);
+            apagarAluno.Should().Be(true);
         }
     }
 }
