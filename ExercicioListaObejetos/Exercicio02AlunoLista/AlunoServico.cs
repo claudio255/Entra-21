@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExercicioListaObejetos.Exercicio02AlunoLista
 {
-    internal class AlunoServico
+    public class AlunoServico
     {
         private List<Aluno> alunos = new List<Aluno>();
         private int codigoAtual = 0;

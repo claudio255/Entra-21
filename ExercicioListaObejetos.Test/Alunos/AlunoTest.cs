@@ -1,4 +1,6 @@
-﻿using Xunit;
+﻿using ExercicioListaObejetos.Exercicio02AlunoLista;
+using FluentAssertions;
+using Xunit;
 
 namespace ExercicioListaObejetos.Test.Alunos
 {
@@ -7,12 +9,11 @@ namespace ExercicioListaObejetos.Test.Alunos
         [Fact]
         public void Validar_RemoverAluno()
         {
-            var aluno = new Aluno();
-            aluno.Apagar = "claudio";
+            var aluno = new AlunoServico();          
 
-            var apagarAluno = aluno.RemoverAluno();
+            var apagarAluno = aluno.RemoverAluno("claudio");
 
-            apagarAluno.Should().Be(apagarAluno);
+            apagarAluno.Should().Be(false);
         }
     }
 }
