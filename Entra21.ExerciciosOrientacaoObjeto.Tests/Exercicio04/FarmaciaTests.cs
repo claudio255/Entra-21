@@ -1,10 +1,5 @@
 ﻿using Entra21.ExerciciosOrientacaoObjeto.Exercicio04;
 using FluentAssertions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Entra21.ExerciciosOrientacaoObjeto.Tests.Exercicio04

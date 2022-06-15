@@ -8,7 +8,11 @@ namespace ExercicioListaObejetos.Test.Alunos
         public void Validar_RemoverAluno()
         {
             var aluno = new Aluno();
-            aluno.Apagar = 
+            aluno.Apagar = "claudio";
+
+            var apagarAluno = aluno.RemoverAluno();
+
+            apagarAluno.Should().Be(apagarAluno);
         }
     }
 }
