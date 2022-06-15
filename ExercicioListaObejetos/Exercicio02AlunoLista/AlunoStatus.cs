@@ -1,6 +1,6 @@
 ﻿namespace ExercicioListaObejetos.Exercicio02AlunoLista
 {
-    internal enum AlunoStatus
+    public enum AlunoStatus
     {
         Aprovado,
         EmExame,

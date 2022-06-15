@@ -6,15 +6,19 @@ namespace ExercicioListaObejetos.Test.Alunos
 {
     public class AlunoTest
     {
-        //[Fact]
-        //public void Validar_RemoverAluno()
-        //{
-            
-        //    var alunoServico = new AlunoServico();
-        //    var nome = alunoServico.AdicionarAluno()
-            
+        [Fact]
+        public void Validar_RemoverAluno()
+        {
+            var aluno = new Aluno();
+            var alunoServico = new AlunoServico();
+            aluno.Nome = "claudio";
 
-        //    apagarAluno.Should().Be(true);
-        //}
+            alunoServico.AdicionarAluno("claudio", 22, "matematica", 10, 2, 5);
+
+
+            var apagarAluno = alunoServico.RemoverAluno(aluno.Nome);
+
+            apagarAluno.Should().Be(true);
+        }
     }
 }

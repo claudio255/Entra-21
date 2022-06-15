@@ -1,6 +1,6 @@
 ﻿namespace ExercicioListaObejetos.Exercicio02AlunoLista
 {
-    internal class Aluno
+    public class Aluno
     {
         public string Nome, MateriaFavorita;
         public int CodigoMatricula, Idade;
