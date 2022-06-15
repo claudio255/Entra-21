@@ -71,7 +71,7 @@
 
         }
 
-        public int ApresentarMenu()
+        private int ApresentarMenu()
         {
             Console.WriteLine(@"----------MENU-------
 1 - Apresentar todos os alunos
@@ -92,7 +92,7 @@
             return codigo;
         }
 
-        public int SolicitarCodigo()
+        private int SolicitarCodigo()
         {
             int codigo = 0;
 
