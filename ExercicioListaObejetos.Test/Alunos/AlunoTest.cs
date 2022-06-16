@@ -80,8 +80,16 @@ namespace ExercicioListaObejetos.Test.Alunos
         {
             var aluno = new Aluno();
             var alunoServico = new AlunoServico();
+            
 
+            aluno.Nome = "claudio";
+            //aluno.Nome = "lucas";
 
+            alunoServico.ObterNomes(aluno.Nome);
+            //alunoServico.AdicionarAluno("lucas", 32, "matematica", 2, 3, 4);
+
+            var obterNomes = alunoServico.ObterNomes();
+            aluno.Should().Be(aluno.Nome);
         }
     }
 }
