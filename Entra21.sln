@@ -29,7 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExemploProdutoLista", "Exem
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExercicioListaObejetos", "ExercicioListaObejetos\ExercicioListaObejetos.csproj", "{44AC7083-380A-49EF-B829-DB1FF4AAC4DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExercicioListaObejetos.Test", "ExercicioListaObejetos.Test\ExercicioListaObejetos.Test.csproj", "{4D42A9C2-6876-4B9E-995C-56B5BA2F8A2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExercicioListaObejetos.Test", "ExercicioListaObejetos.Test\ExercicioListaObejetos.Test.csproj", "{4D42A9C2-6876-4B9E-995C-56B5BA2F8A2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entra21.ExemplosWindowsForms", "Entra21.ExemplosWindowsForms\Entra21.ExemplosWindowsForms.csproj", "{F562301E-146B-4683-9EC7-E1A51123D3FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +87,10 @@ Global
 		{4D42A9C2-6876-4B9E-995C-56B5BA2F8A2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D42A9C2-6876-4B9E-995C-56B5BA2F8A2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D42A9C2-6876-4B9E-995C-56B5BA2F8A2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F562301E-146B-4683-9EC7-E1A51123D3FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F562301E-146B-4683-9EC7-E1A51123D3FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F562301E-146B-4683-9EC7-E1A51123D3FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F562301E-146B-4683-9EC7-E1A51123D3FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
