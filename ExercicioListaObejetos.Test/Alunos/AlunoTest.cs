@@ -7,6 +7,26 @@ namespace ExercicioListaObejetos.Test.Alunos
     public class AlunoTest
     {
         [Fact]
+        public void Validar_AdicionarAluno()
+        {
+            var aluno = new Aluno();
+            var alunoServico = new AlunoServico();
+            
+            aluno.Nome = "claudio";
+            aluno.Idade = 22;
+            aluno.MateriaFavorita = "fisica";
+            aluno.Nota1 = 8.3;
+            aluno.Nota2 = 9;
+            aluno.Nota3 = 7.4;
+            aluno.Status = AlunoStatus.Aprovado;
+            
+            alunoServico.AdicionarAluno("claudio", 22, "fisica", 8.3, 9, 7.4);
+            
+
+            aluno.Should().Be(aluno);
+        }
+
+        [Fact]
         public void Validar_RemoverAluno()
         {
             var aluno = new Aluno();
@@ -22,25 +42,46 @@ namespace ExercicioListaObejetos.Test.Alunos
         }
 
         [Fact]
-        public void Validar_AdicionarAluno()
+        public void Validar_EditarAluno()
         {
             var aluno = new Aluno();
             var alunoServico = new AlunoServico();
-            
+
             aluno.Nome = "claudio";
             aluno.Idade = 22;
             aluno.MateriaFavorita = "fisica";
-            aluno.Nota1 = 8.3;
-            aluno.Nota2 = 9;
-            aluno.Nota3 = 7.4;
-            aluno.Status = AlunoStatus.Aprovado;
-            
-            alunoServico.AdicionarAluno("claudio", 22, "fisica", 8.3, 9, 7.4);
+            aluno.CodigoMatricula = 1;
 
-            var addAluno = alunoServico.AdicionarAluno(aluno.Nome, aluno.Idade, aluno.MateriaFavorita, aluno.Nota1, aluno.Nota2, aluno.Nota3);
+            alunoServico.ObterAlunoPorMatricula(1);
 
-            addAluno.Should().Be(true);
+            var editarAluno = alunoServico.EditarDadosCadastrais(aluno.CodigoMatricula, aluno.Idade, aluno.Nome, aluno.MateriaFavorita);
+            editarAluno.Should().BeTrue();
         }
 
+        [Fact]
+        public void Validar_EditarNotaAlunos()
+        {
+            var aluno = new Aluno();
+            var alunoServico = new AlunoServico();
+
+            aluno.Nota1 = 8;
+            aluno.Nota2 = 2;
+            aluno.Nota3 = 7.6;
+            aluno.CodigoMatricula = 1;
+
+            alunoServico.ObterAlunoPorMatricula(1);
+
+            var editarNota = alunoServico.EditarNotasAluno(aluno.CodigoMatricula, aluno.Nota1, aluno.Nota2, aluno.Nota3);
+            editarNota.Should().Be(true);
+        }
+
+        [Fact]
+        public void Validar_ObterNomes()
+        {
+            var aluno = new Aluno();
+            var alunoServico = new AlunoServico();
+
+
+        }
     }
 }
