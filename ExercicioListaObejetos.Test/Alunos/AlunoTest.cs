@@ -80,7 +80,7 @@ namespace ExercicioListaObejetos.Test.Alunos
         {
             var aluno = new Aluno();
             var alunoServico = new AlunoServico();
-           
+
             aluno.Nome = "claudio";
             //aluno.Nome = "lucas";
 
