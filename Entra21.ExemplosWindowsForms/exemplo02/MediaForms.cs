@@ -51,6 +51,7 @@ namespace Entra21.ExemplosWindowsForms.exemplo02
             dataGridView1.Rows[indiceLinhaSelecionada].Cells[3].Value = nota2.ToString();
             dataGridView1.Rows[indiceLinhaSelecionada].Cells[4].Value = nota3.ToString();
             dataGridView1.Rows[indiceLinhaSelecionada].Cells[5].Value = gerar.ToString();
+           
             //MessageBox.Show("A media atual do aluno é: " + gerar);
 
             LimparCampos();
@@ -64,6 +65,11 @@ namespace Entra21.ExemplosWindowsForms.exemplo02
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MediaForms_Load(object sender, EventArgs e)
         {
 
         }

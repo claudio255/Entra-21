@@ -197,6 +197,7 @@
             this.Controls.Add(this.nota1);
             this.Name = "MediaForms";
             this.Text = "MediaForms";
+            this.Load += new System.EventHandler(this.MediaForms_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
