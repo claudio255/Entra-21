@@ -1,4 +1,5 @@
 using Entra21.ExemplosWindowsForms.Exemplo01;
+using Entra21.ExemplosWindowsForms.exemplo02;
 
 namespace Entra21.ExemplosWindowsForms
 {
@@ -12,8 +13,10 @@ namespace Entra21.ExemplosWindowsForms
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
+            //ApplicationConfiguration.Initialize();
+            //Application.Run(new PacientesForm());
             ApplicationConfiguration.Initialize();
-            Application.Run(new PacientesForm());
+            Application.Run(new MediaForms());
         }
     }
 }
