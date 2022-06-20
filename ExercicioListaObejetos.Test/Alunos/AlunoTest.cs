@@ -84,11 +84,11 @@ namespace ExercicioListaObejetos.Test.Alunos
             aluno.Nome = "claudio";
             //aluno.Nome = "lucas";
 
-            alunoServico.AdicionarAluno("claudio", 22, "fisica", 1, 1, 1);
+            //alunoServico.AdicionarAluno("claudio", 22, "fisica", 1, 1, 1);
             //alunoServico.AdicionarAluno("lucas", 32, "matematica", 2, 3, 4);
 
             var obterNomes = alunoServico.ObterNomes();
-            obterNomes.Should().Be();
+            obterNomes.Should().Be(aluno);
         }
     }
 }
