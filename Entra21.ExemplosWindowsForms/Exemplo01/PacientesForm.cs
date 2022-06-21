@@ -6,7 +6,7 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
     {
         private List<Paciente> pacientes;
 
-        private int codigoAtual = 1;
+        private int codigo = 0;
         private int indiceLinhaSelecionada = -1;
         private int codigoSelecionado = -1;
 
@@ -14,7 +14,11 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
         public PacientesForm()
         {
             InitializeComponent();
+            //Cria uma lista de objetos para armazenar os pacientes
             pacientes = new List<Paciente>();
+
+            //Ler do arquivo Json os pacientes cadastrados anteriormente
+            LerArquivoApresentandoPacientes();
         }
 
         private void buttonSalvar_Click(object sender, EventArgs e)
@@ -25,17 +29,14 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
             var peso = Convert.ToDouble(textBoxPeso.Text.Trim());
 
             //Calcular IMC
-            var imc = peso / (altura * altura);
-
-            //Para ir acrescentando o codigo em cada paciente
-            codigoAtual++;
+            var imc = CalcularImc(peso, altura);
 
             //verifica se esta no mode de adiçao
             if (indiceLinhaSelecionada == -1)
             {
                 //Adicionar linha no dataGridView de pacientes
-                dataGridView1.Rows.Add(new object[] { codigoAtual, nome, altura, peso, imc });
-                AdicionarPacientesSalvandoNoArquivo(codigoAtual, nome, peso, altura);
+                dataGridView1.Rows.Add(new object[] { ++codigo, nome, altura, peso, imc });
+                AdicionarPacientesSalvandoNoArquivo(codigo, nome, peso, altura);
                 return;
             }
 
@@ -44,9 +45,6 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
             dataGridView1.Rows[indiceLinhaSelecionada].Cells[2].Value = altura.ToString();
             dataGridView1.Rows[indiceLinhaSelecionada].Cells[3].Value = peso.ToString();
             dataGridView1.Rows[indiceLinhaSelecionada].Cells[4].Value = imc.ToString();
-
-            //Para limpar os campos digitado e adicionar um novo paciente
-            LimparCampos();
 
             EditarDados(nome, peso, altura);
 
@@ -65,9 +63,10 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
 
         private void buttonApagar_Click(object sender, EventArgs e)
         {
-            var indiceLinhaSelecionada = dataGridView1.SelectedRows[0].Index;
+            //Obter a quantidade de linhas que o usuario selecionou no DataGridView
+            var quantidadeLinhasSelecionadas = dataGridView1.SelectedRows.Count;
 
-            if (indiceLinhaSelecionada == -1)
+            if (quantidadeLinhasSelecionadas == 0)
             {
                 MessageBox.Show("Selecione um paciente!");
                 return;
@@ -78,20 +77,25 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
             //Verifica se o usuario escolheu realmente apagar o registro
             if (opcaoEscolhida == DialogResult.Yes)
             {
+                var indiceLinhaSelecionada = dataGridView1.SelectedRows[0].Index;
+
                 //Remove a linha utilizando o indice do DataGridView
                 dataGridView1.Rows.RemoveAt(indiceLinhaSelecionada);
-            }
-            else
-            {
 
+                //Remove o paciente da lista de pacientes
+                pacientes.RemoveAt(indiceLinhaSelecionada);
+
+                //Atualiza o arquivo com lista de pacientes sem o paciente removido
+                SalvarEmArquivo();
             }
         }
 
         private void buttonEditar_Click(object sender, EventArgs e)
         {
-            indiceLinhaSelecionada = dataGridView1.SelectedRows[0].Index;
+            //Obter a quantidade de linhas que o usuario selecionou no DataGridView
+            indiceLinhaSelecionada = dataGridView1.SelectedRows.Count;
 
-            if (indiceLinhaSelecionada == -1)
+            if (indiceLinhaSelecionada == 0)
             {
                 MessageBox.Show("Selecione um paciente!");
                 return;
@@ -102,7 +106,7 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
 
             //obter a informção da linha selecionada passadndo a coluna desejada
             codigoSelecionado = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
-            var nome = linhaSelecionada.Cells[1].ToString();
+            var nome = linhaSelecionada.Cells[1].Value.ToString();
             var altura = Convert.ToDouble(linhaSelecionada.Cells[2].Value);
             var peso = Convert.ToDouble(linhaSelecionada.Cells[3].Value);
 
@@ -148,13 +152,20 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
 
         private void SalvarEmArquivo()
         {
+            //Converter uma lista de objetos em uma string contendo o JSON
             var pacientesJson = JsonConvert.SerializeObject(pacientes);
             var caminho = "pacientes.json";
+            //Salvar a string contendo o JSON em um arquivo no formato JSON
             File.WriteAllText(caminho, pacientesJson);
         }
 
         private void LerArquivoApresentandoPacientes()
         {
+            //Validar se arquivo não existe, consequentemente não é necessario percorrer uma lista que não existe
+            if(File.Exists("pacientes.json") == false)
+            {
+                return;
+            }
             //Ler arquivo json e armazenar os pacientes na lista de pacientes
             var conteudoArquivo = File.ReadAllText("pacientes.json");
             pacientes = JsonConvert.DeserializeObject<List<Paciente>>(conteudoArquivo);
@@ -178,7 +189,7 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
             }
             //Validar se conseguiu encontrar algum codigo, caso contrario nao deve atualizar o codigo do novo paciente
             if (maiorCodigo != int.MinValue)
-                codigoAtual = maiorCodigo;
+                codigo = maiorCodigo;
         }
 
         private double CalcularImc(double peso, double altura)

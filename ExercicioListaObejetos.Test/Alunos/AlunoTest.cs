@@ -11,7 +11,7 @@ namespace ExercicioListaObejetos.Test.Alunos
         {
             var aluno = new Aluno();
             var alunoServico = new AlunoServico();
-            
+
             aluno.Nome = "claudio";
             aluno.Idade = 22;
             aluno.MateriaFavorita = "fisica";
@@ -19,9 +19,9 @@ namespace ExercicioListaObejetos.Test.Alunos
             aluno.Nota2 = 9;
             aluno.Nota3 = 7.4;
             aluno.Status = AlunoStatus.Aprovado;
-            
+
             alunoServico.AdicionarAluno("claudio", 22, "fisica", 8.3, 9, 7.4);
-            
+
 
             aluno.Should().Be(aluno);
         }
@@ -84,11 +84,29 @@ namespace ExercicioListaObejetos.Test.Alunos
             aluno.Nome = "claudio";
             //aluno.Nome = "lucas";
 
-            //alunoServico.AdicionarAluno("claudio", 22, "fisica", 1, 1, 1);
+            alunoServico.AdicionarAluno("claudio", 22, "fisica", 1, 1, 1);
             //alunoServico.AdicionarAluno("lucas", 32, "matematica", 2, 3, 4);
 
             var obterNomes = alunoServico.ObterNomes();
-            obterNomes.Should().Be(aluno);
+            obterNomes[0].Should().Be(aluno.Nome);
+        }
+
+        [Fact]
+        public void Validar_ObterMedias()
+        {
+            var aluno = new Aluno();
+            var alunoServico = new AlunoServico();
+
+            aluno.Nota1 = 10;
+            aluno.Nota2 = 9;
+            aluno.Nota3 = 10;
+            var media = (10 + 9 + 10) / 3;
+            
+            alunoServico.AdicionarAluno("claudio", 22, "fisica", 10, 9, 10);
+            
+
+            var obterMedias = alunoServico.ObterMedias();
+            obterMedias[0].Should().Be(media);
         }
     }
 }
