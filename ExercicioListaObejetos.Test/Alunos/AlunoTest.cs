@@ -145,12 +145,17 @@ namespace ExercicioListaObejetos.Test.Alunos
             var alunoServico = new AlunoServico();
 
             aluno.Nome = "claudio";
+            aluno.Nota1 = 10;
+            aluno.Nota2 = 10;
+            aluno.Nota3 = 10;
             aluno.CodigoMatricula = 1;
+
+            var media = aluno.CalcularMedia();
 
             alunoServico.AdicionarAluno("claudio", 22, "fisica", 10, 10, 10);
 
-            var obterAlunoPorCodigoMatricula = alunoServico.ObterMediaPorCodigoMatricula(aluno.CodigoMatricula);
-            obterAlunoPorCodigoMatricula.Should().Be(1);
+            var obterAlunoPorCodigoMatricula = alunoServico.ObterMediaPorCodigoMatricula(1);
+            obterAlunoPorCodigoMatricula.Should().Be(media);
         }
     }
 }
