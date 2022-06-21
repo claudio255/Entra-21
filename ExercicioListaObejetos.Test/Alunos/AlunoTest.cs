@@ -99,14 +99,58 @@ namespace ExercicioListaObejetos.Test.Alunos
 
             aluno.Nota1 = 10;
             aluno.Nota2 = 9;
-            aluno.Nota3 = 10;
-            var media = (10 + 9 + 10) / 3;
+            aluno.Nota3 = 8;
+            double media = (10 + 9 + 8) / 3;
             
-            alunoServico.AdicionarAluno("claudio", 22, "fisica", 10, 9, 10);
+            alunoServico.AdicionarAluno("claudio", 22, "fisica", 10, 9, 8);
             
 
             var obterMedias = alunoServico.ObterMedias();
             obterMedias[0].Should().Be(media);
+        }
+
+        [Fact]
+        public void Validar_ObterAprovados()
+        {
+            var aluno = new Aluno();
+            var alunoServico = new AlunoServico();
+
+            aluno.Nome = "claudio";
+
+            alunoServico.AdicionarAluno("claudio", 22, "fisica", 10, 10, 10);
+
+            var obterAprovados = alunoServico.ObterAprovados(aluno.Status);
+            obterAprovados[0].Should().Be(aluno.Nome);
+        }
+
+        [Fact]
+        public void Validar_ObterEmExame()
+        {
+            var aluno = new Aluno();
+            var alunoServico = new AlunoServico();
+            
+            aluno.Nome = "teresa";          
+
+            alunoServico.AdicionarAluno("teresa", 18, "geografia", 10, 10, 10);
+
+            var obterEmExame = alunoServico.ObterEmExame();
+            obterEmExame[0].Should().Be(aluno.Nome);
+
+        }
+
+        [Fact]
+        public void Validar_ObterMediaPorCodigoDeMatricula()
+        {
+            var aluno = new Aluno();
+            var alunoServico = new AlunoServico();
+
+            aluno.Nome = "claudio";
+            aluno.CodigoMatricula = 1;
+
+            alunoServico.AdicionarAluno("claudio", 22, "fisica", 10, 10, 10);
+
+            var obterAlunoPorCodigoMatricula = alunoServico.ObterMediaPorCodigoMatricula(aluno.CodigoMatricula);
+            obterAlunoPorCodigoMatricula.Should().Be(1);
         }
     }
 }
