@@ -20,9 +20,10 @@
             }
             else if(nascimento >= 1000)
             {
-                centena = nascimento - 1000;
+                milhar = nascimento - 1000;
                 Console.WriteLine("mil");
             }
+
         }
     }
 }
