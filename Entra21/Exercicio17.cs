@@ -9,9 +9,18 @@
             Console.WriteLine("Digite o seu ano de nascimento: ");
             var nascimento = Convert.ToInt32(Console.ReadLine());
 
-            if (nascimento == )
+            var milhar = 0;
+            var centena = 0;
+            var dezena = 0;
+
+            if (nascimento >= 2000)
             {
-                var milhar = nascimento - 1000;
+                milhar = nascimento - 2000;
+                Console.WriteLine("dois mil");
+            }
+            else if(nascimento >= 1000)
+            {
+                centena = nascimento - 1000;
                 Console.WriteLine("mil");
             }
         }
