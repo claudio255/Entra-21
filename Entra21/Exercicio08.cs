@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entra21
+﻿namespace Entra21
 {
     internal class Exercicio08
     {
@@ -33,10 +27,108 @@ Escolha o primeiro produto que deseja: ");
             Console.WriteLine("Escolha o seu terceiro pedido: ");
             var terceiroPedido = Convert.ToInt32(Console.ReadLine());
 
+            var total = 0.0;
+
             if (primeiroPedido == 1)
-            {
-                var total = 29.50;
-            }
+                total += 29.50;
+            else if (primeiroPedido == 2)
+                total += 2.00;
+            else if (primeiroPedido == 3)
+                total += 29.23;
+            else if (primeiroPedido == 4)
+                total += 7.10;
+            else if (primeiroPedido == 5)
+                total += 19.33;
+            else if (primeiroPedido == 6)
+                total += 17.71;
+            else if (primeiroPedido == 7)
+                total += 4.82;
+            else if (primeiroPedido == 8)
+                total += 21.16;
+            else if (primeiroPedido == 9)
+                total += 12.70;
+            else if (primeiroPedido == 10)
+                total += 19.70;
+            else if (primeiroPedido == 11)
+                total += 28.22;
+            else if (primeiroPedido == 12)
+                total += 8.98;
+            else if (primeiroPedido == 13)
+                total += 0.42;
+            else if (primeiroPedido == 14)
+                total += 18.36;
+            else if (primeiroPedido == 15)
+                total += 27.50;
+            else { }
+
+
+
+            if (segundoPedido == 1)
+                total += 29.50;
+            else if (segundoPedido == 2)
+                total += 2.00;
+            else if (segundoPedido == 3)
+                total += 29.23;
+            else if (segundoPedido == 4)
+                total += 7.10;
+            else if (segundoPedido == 5)
+                total += 19.33;
+            else if (segundoPedido == 6)
+                total += 17.71;
+            else if (segundoPedido == 7)
+                total += 4.82;
+            else if (segundoPedido == 8)
+                total += 21.16;
+            else if (segundoPedido == 9)
+                total += 12.70;
+            else if (segundoPedido == 10)
+                total += 19.70;
+            else if (segundoPedido == 11)
+                total += 28.22;
+            else if (segundoPedido == 12)
+                total += 8.98;
+            else if (segundoPedido == 13)
+                total += 0.42;
+            else if (segundoPedido == 14)
+                total += 18.36;
+            else if (segundoPedido == 15)
+                total += 27.50;
+            else { }
+
+
+            if (terceiroPedido == 1)
+                total += 29.50;
+            else if (terceiroPedido == 2)
+                total += 2.00;
+            else if (terceiroPedido == 3)
+                total += 29.23;
+            else if (terceiroPedido == 4)
+                total += 7.10;
+            else if (terceiroPedido == 5)
+                total += 19.33;
+            else if (terceiroPedido == 6)
+                total += 17.71;
+            else if (terceiroPedido == 7)
+                total += 4.82;
+            else if (terceiroPedido == 8)
+                total += 21.16;
+            else if (terceiroPedido == 9)
+                total += 12.70;
+            else if (terceiroPedido == 10)
+                total += 19.70;
+            else if (terceiroPedido == 11)
+                total += 28.22;
+            else if (terceiroPedido == 12)
+                total += 8.98;
+            else if (terceiroPedido == 13)
+                total += 0.42;
+            else if (terceiroPedido == 14)
+                total += 18.36;
+            else if (terceiroPedido == 15)
+                total += 27.50;
+            else { }
+
+            Console.WriteLine($"O total dos itens escolhidos são: {total}");
         }
     }
 }

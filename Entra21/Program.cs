@@ -47,4 +47,44 @@ if (opcaoEscolhida == 8)
     Exercicio08 exercicio08 = new Exercicio08();
     exercicio08.Executar();
 }
+if (opcaoEscolhida == 9)
+{
+    Exercicio09 exercicio09 = new Exercicio09();
+    exercicio09.Executar();
+}
+if (opcaoEscolhida == 10)
+{
+    Exercicio10 exercicio10 = new Exercicio10();
+    exercicio10.Executar();
+}
+if (opcaoEscolhida == 11)
+{
+    Exercicio11 exercicio11 = new Exercicio11();
+    exercicio11.Executar();
+}
+if (opcaoEscolhida == 12)
+{
+    Exercicio12 exercicio12 = new Exercicio12();
+    exercicio12.Executar();
+}
+if (opcaoEscolhida == 13)
+{
+    Exercicio13 exercicio13 = new Exercicio13();
+    exercicio13.Executar();
+}
+if (opcaoEscolhida == 14)
+{
+    Exercicio14 exercicio14 = new Exercicio14();
+    exercicio14.Executar();
+}
+if (opcaoEscolhida == 15)
+{
+    Exercicio15 exercicio15 = new Exercicio15();
+    exercicio15.Executar();
+}
+if (opcaoEscolhida == 16)
+{
+    Exercicio16 exercicio16 = new Exercicio16();
+    exercicio16.Executar();
+}
 
