@@ -101,7 +101,7 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
             var httpClient = new HttpClient();
 
             //Executando a requisição para o site ViaCep para obter os dados do endereço do cep
-            var resultado = httpClient.GetAsync($"https://viacep.com.br/ws/ {cep}/json/").Result;
+            var resultado = httpClient.GetAsync($"https://viacep.com.br/ws/{cep}/json/").Result;
 
             //Verificar se a requisição deu certo
             if(resultado.StatusCode == System.Net.HttpStatusCode.OK)
