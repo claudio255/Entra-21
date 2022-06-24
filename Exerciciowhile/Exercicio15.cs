@@ -13,9 +13,11 @@
 
             while(indice < caracteresTotais)
             {
-                var caracter = frase.Substring(0, ++indice);
+                var caracter = frase.Substring(indice, indice++);
                 
                 Console.WriteLine(caracter);
+
+                //indice++;
             }
         }
     }
