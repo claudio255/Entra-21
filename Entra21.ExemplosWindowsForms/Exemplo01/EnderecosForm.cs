@@ -32,7 +32,7 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
             var pacientes = pacienteServico.ObterTodos();
 
             //Percorre todos os pacientes adicionado no ComboBox
-            for(int i = 0; i < pacientes.Count; i++)
+            for (int i = 0; i < pacientes.Count; i++)
             {
                 var paciente = pacientes[i];
                 comboBoxPaciente.Items.Add(paciente.Nome);
@@ -40,6 +40,11 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            LimparCampos();
+        }
+
+        private void LimparCampos()
         {
             maskedTextBoxCep.Text = "";
             textBoxEnderecoCompleto.Text = string.Empty;
@@ -53,6 +58,14 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
             var enderecoCompleto = textBoxEnderecoCompleto.Text;
             var nomePaciente = Convert.ToString(comboBoxPaciente.SelectedItem);
 
+            //Executa o método ValidarDados que retornará um bool, sendo True quando os dados forem válidos
+            //False quando os dados forem invalidos
+            var dadosValidos = ValidarDados(cep, enderecoCompleto, nomePaciente);
+
+            //Verifica se os dados são invalidos para não dar continuidade no cadastro do endereço
+            if(dadosValidos == false)
+                return;
+
             //Construir o objeto de endereço com as variaveis
             var endereco = new Endereco();
             endereco.Cep = cep;
@@ -64,8 +77,10 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
 
             //Apresentar o registro novo no DataGridView
             PreencherDataGridViewComEndereco();
+
+            LimparCampos();
         }
-        
+
         private void PreencherDataGridViewComEndereco()
         {
             //Obter todos os endereços da lista de endereços 
@@ -78,7 +93,7 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
             dataGridView1.ClearSelection();
 
             //Percorrer cada um dos endereços adicionado uma nova linha na tela
-            for(var i = 0; i < enderecos.Count; i++)
+            for (var i = 0; i < enderecos.Count; i++)
             {
                 //obter endereço percorrido
                 var endereco = enderecos[i];
@@ -95,7 +110,12 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
 
         private void ObterDadosCep()
         {
-            var cep = "89070200";
+            var cep = maskedTextBoxCep.Text.Replace("-", "").Trim();
+
+            //89070200 -> quantidade de caracters 8
+            if (cep.Length != 8)
+                return;
+
 
             //HttpClient permite fazer requisições para obter ou enviar dados para outros sistemas
             var httpClient = new HttpClient();
@@ -104,7 +124,7 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
             var resultado = httpClient.GetAsync($"https://viacep.com.br/ws/{cep}/json/").Result;
 
             //Verificar se a requisição deu certo
-            if(resultado.StatusCode == System.Net.HttpStatusCode.OK)
+            if (resultado.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 //Obter a resposta da requisição
                 var resposta = resultado.Content.ReadAsStringAsync().Result;
@@ -113,6 +133,88 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
 
                 textBoxEnderecoCompleto.Text = $"{dadosEndereco.Uf} - {dadosEndereco.Localidade} - {dadosEndereco.Bairro} - {dadosEndereco.Logradouro}";
             }
+        }
+
+        //Sera executado esse metodo quando o usuario sair do campo de cep
+        private void maskedTextBoxCep_Leave(object sender, EventArgs e)
+        {
+            ObterDadosCep();
+        }
+
+        private bool ValidarDados(string cep, string enderecoCompleto, string nomePaciente)
+        {
+            if(cep.Replace("-", "").Trim().Length != 8)
+            {
+                MessageBox.Show("CEP invalido!");
+
+                maskedTextBoxCep.Focus();
+
+                return false;
+            }
+
+            if(enderecoCompleto.Trim().Length < 10)
+            {
+                MessageBox.Show("Endereço completo deve ter no mínimo 10 caracteres");
+
+                textBoxEnderecoCompleto.Focus();
+
+                return false;
+            }
+
+            if(comboBoxPaciente.SelectedIndex == -1)
+            {
+                MessageBox.Show("Escolha um paciente!");
+
+                comboBoxPaciente.DroppedDown = true;
+
+                return false;
+            }
+
+            return true;
+        }
+
+        private void buttonApagar_Click(object sender, EventArgs e)
+        {
+            //Verificar se algum item do DataGridView está selecionado
+            if(dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selecione um endereço para remover");
+
+                return;
+            }
+
+            //Questionar se o usuario realmente deseja apagar
+            var resposta = MessageBox.Show("Deseja realmente apagar o endereço? ", "Aviso", MessageBoxButtons.YesNo);
+
+            //Validar que o usuario não escolheu Sim, pq não deve continuar executandoo codigo abaixo
+            if(resposta != DialogResult.Yes)
+            {
+                MessageBox.Show("Relaxa teu registro ta ali salvo");
+
+                return;
+            }
+
+            //Qual item será apagado
+            var linhaSelecionada = dataGridView1.SelectedRows[0];
+
+            //Obter o codigo da linha selecionada ma primeira coluna, que não esta sendo apresentada paro o usuario,
+            //que é referente ao codigo do endereço
+            var codigo = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
+
+
+            //Apagar o item da lista de itens no serviço
+            //Atualizar o arquivo JSON
+            //Buscar o endereço na lista de endereços filtrando por codigo
+            var endereco = enderecoServico.ObterPorCodigo(codigo);
+
+            //Apagar o endereço encontrado da lista de endereços e atualizar o aquivo JSON
+            enderecoServico.Apagar(endereco);
+
+            //Atualizar o DataGridView
+            PreencherDataGridViewComEndereco();
+
+            //Remover a seleção do DataGridView
+            dataGridView1.ClearSelection();
         }
     }
 }

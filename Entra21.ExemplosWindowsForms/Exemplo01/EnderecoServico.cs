@@ -46,7 +46,7 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
 
         }
 
-        public void Apagar(int codigoParaApagar)
+        public void Apagar(Endereco enderecoParaApagar)
         {
             //Percorre a lista de endereços afim de encontrar o endereço que deve ser alterado
             for (int i = 0; i < enderecos.Count; i++)
@@ -54,7 +54,7 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
                 //Obtem o endereço percorrido
                 var endereco = enderecos[i];
 
-                if (endereco.Codigo == codigoParaApagar)
+                if (endereco.Codigo == enderecoParaApagar.Codigo)
                 {
                     //Remove o endereço encontrado da lista de endereços
                     enderecos.Remove(endereco);
@@ -66,7 +66,6 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
                 }
             }
         }
-
 
         //Método que permite listar todos os endereços
         public List<Endereco> ObterTodos()
