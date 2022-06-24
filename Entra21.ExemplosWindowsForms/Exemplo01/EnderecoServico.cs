@@ -107,5 +107,19 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
             var enderecosEmJson = File.ReadAllText("enderecos.json");
             enderecos = JsonConvert.DeserializeObject<List<Endereco>>(enderecosEmJson);
         }
+
+        public int ObterUltimoCodigo()
+        {
+            int ultimoCodigo = 0;
+
+            for(int i = 0; i < enderecos.Count; i++)
+            {
+                var endereco = enderecos[i];
+
+                ultimoCodigo = endereco.Codigo;
+            }
+
+            return ultimoCodigo;
+        }
     }
 }

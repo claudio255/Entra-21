@@ -63,22 +63,50 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
             var dadosValidos = ValidarDados(cep, enderecoCompleto, nomePaciente);
 
             //Verifica se os dados são invalidos para não dar continuidade no cadastro do endereço
-            if(dadosValidos == false)
+            if (dadosValidos == false)
                 return;
 
+            //Verificar senão esta em modo de ediçao, ou seja, modo de cadastro
+            if (dataGridView1.SelectedRows.Count == 0)
+                CadastrarEndereco(cep, enderecoCompleto, nomePaciente);
+            else
+                EditarEndereco(cep, enderecoCompleto, nomePaciente);
+
+            //Apresentar o registro novo no DataGridView
+            PreencherDataGridViewComEndereco();
+
+            LimparCampos();
+        }
+
+        private void EditarEndereco(string cep, string enderecoCompleto, string nomePaciente)
+        {
+            //Obter linha selecionada
+            var linhaSelecionada = dataGridView1.SelectedRows[0];
+            //Obter codigo que esta na coluna oculta do DataGridView
+            var codigoSelecionado = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
+
+            //Construir o objeto com os dados da tela
+            var endereco = new Endereco();
+            endereco.Codigo = codigoSelecionado;
+            endereco.EnderecoCompleto = enderecoCompleto;
+            endereco.Cep = cep;
+            endereco.Paciente = pacienteServico.ObterPorNomePaciente(nomePaciente);
+
+            //Atualizar o dadona lista de endereços e salvar o dado atualizado no arquivo JSON
+            enderecoServico.Editar(endereco);
+        }
+
+        private void CadastrarEndereco(string cep, string enderecoCompleto, string? nomePaciente)
+        {
             //Construir o objeto de endereço com as variaveis
             var endereco = new Endereco();
+            endereco.Codigo = enderecoServico.ObterUltimoCodigo() + 1;
             endereco.Cep = cep;
             endereco.EnderecoCompleto = enderecoCompleto;
             endereco.Paciente = pacienteServico.ObterPorNomePaciente(nomePaciente);
 
             //Salvar este endereço na lista de endereços e no arquivoJSON
             enderecoServico.Adicionar(endereco);
-
-            //Apresentar o registro novo no DataGridView
-            PreencherDataGridViewComEndereco();
-
-            LimparCampos();
         }
 
         private void PreencherDataGridViewComEndereco()
@@ -143,7 +171,7 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
 
         private bool ValidarDados(string cep, string enderecoCompleto, string nomePaciente)
         {
-            if(cep.Replace("-", "").Trim().Length != 8)
+            if (cep.Replace("-", "").Trim().Length != 8)
             {
                 MessageBox.Show("CEP invalido!");
 
@@ -152,7 +180,7 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
                 return false;
             }
 
-            if(enderecoCompleto.Trim().Length < 10)
+            if (enderecoCompleto.Trim().Length < 10)
             {
                 MessageBox.Show("Endereço completo deve ter no mínimo 10 caracteres");
 
@@ -161,7 +189,7 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
                 return false;
             }
 
-            if(comboBoxPaciente.SelectedIndex == -1)
+            if (comboBoxPaciente.SelectedIndex == -1)
             {
                 MessageBox.Show("Escolha um paciente!");
 
@@ -176,7 +204,7 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
         private void buttonApagar_Click(object sender, EventArgs e)
         {
             //Verificar se algum item do DataGridView está selecionado
-            if(dataGridView1.SelectedRows.Count == 0)
+            if (dataGridView1.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Selecione um endereço para remover");
 
@@ -187,7 +215,7 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
             var resposta = MessageBox.Show("Deseja realmente apagar o endereço? ", "Aviso", MessageBoxButtons.YesNo);
 
             //Validar que o usuario não escolheu Sim, pq não deve continuar executandoo codigo abaixo
-            if(resposta != DialogResult.Yes)
+            if (resposta != DialogResult.Yes)
             {
                 MessageBox.Show("Relaxa teu registro ta ali salvo");
 
@@ -215,6 +243,28 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
 
             //Remover a seleção do DataGridView
             dataGridView1.ClearSelection();
+        }
+
+        private void buttonEditar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selecione um endereço para editar");
+
+                return;
+            }
+
+            //Obter a linh que o usuario selecionou
+            var linhaSelecionada = dataGridView1.SelectedRows[0];
+            //Obter o codigo do endereço que o usuario selecionou
+            var codigo = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
+            //Obter o endereço escolhido
+            var endereco = enderecoServico.ObterPorCodigo(codigo);
+
+            //Apresentar os dados do endereço na tela para edição
+            maskedTextBoxCep.Text = endereco.Cep;
+            textBoxEnderecoCompleto.Text = endereco.EnderecoCompleto;
+            comboBoxPaciente.SelectedItem = endereco.Paciente.Nome;
         }
     }
 }
