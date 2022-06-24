@@ -1,4 +1,6 @@
-﻿namespace Entra21.ExemplosWindowsForms.Exemplo01
+﻿using Newtonsoft.Json;
+
+namespace Entra21.ExemplosWindowsForms.Exemplo01
 {
     public partial class EnderecosForm : Form
     {
@@ -20,6 +22,8 @@
 
             //Irá preencher o ComboBox(campo de seleção) com os pacientes
             PreencherComboBoxComOsNomesDosPacientes();
+
+            ObterDadosCep();
         }
 
         private void PreencherComboBoxComOsNomesDosPacientes()
@@ -105,7 +109,9 @@
                 //Obter a resposta da requisição
                 var resposta = resultado.Content.ReadAsStringAsync().Result;
 
-                var 
+                var dadosEndereco = JsonConvert.DeserializeObject<EnderecoDadosRequisicao>(resposta);
+
+                textBoxEnderecoCompleto.Text = $"{dadosEndereco.Uf} - {dadosEndereco.Localidade} - {dadosEndereco.Bairro} - {dadosEndereco.Logradouro}";
             }
         }
     }
