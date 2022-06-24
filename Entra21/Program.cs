@@ -87,4 +87,14 @@ if (opcaoEscolhida == 16)
     Exercicio16 exercicio16 = new Exercicio16();
     exercicio16.Executar();
 }
+if (opcaoEscolhida == 17)
+{
+    Exercicio17 exercicio17 = new Exercicio17();
+    exercicio17.Executar();
+}
+if (opcaoEscolhida == 18)
+{
+    Exercicio18 exercicio18 = new Exercicio18();
+    exercicio18.Executar();
+}
 
