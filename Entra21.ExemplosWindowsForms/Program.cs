@@ -13,10 +13,14 @@ namespace Entra21.ExemplosWindowsForms
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new PacientesForm());
+            //ApplicationConfiguration.Initialize();
+            //Application.Run(new PacientesForm());
             //ApplicationConfiguration.Initialize();
             //Application.Run(new MediaForms());
+            //ApplicationConfiguration.Initialize();
+            //Application.Run(new EnderecosForm());
+            ApplicationConfiguration.Initialize();
+            Application.Run(new MenuPrincipalForm());
         }
     }
 }
