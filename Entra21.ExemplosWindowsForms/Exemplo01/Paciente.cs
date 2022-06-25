@@ -7,5 +7,11 @@
         public double Altura;
         public double Peso;
 
+        public double ObterImc()
+        {
+            return Peso / Math.Pow(Altura, 2);
+            //Substitui isso de baixo:
+            //return peso / (altura * altura);
+        }
     }
 }
