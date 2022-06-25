@@ -18,7 +18,7 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
             pacienteServico = new PacienteServico();
 
             //Deve apresentar os dados quando a tela for carregada
-            PreencherDataGridViewComEndereco();
+            PreencherDataGridViewComEnderecos();
 
             //Irá preencher o ComboBox(campo de seleção) com os pacientes
             PreencherComboBoxComOsNomesDosPacientes();
@@ -49,6 +49,8 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
             maskedTextBoxCep.Text = "";
             textBoxEnderecoCompleto.Text = string.Empty;
             comboBoxPaciente.SelectedIndex = -1;
+
+            dataGridView1.ClearSelection();
         }
 
         private void buttonSalvar_Click(object sender, EventArgs e)
@@ -73,7 +75,7 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
                 EditarEndereco(cep, enderecoCompleto, nomePaciente);
 
             //Apresentar o registro novo no DataGridView
-            PreencherDataGridViewComEndereco();
+            PreencherDataGridViewComEnderecos();
 
             LimparCampos();
         }
@@ -109,16 +111,13 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
             enderecoServico.Adicionar(endereco);
         }
 
-        private void PreencherDataGridViewComEndereco()
+        private void PreencherDataGridViewComEnderecos()
         {
             //Obter todos os endereços da lista de endereços 
             var enderecos = enderecoServico.ObterTodos();
 
             //Remover todas as linhas do ddataGridView
             dataGridView1.Rows.Clear();
-
-            //Remover a seleção do dataGridView
-            dataGridView1.ClearSelection();
 
             //Percorrer cada um dos endereços adicionado uma nova linha na tela
             for (var i = 0; i < enderecos.Count; i++)
@@ -134,6 +133,9 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
                     endereco.Paciente.Nome
                 });
             }
+
+            //Remover a seleção do dataGridView
+            dataGridView1.ClearSelection();
         }
 
         private void ObterDadosCep()
@@ -239,13 +241,18 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
             enderecoServico.Apagar(endereco);
 
             //Atualizar o DataGridView
-            PreencherDataGridViewComEndereco();
+            PreencherDataGridViewComEnderecos();
 
             //Remover a seleção do DataGridView
             dataGridView1.ClearSelection();
         }
 
         private void buttonEditar_Click(object sender, EventArgs e)
+        {
+            ApresentarDadosParaEdicao();
+        }
+
+        private void ApresentarDadosParaEdicao()
         {
             if (dataGridView1.SelectedRows.Count == 0)
             {
@@ -265,6 +272,17 @@ namespace Entra21.ExemplosWindowsForms.Exemplo01
             maskedTextBoxCep.Text = endereco.Cep;
             textBoxEnderecoCompleto.Text = endereco.EnderecoCompleto;
             comboBoxPaciente.SelectedItem = endereco.Paciente.Nome;
+        }
+
+        //Quando o formulario é carregado apresenta os dados no DataGridView
+        private void EnderecosForm_Load(object sender, EventArgs e)
+        {
+            PreencherDataGridViewComEnderecos();
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ApresentarDadosParaEdicao();
         }
     }
 }
