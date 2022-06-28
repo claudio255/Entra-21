@@ -13,7 +13,7 @@
 
             while(indice < caracteresTotais)
             {
-                var caracter = frase.Substring(++indice, --indice);
+                char caracter = Convert.ToChar(frase.Substring(indice, 1));
                 
                 Console.WriteLine(caracter);
 

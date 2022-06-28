@@ -95,6 +95,11 @@ else if (numeroDigitado == 15)
     Exercicio15 exercicio15 = new Exercicio15();
     exercicio15.Executar();
 }
+else if(numeroDigitado == 16)
+{
+    Exercicio16 exercicio16 = new Exercicio16();
+    exercicio16.Executar();
+}
 else if (numeroDigitado == 17)
 {
     Exercicio17 exercicio17 = new Exercicio17();

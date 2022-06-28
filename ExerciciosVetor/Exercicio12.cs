@@ -18,11 +18,7 @@ namespace ExerciciosVetor
                 Console.WriteLine("Digite o numero que deseja: ");
                 numeros[i] = Convert.ToInt32(Console.ReadLine());
             }
-            Console.Clear();
-
-            
-            
-            
+            Console.Clear();   
         }
     }
 }
