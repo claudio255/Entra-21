@@ -290,6 +290,58 @@
 	UPDATE enderecos SET cidade = 'Rio Branco'
 		WHERE id = 8;
 
+	UPDATE enderecos SET complemento = 'Casa'
+		WHERE id = 2
+	
+	UPDATE enderecos SET complemento = 'Bloco C'
+		WHERE id = 3;
+
+	UPDATE enderecos SET complemento = 'Apartamento'
+		WHERE id = 4;
+
+	UPDATE enderecos SET complemento = 'KitNet 3'
+		WHERE id = 5;
+
+	UPDATE enderecos SET complemento = 'Apartamento'
+		WHERE id = 7;
+
+	UPDATE enderecos SET complemento = 'Casa'
+		WHERE id = 9;
+
+	UPDATE enderecos SET complemento = 'Fundos'
+		WHERE id = 10;
+
+	SELECT complemento FROM enderecos;
+
+	UPDATE enderecos SET complemento = 'Fundos'
+		WHERE id = 6;
+
+	UPDATE enderecos SET complemento = 'Bloco B'
+		WHERE id = 8;
+
+	UPDATE  enderecos SET complemento = 'Casa'
+		WHERE id = 11;
+
+	UPDATE enderecos SET complemento = 'Apartamento'
+		WHERE id = 12;
+
+	SELECT id, estado, cidade, bairro, cep, logradouro, numero, complemento
+		FROM enderecos;
+
+	UPDATE enderecos SET complemento = 'Apartamento'
+		WHERE id = 11;
+
+	DELETE FROM enderecos WHERE id = 12;
+	DELETE FROM enderecos WHERE id = 13;
+
+	UPDATE enderecos SET complemento = 'Embaixo da Ponte'
+		WHERE id = 2;
+
+	SELECT complemento FROM enderecos;
+
+	SELECT id, estado, cidade, bairro, cep, logradouro, numero, complemento
+		FROM enderecos;
+
 
 
 
