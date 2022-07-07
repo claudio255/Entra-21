@@ -270,6 +270,29 @@
 	SELECT id, estado, cidade, bairro, cep, logradouro, numero, complemento
 		FROM enderecos;
 
+	UPDATE enderecos SET logradouro = 'Rua Julio Teodoro Martins'
+		WHERE id = 2;
+
+	SELECT logradouro FROM enderecos;
+
+	UPDATE enderecos SET cidade = 'Salvador'
+		WHERE id = 3;
+
+	UPDATE enderecos SET logradouro = 'Rua Itu'
+		WHERE id = 5;
+
+	UPDATE enderecos SET cep = '35162-484'
+		WHERE id = 4;
+
+	UPDATE enderecos SET cep = '69900162'
+		WHERE id = 8;
+
+	UPDATE enderecos SET cidade = 'Rio Branco'
+		WHERE id = 8;
+
+
+
+
 
 
 	CREATE TABLE champions(
@@ -403,3 +426,77 @@
 		SELECT id, nome, descricao, habilidade_1, habilidade_2, habilidade_3,
 			habilidade_4, habilidade_5
 			FROM champions;
+
+		UPDATE champions SET descricao = 'Sem descrição'
+			WHERE
+			LEN(descricao) = 0;
+
+		SELECT id, nome, descricao, habilidade_1, habilidade_2, habilidade_3,
+			habilidade_4, habilidade_5, sem_habilidade 
+			FROM champions;
+
+		UPDATE champions SET habilidade_1 = 'Não possui habilidade'
+			WHERE
+			LEN(habilidade_1) = 0;
+
+		UPDATE champions SET habilidade_2 = 'Não possui habilidade'
+			WHERE
+			LEN(habilidade_2) = 0;
+
+		UPDATE champions SET habilidade_3 = 'Não possui habilidade'
+			WHERE
+			LEN(habilidade_3) = 0;
+
+		UPDATE champions SET habilidade_4 = 'Não possui habilidade'
+			WHERE
+			LEN(habilidade_4) = 0;
+
+		UPDATE champions SET habilidade_5 = 'Não possui habilidade'
+			WHERE
+			LEN(habilidade_5) = 0;
+
+		SELECT id, nome, descricao, habilidade_1, habilidade_2, habilidade_3,
+			habilidade_4, habilidade_5, sem_habilidade 
+			FROM champions;
+
+		ALTER TABLE champions DROP COLUMN sem_habilidade;
+
+		SELECT id, nome, descricao, habilidade_1, habilidade_2, habilidade_3,
+			habilidade_4, habilidade_5
+			FROM champions;
+
+		UPDATE champions SET descricao = 'Honesto / Pacifico'
+			WHERE id = 2;
+
+		UPDATE champions SET descricao = 'Forma demoniaca'
+			WHERE id = 9;
+
+		UPDATE champions SET habilidade_2 = 'Ataque Alpha',
+			habilidade_3 = 'Meditar',
+			habilidade_4 = 'Estilo Wuju',
+			habilidade_5 = 'Highlander'
+			WHERE id = 3;
+
+		UPDATE champions SET habilidade_5 = 'Furia do Dragão'
+			WHERE id = 5;
+
+		UPDATE champions SET habilidade_2 = 'Quebra-Cofres'
+			WHERE id = 6;
+
+		SELECT id, nome, descricao, habilidade_1, habilidade_2, habilidade_3,
+			habilidade_4, habilidade_5
+			FROM champions;
+
+		SELECT nome FROM champions;
+
+		SELECT descricao FROM champions;
+
+		SELECT habilidade_1 FROM champions;
+
+		SELECT habilidade_2 FROM champions;
+
+		SELECT habilidade_3 FROM champions;
+
+		SELECT habilidade_4 FROM champions;
+
+		SELECT habilidade_5 FROM champions;
