@@ -8,7 +8,7 @@
             var texto = Console.ReadLine().Trim().ToLower();
 
             var codigo = 0;
-
+            int quantidadeDeLetras = texto.Length;
 
             var quantidadeLetraA = 0; var quantidadeLetraB = 0; var quantidadeLetraC = 0; var quantidadeLetraD = 0; var quantidadeLetraE = 0;
 
@@ -18,18 +18,21 @@
                 {
                     quantidadeLetraA = quantidadeLetraA + 1;
                 }
-                if (texto.Contains("b"))
+                else if (texto.Contains("b"))
                 {
                     quantidadeLetraB++;
                 }
-                if (texto.Contains("c"))
+                else if (texto.Contains("c"))
                 {
                     quantidadeLetraC++;
                 }
-                if (texto.Contains("d"))
+                else if (texto.Contains("d"))
                 {
                     quantidadeLetraE++;
                 }
+
+                quantidadeDeLetras = quantidadeDeLetras - 1;
+
                 codigo++;
             }
 
