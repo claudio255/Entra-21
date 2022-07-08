@@ -141,7 +141,22 @@
 		FROM pessoas
 		WHERE
 		YEAR(data_de_nascimento) < 1980;
+
+	SELECT id, nome, idade FROM pessoas
+		ORDER BY idade ASC;
+
+	SELECT nome, idade FROM pessoas
+		ORDER BY idade DESC;
 		
+	SELECT AVG (idade) 
+		AS 'Media de idade'
+		FROM pessoas;
+		
+	SELECT SUM (idade)
+		AS 'Somatoria de idades'
+		FROM pessoas;
+
+
 
 
 
@@ -355,6 +370,31 @@
 	SELECT id, estado, cidade, bairro, cep, logradouro, numero, complemento
 		FROM enderecos;
 
+	SELECT id, estado, cep
+		FROM enderecos
+		WHERE estado = 'MG';
+
+	SELECT id, estado, cep
+		FROM enderecos
+		WHERE estado = 'AC';
+
+	SELECT id,
+		estado,
+		logradouro,
+		LEN(logradouro) AS 'Menor quantidade de caracteres'
+		FROM enderecos
+		WHERE LEN(logradouro) = (SELECT MIN(LEN(l.logradouro)) FROM enderecos l);
+
+	SELECT id,
+		estado,
+		logradouro,
+		LEN(logradouro) AS 'Maior quantidade de caracteres'
+		FROM enderecos
+		WHERE LEN(logradouro) = (SELECT MAX(LEN(l.logradouro)) FROM enderecos l);
+
+
+
+
 
 
 
@@ -565,3 +605,42 @@
 		SELECT habilidade_4 FROM champions;
 
 		SELECT habilidade_5 FROM champions;
+
+		SELECT id, nome, descricao
+			FROM champions
+			ORDER BY id
+			OFFSET 0 ROWS FETCH NEXT 3 ROWS ONLY;
+
+		SELECT id, nome, descricao
+			FROM champions
+			ORDER BY id
+			OFFSET 3 ROWS FETCH NEXT 3 ROWS ONLY;
+
+		SELECT id, nome, descricao
+			FROM champions
+			ORDER BY id
+			OFFSET 6 ROWS FETCH NEXT 3 ROWS ONLY;
+
+		SELECT habilidade_1, habilidade_2, habilidade_3, habilidade_4, habilidade_5
+			FROM champions 
+			ORDER BY id
+			OFFSET 0 ROWS FETCH NEXT 3 ROWS ONLY;
+
+		SELECT habilidade_1, habilidade_2, habilidade_3, habilidade_4, habilidade_5
+			FROM champions
+			ORDER BY id
+			OFFSET 3 ROWS FETCH NEXT 3 ROWS ONLY;
+
+		SELECT habilidade_1, habilidade_2, habilidade_3, habilidade_4, habilidade_5
+			FROM champions
+			ORDER BY id
+			OFFSET 6 ROWS FETCH NEXT 3 ROWS ONLY;
+
+
+		SELECT id, nome, descricao, CONCAT(habilidade_1, '-',
+			habilidade_2, '-',
+			habilidade_3, '-',
+			habilidade_4, '-',
+			habilidade_5, '-') AS 'Habilidades Concatenadas'
+			FROM champions
+			WHERE id = 1;
