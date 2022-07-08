@@ -130,6 +130,19 @@
 	SELECT id, nome, cpf, rg, data_de_nascimento, idade
 			FROM pessoas;
 
+	SELECT id, nome, data_de_nascimento FROM pessoas
+		WHERE 
+		YEAR(data_de_nascimento) >= 1990 AND
+		YEAR(data_de_nascimento) < 2005;
+
+	SELECT id, nome, 
+		FORMAT(data_de_nascimento, 'dd/MM/yyyy')
+		AS 'Data de Nascimento'
+		FROM pessoas
+		WHERE
+		YEAR(data_de_nascimento) < 1980;
+		
+
 
 
 
