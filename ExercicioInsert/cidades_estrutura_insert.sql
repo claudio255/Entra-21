@@ -5539,4 +5539,54 @@ INSERT INTO cidades VALUES
 		WHERE
 		LEN(cidade) = 10;
 	
-		
+--10
+	UPDATE cidades SET estado = 'SS'
+		WHERE estado = 'sc';
+
+--11
+	UPDATE cidades SET cidade = 'Brumenau',
+		estado = 'SC'
+		WHERE cidade = 'Blumenau';
+
+--12
+	UPDATE cidades SET cidade = 'Batata'
+		WHERE cidade LIKE 'Bata%';
+
+--13
+	UPDATE cidades SET cidade = 'Lindo'
+		WHERE cidade LIKE '%Belo%';
+
+--14
+	UPDATE cidades SET estado = 'SC'
+		WHERE 
+		cidade LIKE 'Indaia%';
+
+--15
+	UPDATE cidades SET estado = 'SC'
+		WHERE
+		cidade LIKE '%Timbo%';
+
+--16
+	UPDATE cidades SET cidade = 'Josué'
+		WHERE
+		cidade LIKE '%José%';
+
+--17
+	UPDATE cidades SET estado = 'PS'
+		WHERE
+		estado = 'SP';
+
+--18
+	UPDATE cidades SET cidade = 'Qualquer Texto'
+		WHERE 
+		LEN(cidade) = 10;
+
+--19
+	UPDATE cidades SET cidade = 'It'
+		WHERE 
+		cidade LIKE 'It%';
+
+--20
+	UPDATE cidades SET estado = 'TO'
+		WHERE 
+		cidade LIKE '%ã';

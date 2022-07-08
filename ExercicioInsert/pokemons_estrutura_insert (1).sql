@@ -795,3 +795,102 @@ INSERT INTO pokemons (nome, codigo, categoria, descricao, altura, peso, hp, ataq
 		FROM pokemons
 		WHERE nome LIKE 'P%';
 		
+
+
+--13
+	UPDATE pokemons SET categoria = 'Seed'
+		WHERE codigo >= 50 AND
+		codigo <= 100;
+
+--14
+	UPDATE pokemons SET ataque = 29
+		WHERE 
+		nome LIKE '%inj%';
+
+--15
+	UPDATE pokemons SET velocidade = 2
+		WHERE velocidade = 5;
+		
+--16
+	UPDATE pokemons SET categoria = 'Manipulante'
+		WHERE codigo = 100;
+
+--17
+	UPDATE pokemons SET nome = 'C%'
+		WHERE nome LIKE 'R%';
+
+--18
+	UPDATE pokemons SET altura = 0.51
+		WHERE altura = 0.5;
+
+--19
+	UPDATE pokemons SET peso = 0.70
+		WHERE altura = 0.51;
+
+--20
+	UPDATE pokemons SET codigo = 1
+		WHERE 
+		especial_ataque = 4 AND 
+		especial_defesa = 3;
+
+--21
+	UPDATE pokemons SET defesa = 1
+		WHERE
+		especial_ataque = 4 AND
+		especial_defesa = 3;
+
+--22
+	UPDATE pokemons SET ataque = 1
+		WHERE
+		especial_ataque = 4 AND
+		especial_defesa = 3;
+
+--23
+	UPDATE pokemons SET especial_ataque = 3
+		WHERE 
+		especial_ataque = 4 AND
+		especial_defesa = 3;
+
+--24
+	UPDATE pokemons SET especial_defesa = 4
+		WHERE
+		especial_ataque = 3 AND
+		especial_defesa = 3;
+
+--25
+	UPDATE pokemons SET nome = CONCAT(SUBSTRING(nome, 0, 10), '...')
+		WHERE LEN(nome) = 10; 
+
+--26
+	UPDATE pokemons SET categoria = 'Water'
+		WHERE 
+		descricao LIKE '%Flames%';
+
+--27
+	UPDATE pokemons SET codigo = 151
+		WHERE codigo = 155;
+
+--28
+	UPDATE pokemons SET nome = 'Naruto'
+		WHERE nome = 'Kabuto';
+
+--29
+	UPDATE pokemons SET ataque = 1
+		WHERE nome = 'Kabuto';
+
+--30
+	UPDATE pokemons SET nome = 'Sasuke',
+		especial_ataque = 8002,
+		ataque = 8001
+		WHERE 
+		nome = 'Mew' OR nome = 'Mewtwo';
+
+--31
+	--UPDATE pokemons SET descricao = 'Lorem ipsum',
+	--	nome = 'Tyranitar',
+	--	categoria = 'Wood Gecko'
+	--	WHERE
+	--	codigo = 0 % 2;
+
+
+		
