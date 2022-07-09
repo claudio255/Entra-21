@@ -2969,3 +2969,38 @@ VALUES
 		WHERE
 		MONTH(data_nascimento) = (07);
 		
+
+
+--40 Apagar o(s) aluno(s) que o nome contenha ‘Francisco’.
+	DELETE FROM alunos 
+		WHERE 
+		nome LIKE '%Francisco%';
+
+--41 Apagar o(s) aluno(s) que nasceram no ano de 1994.
+	DELETE FROM alunos	
+		WHERE
+		data_nascimento = 1994;
+
+--42 Apagar o(s) aluno(s) que contém o signo de ‘Gêmeos’.
+	DELETE FROM alunos
+		WHERE
+		signo = 'Gêmeos';
+
+--43 Apagar o(s) aluno(s) que o nome contenha ‘Reinaldo’ no começo.
+	DELETE FROM alunos	
+		WHERE
+		nome LIKE 'Reinaldo%';
+
+--44 Apagar o(s) aluno(s) que o nome acabe com ‘Carvalho’.
+	DELETE FROM alunos
+		WHERE
+		nome LIKE '%Carvalho';
+
+--45 Apagar o(s) aluno(s) que que nasceram no mês de julho.
+	DELETE FROM alunos	
+		WHERE
+		MONTH(data_nascimento) = 07;
+
+--46 Apagar o(s) aluno(s) que nota1 for maior que a nota 2 e a nota 4 for menor que a nota 3.
+	DELETE FROM alunos
+		
