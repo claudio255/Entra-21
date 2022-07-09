@@ -5491,28 +5491,28 @@ INSERT INTO cidades VALUES
 ('TO', 'Xambioá');
 
 
---01
+--01 Selecione o estado e cidade.
 	SELECT estado, cidade	
 		FROM cidades;
 
---02
+--02 Selecione as cidades que começam com a letra A.
 	SELECT cidade FROM cidades
 		WHERE cidade LIKE 'A%';
 
---03
+--03 Selecione as cidades que contenham no ‘apar’ em qualquer parte do nome
 	SELECT cidade FROM cidades
 		WHERE cidade LIKE '%apar%';
 
---04
+--04 Selecione as cidades que começam com a letra W.
 	SELECT cidade FROM cidades
 		WHERE cidade LIKE 'W%';
 
---05
+--05 Selecione o estado e a cidade que a cidade termina com ‘tuba’ ordenando pelo estado em ordem decrescente
 	SELECT estado, cidade FROM cidades
 		WHERE cidade LiKE '%tuba'
 		ORDER BY estado DESC;
 
---06
+--06 Selecione a cidade que o nome da cidade contenha mais que 15 caracteres, ordenando pelo quantidade de caracteres
 	SELECT cidade, LEN(cidade)
 		AS 'Quantidade de caracteres'
 		FROM cidades
@@ -5520,73 +5520,74 @@ INSERT INTO cidades VALUES
 		LEN(cidade) > 15 
 		ORDER BY LEN(cidade) ASC;
 
---07
+--07 Contabilize a quantidade de cidades do estado de SC.
 	SELECT cidade, estado
 		FROM cidades
 		WHERE 
 		estado = 'SC';
 
---08
+--08 Contabilize a quantidade de cidades do estado de SP.
 	SELECT cidade, estado
 		FROM cidades
 		WHERE
 		estado = 'SP';
 		
---09
+--09 Selecione o nome da cidade com a quantidade de caracteres, quando o nome da cidade conter 10 caracteres.
 	SELECT cidade, LEN(cidade)
 		AS 'Quantidade de caracteres'
 		FROM cidades
 		WHERE
 		LEN(cidade) = 10;
 	
---10
+--10 estado for ‘sc’ - estado - SS
 	UPDATE cidades SET estado = 'SS'
 		WHERE estado = 'sc';
 
---11
+--11 cidade for ‘Blumenau’ - cidade - Brumenau
+--estado - SC
 	UPDATE cidades SET cidade = 'Brumenau',
 		estado = 'SC'
 		WHERE cidade = 'Blumenau';
 
---12
+--12 cidade que começar com ‘Bata’ - cidade - Batata
 	UPDATE cidades SET cidade = 'Batata'
 		WHERE cidade LIKE 'Bata%';
 
---13
+--13 cidade que conter ‘Belo’ - cidade - trocar belo por Lindo
 	UPDATE cidades SET cidade = 'Lindo'
 		WHERE cidade LIKE '%Belo%';
 
---14
+--14 cidade que começar com ‘Indaia’ - estado - SC
 	UPDATE cidades SET estado = 'SC'
 		WHERE 
 		cidade LIKE 'Indaia%';
 
---15
+--15 cidade que conter ‘Timbó’ - estado - SC
 	UPDATE cidades SET estado = 'SC'
 		WHERE
 		cidade LIKE '%Timbo%';
 
---16
+--16 cidade que conter ‘José’ - cidade - trocar ‘José’ por josué
 	UPDATE cidades SET cidade = 'Josué'
 		WHERE
 		cidade LIKE '%José%';
 
---17
+--17 estado que contém SP - estado - PS
 	UPDATE cidades SET estado = 'PS'
 		WHERE
 		estado = 'SP';
 
---18
+--18 cidade que o nome contém 10 caracteres - cidade - qualquer texto
 	UPDATE cidades SET cidade = 'Qualquer Texto'
 		WHERE 
 		LEN(cidade) = 10;
 
---19
+--19 cidade que começar com ‘It’ - cidade - It
 	UPDATE cidades SET cidade = 'It'
 		WHERE 
 		cidade LIKE 'It%';
 
---20
+--20 cidade que termina com ‘ã’ - estado - TO
 	UPDATE cidades SET estado = 'TO'
 		WHERE 
 		cidade LIKE '%ã';
