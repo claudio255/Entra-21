@@ -2964,8 +2964,8 @@ VALUES
 
 --39 data de nascimento o mes for julho - data nascimento - mes junho
 -- ano pra 2018
-	UPDATE alunos SET data_nascimento = MONTH(06),
-		data_nascimento = YEAR(2018)
+	UPDATE alunos SET data_nascimento = DATEADD(MM, -6, data_nascimento),
+		data_nascimento = DATEADD(yyyy, -2018, data_nascimento)
 		WHERE
 		MONTH(data_nascimento) = (07);
 		
