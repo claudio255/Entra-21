@@ -797,95 +797,97 @@ INSERT INTO pokemons (nome, codigo, categoria, descricao, altura, peso, hp, ataq
 		
 
 
---13
+--13 código estiver no intervalo de 50 a 100 - categoria - Seed
 	UPDATE pokemons SET categoria = 'Seed'
 		WHERE codigo >= 50 AND
 		codigo <= 100;
 
---14
+--14 nome conter ‘inj’ - ataque - 29
 	UPDATE pokemons SET ataque = 29
 		WHERE 
 		nome LIKE '%inj%';
 
---15
+--15 velocidade for 5 - velocidade - 2
 	UPDATE pokemons SET velocidade = 2
 		WHERE velocidade = 5;
 		
---16
+--16 código for 100 - categoria - Manipulate
 	UPDATE pokemons SET categoria = 'Manipulante'
 		WHERE codigo = 100;
 
---17
+--17 nome começar com R - nome - trocar primeira letra por C
 	UPDATE pokemons SET nome = 'C%'
 		WHERE nome LIKE 'R%';
 
---18
+--18 altura for 0.5 - altura - 0.51
 	UPDATE pokemons SET altura = 0.51
 		WHERE altura = 0.5;
 
---19
+--19 peso - 0.70
 	UPDATE pokemons SET peso = 0.70
 		WHERE altura = 0.51;
 
---20
+--20 defesa especial for 3 e ataque especial for 4 - código - 1
 	UPDATE pokemons SET codigo = 1
 		WHERE 
 		especial_ataque = 4 AND 
 		especial_defesa = 3;
 
---21
+--21 defesa - 1
 	UPDATE pokemons SET defesa = 1
 		WHERE
 		especial_ataque = 4 AND
 		especial_defesa = 3;
 
---22
+--22 ataque - 1
 	UPDATE pokemons SET ataque = 1
 		WHERE
 		especial_ataque = 4 AND
 		especial_defesa = 3;
 
---23
+--23 ataque especial - 3
 	UPDATE pokemons SET especial_ataque = 3
 		WHERE 
 		especial_ataque = 4 AND
 		especial_defesa = 3;
 
---24
+--24 defesa especial - 4
 	UPDATE pokemons SET especial_defesa = 4
 		WHERE
 		especial_ataque = 3 AND
 		especial_defesa = 3;
 
---25
+--25 nome contiver mais 10 caracteres nome obter somente os dez caracteres do nome
 	UPDATE pokemons SET nome = CONCAT(SUBSTRING(nome, 0, 10), '...')
 		WHERE LEN(nome) = 10; 
 
---26
+--26 descrição contiver flames categoria water
 	UPDATE pokemons SET categoria = 'Water'
 		WHERE 
 		descricao LIKE '%Flames%';
 
---27
+--27 código - 151
 	UPDATE pokemons SET codigo = 151
 		WHERE codigo = 155;
 
---28
+--28nome for Kabuto - nome - Naruto
 	UPDATE pokemons SET nome = 'Naruto'
 		WHERE nome = 'Kabuto';
 
---29
+--29 ataque - 1
 	UPDATE pokemons SET ataque = 1
 		WHERE nome = 'Kabuto';
 
---30
+--30 nome for Mew ou nome for Mewtwo - nome - Sasuke
 	UPDATE pokemons SET nome = 'Sasuke',
 		especial_ataque = 8002,
 		ataque = 8001
 		WHERE 
 		nome = 'Mew' OR nome = 'Mewtwo';
 
---31
+--31 código que for número par descrição Lorem ipsum.
+--nome - Tyranitar
+--categoria - Wood Gecko
 	--UPDATE pokemons SET descricao = 'Lorem ipsum',
 	--	nome = 'Tyranitar',
 	--	categoria = 'Wood Gecko'
@@ -893,4 +895,111 @@ INSERT INTO pokemons (nome, codigo, categoria, descricao, altura, peso, hp, ataq
 	--	codigo = 0 % 2;
 
 
+--32 Apagar o(s) pokemon(s) que a categoria seja ‘Seed’.
+	DELETE FROM pokemons
+		WHERE
+		categoria = 'Seed';
+
+--33 Apagar o(s) pokemon(s) que o nome comece com ‘Nid’.
+	DELETE FROM pokemons
+		WHERE
+		nome LIKE 'Nid%';
+
+--34 Apagar o(s) pokemon(s) que a categoria comece com ‘Snow ’.
+	DELETE FROM pokemons
+		WHERE
+		categoria LIKE 'Snow%';
+
+--35 Apagar o(s) pokemon(s) que o ataque seja 2 ou a defesa seja 1.
+	DELETE FROM pokemons
+		WHERE
+		ataque = 2 OR
+		defesa = 1;
+
+--36 Apagar o(s) pokemon(s) que o ataque especial seja um número par.
+	DELETE FROM pokemons
+		WHERE 
+		(especial_ataque % 2) = 0;
+
+--37 Apagar o(s) pokemon(s) que o nome contenha dez caracteres.
+	DELETE FROM pokemons
+		WHERE
+		LEN(nome) = 10;
+
+--38 Apagar o(s) pokemon(s) que a categoria contenha menos que 4 caracteres.
+	DELETE FROM pokemons	
+		WHERE
+		LEN(categoria) < 4;
+
+--39 Apagar o(s) pokemon(s) que a velocidade seja um número ímpar.
+	DELETE FROM pokemons		
+		WHERE
+		(velocidade % 2) = 1;
+
+--40 Apagar o(s) pokemon(s) que o nome comece com ‘Uno’ ou ‘Charm’.
+	DELETE FROM pokemons
+		WHERE
+		nome LIKE 'Uno%' OR
+		nome LIKE 'Charm%';
+
+--41 Apagar o(s) pokemon(s) que contenham a categoria ‘Flower’ e o código esteja entre 45 e 200.
+	DELETE FROM pokemons
+		WHERE
+		categoria = 'Flower' AND
+		codigo >= 45 AND
+		codigo < 201;
+
+--42 Apagar o(s) pokemon(s) que a descrição contenha ‘shell’.
+	DELETE FROM pokemons
+		WHERE
+		descricao LIKE '%shell%';
+
+--43 Apagar o(s) pokemon(s) que o peso seja maior ou igual a 100.
+	DELETE FROM pokemons
+		WHERE
+		peso >= 100; 
+
+--44 Apagar o(s) pokemon(s) que a altura seja menor que 1.
+	DELETE FROM pokemons
+		WHERE
+		altura < 1;
+
+--45 Apagar o(s) pokemon(s) que contenham o poder de defesa especial maior que 3.
+	DELETE FROM pokemons
+		WHERE
+		especial_defesa > 3;
+
+--46 Apagar o(s) pokemon(s) que a descrição contenha mais que 150 caracteres.
+	--DELETE FROM pokemons
+	--	WHERE
+	--	LEN(descricao) > 150;
+
+--47 Apagar o(s) pokemon(s) que a descrição contenha ‘good’ em qualquer parte.
+	DELETE FROM pokemons 
+		WHERE
+		descricao LIKE '%good%';
 		
+
+--48 Apagar o(s) pokemon(s) que o código seja um número par.
+	DELETE FROM pokemons
+		WHERE
+		(codigo % 2) = 0;
+
+--49 Apagar o(s) pokemon(s) que o nome seja ‘Lileep’.
+	DELETE FROM pokemons
+		WHERE
+		nome = 'Lileep';
+
+		SELECT nome 
+			FROM pokemons
+			WHERE nome = 'Lileep';
+
+--50 Apagar o(s) pokemon(s) que contenham o poder de ataque especial 5.
+	DELETE FROM pokemons
+		WHERE
+		especial_ataque = 5;
+
+--51 Apagar o(s) pokemon(s) que a código seja menor que 100.
+	DELETE FROM pokemons
+		WHERE
+		codigo < 100;
