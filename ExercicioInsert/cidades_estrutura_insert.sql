@@ -5590,3 +5590,36 @@ INSERT INTO cidades VALUES
 	UPDATE cidades SET estado = 'TO'
 		WHERE 
 		cidade LIKE '%ã';
+
+
+
+--21 Apagar a(s) cidade(s) do estado do Rio Grande do Sul.
+	DELETE FROM cidades	
+		WHERE
+		estado = 'RS';
+
+--22 Apagar a(s) cidade(s) do estado do Acre que a cidade comece com a letra ‘R’.
+	DELETE FROM cidades
+		WHERE
+		estado = 'AC' AND
+		cidade LIKE 'R%';
+
+--23 Apagar a(s) cidade(s) que o nome termine com ‘goas’.
+	DELETE FROM cidades
+		WHERE
+		cidade LIKE '%goas';
+
+--24 Apagar a(s) cidade(s) que o nome contenha irmãos em qualquer parte .
+	DELETE FROM cidades
+		WHERE 
+		cidade LIKE '%irmãos%';
+
+--25 Apagar a(s) cidade(s) do estado de Minas Gerais.
+	DELETE FROM cidades
+		WHERE
+		estado = 'MG';
+
+--26 Apagar a(s) cidade(s) que o nome seja ‘Douradina’.
+	DELETE FROM cidades
+		WHERE
+		cidade = 'Douradina';

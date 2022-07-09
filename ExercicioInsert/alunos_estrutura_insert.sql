@@ -2950,9 +2950,9 @@ VALUES
 		nick = 'Saxiol';
 
 --37 data de nascimento o dia for trinta e um - data nascimento - trocar o dia para 30
-	UPDATE alunos SET data_nascimento = DAY(1999-02-30)
-		WHERE
-		data_nascimento = DAY(1999-02-31);
+	--UPDATE alunos SET data_nascimento = DAY(1999-02-30)
+	--	WHERE
+	--	data_nascimento = DAY(1999-02-31);
 
 --38 cor preferida for roxo ou coral - cor preferida - roxo
 --nick - Roxolandia
@@ -2964,10 +2964,10 @@ VALUES
 
 --39 data de nascimento o mes for julho - data nascimento - mes junho
 -- ano pra 2018
-	UPDATE alunos SET data_nascimento = DATEADD(MM, -6, data_nascimento),
-		data_nascimento = DATEADD(yyyy, -2018, data_nascimento)
-		WHERE
-		MONTH(data_nascimento) = (07);
+	--UPDATE alunos SET data_nascimento = DATEADD(MM, -6, data_nascimento),
+	--	data_nascimento = DATEADD(yyyy, -2018, data_nascimento)
+	--	WHERE
+	--	MONTH(data_nascimento) = (07);
 		
 
 
@@ -2997,10 +2997,37 @@ VALUES
 		nome LIKE '%Carvalho';
 
 --45 Apagar o(s) aluno(s) que que nasceram no mês de julho.
-	DELETE FROM alunos	
-		WHERE
-		MONTH(data_nascimento) = 07;
+	--DELETE FROM alunos	
+	--	WHERE
+	--	MONTH(data_nascimento) = 07;
 
 --46 Apagar o(s) aluno(s) que nota1 for maior que a nota 2 e a nota 4 for menor que a nota 3.
+	--DELETE FROM alunos
+	--		WHEN nota_1 > nota_2 
+	--		WHEN nota_4 < nota_3;
+
+--47 Apagar o(s) aluno(s) que o cpf comece com ‘145.’
+	DELETE FROM alunos 
+		WHERE 
+		cpf LIKE '145%';
+			
+--48 Apagar o(s) aluno(s) que a cor preferida seja ‘Bordo’ e o signo seja ‘Capricórnio’ ou a cor preferida
+--‘Cinza-claro’ e o signo seja ‘Aquários’.
 	DELETE FROM alunos
-		
+		WHERE
+		cor_preferida = 'Bordo' AND
+		signo = 'Capricornio' OR
+		cor_preferida = 'Cinza-claro' AND
+		signo = 'Aquários';
+
+--49 Apagar o(s) aluno(s) que a média seja menor que 4.
+	DELETE FROM alunos
+		WHERE 
+		media < 4;
+
+		SELECT media
+			FROM alunos
+			WHERE 
+			media < 4;
+
+--50 Apagar o(s) aluno(s) que o dia de nascimento seja 28.
