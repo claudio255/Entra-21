@@ -2722,42 +2722,44 @@ VALUES
 ('Justino Betancour', '349.770.422-98', 'Puvofi', 'Touro', '722', '9.57', '4.81', '8.74', '3.26', 'Amarelo-limão', '1968-04-22');
 
 
---01
+--01 Selecione todas as colunas da tabela.
 	SELECT nome, cpf, nick, signo, numero_favorito, nota_1, nota_2, nota_3, nota_4, cor_preferida, data_nascimento
 		FROM alunos;
 
---02
+--02 Selecione o nome dos alunos que a nota 1 é maior que 9.0.
 	SELECT nome 
 		FROM alunos 
 		WHERE 
 		nota_1 > 9.0; 
 
---03
+--03 Selecione o nome do aluno, nota 1, nota 2, nota 3, nota 4, e a média.
 	SELECT nome, nota_1, nota_2, nota_3, nota_4,
 		((nota_1 + nota_2 + nota_3 + nota_4) / 4)
 		AS 'Media'
 		FROM alunos;
 
---04
-	
+--04 Contabilize a quantidade de alunos com o signo de Peixes
+	SELECT COUNT(nome) 
+		AS 'Quantidade de aluno com o signo peixes'
+		FROM alunos
+		WHERE signo = 'Peixes';
 
-
---05
+--05 Selecione a soma da nota 1
 	SELECT SUM(nota_1)
 		AS 'Somatoria notas 1'
 		FROM alunos;
 
---06
+--06 Selecione a média da nota 2
 	SELECT AVG(nota_2)
 		AS 'Media das notas 2'
 		FROM alunos;
 
---07
+--07 Selecione o nome, menor nota 1.
 	SELECT nome, nota_1
 		FROM alunos
 		WHERE nota_1 = (SELECT MIN (a.nota_1) FROM alunos a);
 		
---08
+--08 Selecione o nome, nota 1, nota 2, nota 3, nota 4 com o maior nome.
 	SELECT nome AS 'Nome',
 		nota_1 AS 'Nota 1',
 		nota_2 AS 'Nota 2',
@@ -2766,22 +2768,23 @@ VALUES
 		FROM alunos
 		WHERE nome = (SELECT MAX (a.nome) FROM alunos a);
 
---09
+--09 Selecione a cor e quantidade com a cor Gelo.
+	SELECT CONCAT('GELO - QUANTIDADE: ', COUNT(cor_preferida))
+		AS 'Quantidade de alunos gostam da cor gelo'
+		FROM alunos
+		WHERE cor_preferida = 'Gelo';
 	
-
-
-
---10
+--10 Selecione a quantidade de alunos que o nome contém Francisco no começo.
 	SELECT nome	
 		FROM alunos
 		WHERE nome LIKE 'Francisco%';
 
---11
+--11 Selecione a quantidade de alunos que o nome contém Luc.
 	SELECT nome 
 		FROM alunos
 		WHERE nome LIKE '%Luc%';
 
---12
+--12 Selecione o nome, signo e data de nascimento quando o signo Áries
 	SELECT nome, signo, data_nascimento
 		FROM alunos
 		WHERE signo = 'Áries';
@@ -2789,21 +2792,180 @@ VALUES
 
 
 	ALTER TABLE alunos ADD media DECIMAL(4,2);
+	ALTER TABLE alunos ALTER COLUMN media FLOAT;
+	UPDATE alunos SET media = ((nota_1 + nota_2 + nota_3 + nota_4) / 4);
 
---13
+--13 Selecione o nome, nota 1, nota 2, nota 3, nota 4 com o maior média.
 	SELECT nome, nota_1, nota_2, nota_3, nota_4
 		FROM alunos
-		WHERE media = (Select MAX(AVG(a.media)) FROM alunos a);
+		WHERE media = (Select MAX(a.media) FROM alunos a);
 
---14
-	--ALTER TABLE alunos ADD aprovado BIT
+--14 Selecione o nome, média e caso a média for menor que 5 apresentar reprovado, caso for menor que 7
+--apresentar em exame senão apresentar aprovado.
+--Dica: buscar como fazer IF em sql.
+		SELECT nome, media,
+			CASE
+			WHEN media > 7 THEN 'Aprovado'
+			WHEN media < 5 THEN 'Reprovado'
+			ELSE 'Em exame'
+			END media
+			FROM alunos;
+	        
+
+--15 Selecione o nome, nota 1, nota 2, nota 3, nota 4 com o menor média.
+	SELECT TOP(1) nome, nota_1, nota_2, nota_3, nota_4, 
+		((nota_1 + nota_2 + nota_3 + nota_4) / 4) 
+		FROM alunos
+		ORDER BY media ASC;
+
+
+--16 Selecione a quantidade de alunos em que a média foi maior que 7
+	SELECT COUNT(nome) AS 'Quantidade de alunos com media maior que 7'
+		FROM alunos
+		WHERE media > 7;
+
+--17 Selecione o nome, nick do aluno que o nick contém 5 caracteres
+	SELECT nome AS 'Nome',
+		nick AS 'Nick do aluno',
+		LEN(nick) AS 'Quantidade de caracteres'
+		FROM alunos
+		WHERE LEN(nick) = 5;
+
+--18 Selecione o nome do aluno quando a cor for ouro ou amarelo-torrado e a média for maior que seis e meio.
+	SELECT nome
+		FROM alunos
+		WHERE cor_preferida = 'ouro' OR 
+		cor_preferida = 'amarelo-torrado' AND
+		media > 6;
+
+--19 Selecione o nome e o ano da data de nascimento.
+	SELECT nome, data_nascimento 
+		FROM alunos;
+
+--20 Selecione o nick e o mês de nascimento quando o mês de nascimento for maior que 6.
+	SELECT nick, data_nascimento
+		FROM alunos
+		WHERE
+		MONTH(data_nascimento) > 06;
+
+--21 Selecione a quantidade de pessoas que nasceram no ano de 1996
+	SELECT COUNT(nome) AS 'Quantidade de alunos nascidos em 1996'
+		FROM alunos
+		WHERE
+		YEAR(data_nascimento) = 1996;
+
+--22 22. Selecione a quantidade de pessoas de pessoas que nasceram no dia dois do mês de fevereiro do ano 1964
+--ou 1994
+	SELECT COUNT(nome) AS 'Quantidade de alunos nascidos'
+		FROM alunos
+		WHERE 
+		DAY(data_nascimento) = 02 AND
+		MONTH(data_nascimento) = 02 AND
+		YEAR(data_nascimento) = 1964 OR
+		YEAR(data_nascimento) = 1994;
+
+--23 Selecione o nick e a nota 4 do aluno que a nota 2 está entre 5.0 e 5.99.
+	SELECT nick, nota_4
+		FROM alunos
+		WHERE
+		nota_2 > 5.0 OR
+		nota_2 < 6.0;
+
+--24 Apresentar a média da aluna Josefina
+	SELECT ((nota_1 + nota_2 + nota_3 + nota_4) / 4)
+		FROM alunos
+		WHERE nome = 'Josefina'; --Pegadinha
+
+--25 Apresentar nome, nick, nota 1, nota 2, nota 3, nota 4, quando o nome conter Justino e o signo começar com
+--‘A’.
+	SELECT nome, nick, nota_1, nota_2, nota_3, nota_4
+		FROM alunos
+		WHERE
+		nome LIKE '%Justino%' AND
+		signo LIKE 'A%';
+
+--26 Apresentar a média das médias.
+	SELECT AVG(media)
+		FROM alunos;
+
+
+--27 - ano for 1996 - nota 1 - 9.9
+	UPDATE alunos SET nota_1 = 9.9
+		WHERE 
+		YEAR(data_nascimento) = 1996;
+
+--28 - nome começar com ‘Urbano’ - nota 2 - 1.3
+	UPDATE alunos SET nota_2 = 1.3
+		WHERE
+		nome LIKE 'Urbano%';
+
+--29 - número favorito for ímpar - número - random
+	UPDATE alunos SET numero_favorito = 'random'
+		WHERE 
+		(numero_favorito % 2) = 1;
+
+--30 - signo peixes - signo Áries
+--número favorito - 100
+--cor preferida - preto
+--nome - Marcela
+	UPDATE alunos SET signo = 'Áries',
+		numero_favorito = 100,
+		cor_preferida = 'preto',
+		nome = 'Marcela'
+		WHERE 
+		signo = 'Peixes';
+
+--31 - cor preferida for caqui - cor - preferida azul
+--nota 2 - 9.3
+	UPDATE alunos SET cor_preferida = 'azul',
+		nota_2 = 9.3
+		WHERE
+		cor_preferida = 'cáqui';
+
+--32 - cpf for ‘10194731189’ - cpf - 101.947.311-89
+	UPDATE alunos SET cpf = '101.947.311-89'
+		WHERE
+		cpf = '10194731189';
+
+--33 
+
+--34 - media for menor que 4 - todas as notas são 1
+	UPDATE alunos SET nota_1 = 1,
+		nota_2 = 1,
+		nota_3 = 1,
+		nota_4 = 1
+		WHERE
+		media < 4;
+
+--35 - nick for Fueusn - nick - Ninjutsu
+	UPDATE alunos SET nick = 'Fueusn'
+		WHERE 
+		nick = 'Ninjutsu';
+
+--36 nick for Saxiol - nick - Dobermann
+-- cor preferida - rosa
+	UPDATE alunos SET nick = 'Dobermann',
+		cor_preferida = 'rosa'
+		WHERE 
+		nick = 'Saxiol';
+
+--37 data de nascimento o dia for trinta e um - data nascimento - trocar o dia para 30
+	UPDATE alunos SET data_nascimento = DAY(1999-02-30)
+		WHERE
+		data_nascimento = DAY(1999-02-31);
+
+--38 cor preferida for roxo ou coral - cor preferida - roxo
+--nick - Roxolandia
+	UPDATE alunos SET cor_preferida = 'Roxo',
+		nick = 'Roxolandia'
+		WHERE
+		cor_preferida = 'roxo' OR 
+		cor_preferida = 'coral';
+
+--39 data de nascimento o mes for julho - data nascimento - mes junho
+-- ano pra 2018
+	UPDATE alunos SET data_nascimento = MONTH(06),
+		data_nascimento = YEAR(2018)
+		WHERE
+		MONTH(data_nascimento) = (07);
 		
-	--	UPDATE alunos SET aprovado = 1 WHERE media >= 7;
-	--	UPDATE alunos SET aprovado = 0 WHERE media < 5; 
-
---15
-	--SELECT nome, nota_1, nota_2, nota_3, nota_4
-	--	FROM alunos
-	--	WHERE media = (Select MIN(a.media) FROM alunos a);
-
---16
