@@ -7,6 +7,8 @@ namespace Entra21.BancoDados01.Ado.Net.Services
         void Cadastrar(TipoPersonagem tipoPersonagem);
         List<TipoPersonagem> ObterTodos();
         void Apagar(int id);
+        TipoPersonagem ObterPorId(int id);
+        void Editar(TipoPersonagem tipoPersonagem);
     }
 }
 //É uma interface
