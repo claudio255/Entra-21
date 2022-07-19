@@ -1,6 +1,6 @@
 ﻿namespace Entra21.BancoDados01.Ado.Net.Models
 {
-    internal class Editora
+    public class Editora
     {
         //O que é get set será apresentado posteriormente
         public int Id { get; set; }

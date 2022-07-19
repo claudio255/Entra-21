@@ -50,7 +50,8 @@ namespace Entra21.BancoDados01.Ado.Net.Services
 
             //Substituir os @ do update com os valores preenchidos pelo usuario
             comando.Parameters.AddWithValue("ID_TIPO_PERSONAGEM", personagem.TipoPersonagem.Id);
-            comando.Parameters.AddWithValue("ID_EDITORA", personagem.Nome);
+            comando.Parameters.AddWithValue("ID_EDITORA", personagem.Editora.Id);
+            comando.Parameters.AddWithValue("NOME", personagem.Nome);
             comando.Parameters.AddWithValue("ID", personagem.Id);
 
             //Executa o UPDATE na tabela de personagens
@@ -109,7 +110,7 @@ tp.tipo AS 'tipo_personagem_tipo',
 e.id AS 'editora_id',
 e.nome AS 'editora_nome'
 FROM personagens AS p
-INNER JOIN tipo_personagem AS tp ON(p.id_tipo_personagem = tp.id)
+INNER JOIN tipos_personagens AS tp ON(p.id_tipo_personagem = tp.id)
 INNER JOIN editoras AS e ON(p.id_editora = e.id)";
 
             //Criado tabela em memoria para armazenar os registros do SELECT
