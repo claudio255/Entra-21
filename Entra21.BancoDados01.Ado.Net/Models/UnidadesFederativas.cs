@@ -1,6 +1,6 @@
 ﻿namespace Entra21.BancoDados01.Ado.Net.Models
 {
-    internal class UnidadesFederativas
+    public class UnidadesFederativas
     {
         public int Id { get; set; }
 

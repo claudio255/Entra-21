@@ -1,5 +1,6 @@
 ﻿using Entra21.BancoDados01.Ado.Net.Views.Personagens;
 using Entra21.BancoDados01.Ado.Net.Views.TiposPersonagens;
+using Entra21.BancoDados01.Ado.Net.Views.UnidadeFederativas;
 
 namespace Entra21.BancoDados01.Ado.Net.Views
 {
@@ -20,6 +21,12 @@ namespace Entra21.BancoDados01.Ado.Net.Views
         {
             var tipoPersonagem = new TipoPersonagemListagemForm();
             tipoPersonagem.ShowDialog();
+        }
+
+        private void buttonUnidadeFederativa_Click(object sender, EventArgs e)
+        {
+            var unidadeFederativa = new UnidadesFederativasForm();
+            unidadeFederativa.ShowDialog();
         }
     }
 }

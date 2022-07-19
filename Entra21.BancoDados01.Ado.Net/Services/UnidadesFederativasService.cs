@@ -18,17 +18,56 @@ namespace Entra21.BancoDados01.Ado.Net.Services
 
         public void Cadastrar(UnidadesFederativas unidadesFederativas)
         {
-            throw new NotImplementedException();
+            var conexao = new Conexao().Conectar();
+            var comando = conexao.CreateCommand();
+            comando.CommandText = "INSERT INTO unidades_federativas(nome, sigla) VALUES(@NOME, @SIGLA);";
+
+            comando.Parameters.AddWithValue("@NOME", unidadesFederativas.Nome);
+            comando.Parameters.AddWithValue("@SIGLA", unidadesFederativas.Sigla);
+
+            comando.ExecuteNonQuery();
+
+            comando.Connection.Close();
         }
 
         public void Editar(UnidadesFederativas unidadesFederativas)
         {
-            throw new NotImplementedException();
+            var conexao = new Conexao().Conectar();
+            var comando = conexao.CreateCommand();
+            comando.CommandText = "UPDATE undiades_federativas SET nome = @NOME, sigla = @SIGLA";
+
+            comando.Parameters.AddWithValue("@NOME", unidadesFederativas.Nome);
+            comando.Parameters.AddWithValue("@SILGA", unidadesFederativas.Sigla);
+
+            comando.ExecuteNonQuery();
+
+            comando.Connection.Close();
         }
 
         public UnidadesFederativas ObterPorId(int id)
         {
-            throw new NotImplementedException();
+            var conexao = new Conexao().Conectar();
+            var comando = conexao.CreateCommand();
+            comando.CommandText = "SELECT id, nome, sigla FROM unidades_federativas WHERE id = @ID";
+
+            comando.Parameters.AddWithValue("@ID", id);
+
+            var dataTable = new DataTable();
+
+            dataTable.Load(comando.ExecuteReader());
+
+            if (dataTable.Rows.Count == 0)
+                return null;
+
+            var registro = dataTable.Rows[0];
+            var unidadesFederativas = new UnidadesFederativas();
+            unidadesFederativas.Id = Convert.ToInt32(registro[0]);
+            unidadesFederativas.Nome = registro["nome"].ToString();
+            unidadesFederativas.Sigla = registro["sigla"].ToString();
+
+            conexao.Close();
+
+            return unidadesFederativas;
         }
 
         public List<UnidadesFederativas> ObterTodos()

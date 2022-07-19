@@ -31,6 +31,8 @@
             this.buttonEditoras = new System.Windows.Forms.Button();
             this.buttonPersonagnes = new System.Windows.Forms.Button();
             this.buttonTipoPersonagens = new System.Windows.Forms.Button();
+            this.buttonUnidadeFederativa = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonEditoras
@@ -62,11 +64,32 @@
             this.buttonTipoPersonagens.UseVisualStyleBackColor = true;
             this.buttonTipoPersonagens.Click += new System.EventHandler(this.buttonTipoPersonagens_Click);
             // 
+            // buttonUnidadeFederativa
+            // 
+            this.buttonUnidadeFederativa.Location = new System.Drawing.Point(265, 222);
+            this.buttonUnidadeFederativa.Name = "buttonUnidadeFederativa";
+            this.buttonUnidadeFederativa.Size = new System.Drawing.Size(133, 157);
+            this.buttonUnidadeFederativa.TabIndex = 3;
+            this.buttonUnidadeFederativa.Text = "Unidades Federativas";
+            this.buttonUnidadeFederativa.UseVisualStyleBackColor = true;
+            this.buttonUnidadeFederativa.Click += new System.EventHandler(this.buttonUnidadeFederativa_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(56, 251);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // MenuPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(410, 191);
+            this.ClientSize = new System.Drawing.Size(410, 422);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonUnidadeFederativa);
             this.Controls.Add(this.buttonTipoPersonagens);
             this.Controls.Add(this.buttonPersonagnes);
             this.Controls.Add(this.buttonEditoras);
@@ -82,5 +105,7 @@
         private Button buttonEditoras;
         private Button buttonPersonagnes;
         private Button buttonTipoPersonagens;
+        private Button buttonUnidadeFederativa;
+        private Button button2;
     }
 }
