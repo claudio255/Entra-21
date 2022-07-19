@@ -5,16 +5,18 @@ namespace Entra21.BancoDados01.Ado.Net.Views.UnidadeFederativas
 {
     public partial class UnidadesFederativasCadastroEdicaoForm : Form
     {
-        private readonly int idEdicao = -1;
+        private readonly int _idParaEditar;
 
         public UnidadesFederativasCadastroEdicaoForm()
         {
             InitializeComponent();
+
+            _idParaEditar = -1;
         }
 
         public UnidadesFederativasCadastroEdicaoForm(UnidadesFederativas unidadeFederativa) : this()
         {
-            idEdicao = unidadeFederativa.Id;
+            _idParaEditar = unidadeFederativa.Id;
 
             textBoxNome.Text = unidadeFederativa.Nome;
             textBoxSigla.Text = unidadeFederativa.Sigla;
@@ -31,20 +33,25 @@ namespace Entra21.BancoDados01.Ado.Net.Views.UnidadeFederativas
 
             var unidadeFederativaService = new UnidadesFederativasService();
 
-            if(idEdicao == -1)
+            if (_idParaEditar == -1)
             {
+                unidadeFederativaService.Cadastrar(unidadeFederativa);
+
                 MessageBox.Show("Unidade Federativa cadastrada com sucesso!");
-
                 Close();
-
-                return;
             }
+            else
+            {
+                unidadeFederativa.Id = _idParaEditar;
+                unidadeFederativaService.Editar(unidadeFederativa);
 
-            unidadeFederativa.Id = idEdicao;
-            unidadeFederativaService.Editar(unidadeFederativa);
+                MessageBox.Show("Unidade federativa alterada com sucesso");
+                Close();
+            }
+        }
 
-            MessageBox.Show("Unidade federativa alterada com sucesso");
-
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
             Close();
         }
     }

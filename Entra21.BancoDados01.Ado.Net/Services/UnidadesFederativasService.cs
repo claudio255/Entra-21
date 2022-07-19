@@ -34,10 +34,11 @@ namespace Entra21.BancoDados01.Ado.Net.Services
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = "UPDATE undiades_federativas SET nome = @NOME, sigla = @SIGLA";
+            comando.CommandText = "UPDATE unidades_federativas SET nome = @NOME, sigla = @SIGLA WHERE id = @ID";
 
             comando.Parameters.AddWithValue("@NOME", unidadesFederativas.Nome);
-            comando.Parameters.AddWithValue("@SILGA", unidadesFederativas.Sigla);
+            comando.Parameters.AddWithValue("@SIGLA", unidadesFederativas.Sigla);
+            comando.Parameters.AddWithValue("@ID", unidadesFederativas.Id);
 
             comando.ExecuteNonQuery();
 

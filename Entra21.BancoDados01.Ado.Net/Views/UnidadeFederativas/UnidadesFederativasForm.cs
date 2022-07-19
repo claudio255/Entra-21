@@ -4,34 +4,38 @@ namespace Entra21.BancoDados01.Ado.Net.Views.UnidadeFederativas
 {
     public partial class UnidadesFederativasForm : Form
     {
-        private UnidadesFederativasService unidadesFederativasService;
+        private readonly UnidadesFederativasService _unidadesFederativasService;
 
         public UnidadesFederativasForm()
         {
             InitializeComponent();
 
-            unidadesFederativasService = new UnidadesFederativasService();
-        }
+            _unidadesFederativasService = new UnidadesFederativasService();
 
-        private void UnidadesFederativasForm_Load(object sender, EventArgs e)
-        {
-            AtualizarRegistroNoDataGridView();
+            PreencherDataGridViewComUnidadesFederativas();
         }
 
         private void buttonApagar_Click(object sender, EventArgs e)
         {
-            var id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+            if(dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selecione um registro!");
+                return;
+            }
 
-            unidadesFederativasService.Apagar(id);
+            var linhaSelecionada = dataGridView1.SelectedRows[0];
+            var id = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
 
-            AtualizarRegistroNoDataGridView();
+            _unidadesFederativasService.Apagar(id);
+
+            PreencherDataGridViewComUnidadesFederativas();
 
             MessageBox.Show("Registro apagado com sucesso!");
         }
 
-        private void AtualizarRegistroNoDataGridView()
+        private void PreencherDataGridViewComUnidadesFederativas()
         {
-            var unidadesFederativas = unidadesFederativasService.ObterTodos();
+            var unidadesFederativas = _unidadesFederativasService.ObterTodos();
 
             dataGridView1.Rows.Clear();
 
@@ -51,34 +55,27 @@ namespace Entra21.BancoDados01.Ado.Net.Views.UnidadeFederativas
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
             var unidadesFederativasCadastroEdicaoForm = new UnidadesFederativasCadastroEdicaoForm();
-
             unidadesFederativasCadastroEdicaoForm.ShowDialog();
 
-            AtualizarRegistroNoDataGridView();
+            PreencherDataGridViewComUnidadesFederativas();
         }
 
         private void buttonEditar_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.Rows.Count == 0)
-            {
-                MessageBox.Show("Cadastre algum tipo de personagem!");
-                return;
-            }
-
             if(dataGridView1.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Selecione algum registro!");
+                MessageBox.Show("Selecione um registro!");
                 return;
             }
+            
 
             var linhaSelecionada = dataGridView1.SelectedRows[0];
             var id = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
-            var unidadeFederativa = unidadesFederativasService.ObterPorId(id);
+            var unidadeFederativa = _unidadesFederativasService.ObterPorId(id);
             var unidadeFederativaCadastroEdicaoForm = new UnidadesFederativasCadastroEdicaoForm(unidadeFederativa);
-
             unidadeFederativaCadastroEdicaoForm.ShowDialog();
 
-            AtualizarRegistroNoDataGridView();
+            PreencherDataGridViewComUnidadesFederativas();
         }
     }
 }

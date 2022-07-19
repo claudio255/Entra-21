@@ -1,4 +1,5 @@
-﻿using Entra21.BancoDados01.Ado.Net.Views.Personagens;
+﻿using Entra21.BancoDados01.Ado.Net.Views.Cidades;
+using Entra21.BancoDados01.Ado.Net.Views.Personagens;
 using Entra21.BancoDados01.Ado.Net.Views.TiposPersonagens;
 using Entra21.BancoDados01.Ado.Net.Views.UnidadeFederativas;
 
@@ -27,6 +28,12 @@ namespace Entra21.BancoDados01.Ado.Net.Views
         {
             var unidadeFederativa = new UnidadesFederativasForm();
             unidadeFederativa.ShowDialog();
+        }
+
+        private void buttonCidades_Click(object sender, EventArgs e)
+        {
+            var cidade = new CidadeListagemForm();
+            cidade.ShowDialog();
         }
     }
 }

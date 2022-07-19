@@ -11,6 +11,8 @@ CREATE TABLE cidades(
 	quantidade_habitantes INTEGER,
 	data_hora_fundacao DATETIME2,
 	pib DECIMAL(15,2)
+
+	FOREIGN KEY(id_unidade_federativa) REFERENCES unidades_federativas(id)
 	);
 
 	CREATE TABLE tipos_personagens(

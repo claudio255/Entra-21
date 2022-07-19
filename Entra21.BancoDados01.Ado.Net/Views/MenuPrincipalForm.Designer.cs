@@ -32,7 +32,7 @@
             this.buttonPersonagnes = new System.Windows.Forms.Button();
             this.buttonTipoPersonagens = new System.Windows.Forms.Button();
             this.buttonUnidadeFederativa = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonCidades = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonEditoras
@@ -66,7 +66,7 @@
             // 
             // buttonUnidadeFederativa
             // 
-            this.buttonUnidadeFederativa.Location = new System.Drawing.Point(265, 222);
+            this.buttonUnidadeFederativa.Location = new System.Drawing.Point(222, 194);
             this.buttonUnidadeFederativa.Name = "buttonUnidadeFederativa";
             this.buttonUnidadeFederativa.Size = new System.Drawing.Size(133, 157);
             this.buttonUnidadeFederativa.TabIndex = 3;
@@ -74,21 +74,22 @@
             this.buttonUnidadeFederativa.UseVisualStyleBackColor = true;
             this.buttonUnidadeFederativa.Click += new System.EventHandler(this.buttonUnidadeFederativa_Click);
             // 
-            // button2
+            // buttonCidades
             // 
-            this.button2.Location = new System.Drawing.Point(56, 251);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonCidades.Location = new System.Drawing.Point(60, 194);
+            this.buttonCidades.Name = "buttonCidades";
+            this.buttonCidades.Size = new System.Drawing.Size(140, 157);
+            this.buttonCidades.TabIndex = 4;
+            this.buttonCidades.Text = "Cidades";
+            this.buttonCidades.UseVisualStyleBackColor = true;
+            this.buttonCidades.Click += new System.EventHandler(this.buttonCidades_Click);
             // 
             // MenuPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(410, 422);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(410, 364);
+            this.Controls.Add(this.buttonCidades);
             this.Controls.Add(this.buttonUnidadeFederativa);
             this.Controls.Add(this.buttonTipoPersonagens);
             this.Controls.Add(this.buttonPersonagnes);
@@ -106,6 +107,6 @@
         private Button buttonPersonagnes;
         private Button buttonTipoPersonagens;
         private Button buttonUnidadeFederativa;
-        private Button button2;
+        private Button buttonCidades;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Entra21.BancoDados01.Ado.Net.Models
 {
-    internal class Cidades
+    public class Cidade
     {
         public int Id { get; set; }
 

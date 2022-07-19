@@ -1,6 +1,6 @@
-﻿namespace Entra21.BancoDados01.Ado.Net.Views.UnidadeFederativas
+﻿namespace Entra21.BancoDados01.Ado.Net.Views.Cidades
 {
-    partial class UnidadesFederativasForm
+    partial class CidadeListagemForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,13 +34,16 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSigla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUnidadeFederativa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnQuantidadeHabitantes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDataHoraFundacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPib = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonCadastrar
             // 
-            this.buttonCadastrar.Location = new System.Drawing.Point(193, 23);
+            this.buttonCadastrar.Location = new System.Drawing.Point(601, 48);
             this.buttonCadastrar.Name = "buttonCadastrar";
             this.buttonCadastrar.Size = new System.Drawing.Size(75, 23);
             this.buttonCadastrar.TabIndex = 0;
@@ -50,23 +53,21 @@
             // 
             // buttonEditar
             // 
-            this.buttonEditar.Location = new System.Drawing.Point(112, 23);
+            this.buttonEditar.Location = new System.Drawing.Point(520, 48);
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(75, 23);
             this.buttonEditar.TabIndex = 1;
             this.buttonEditar.Text = "Editar";
             this.buttonEditar.UseVisualStyleBackColor = true;
-            this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
             // buttonApagar
             // 
-            this.buttonApagar.Location = new System.Drawing.Point(31, 23);
+            this.buttonApagar.Location = new System.Drawing.Point(439, 48);
             this.buttonApagar.Name = "buttonApagar";
             this.buttonApagar.Size = new System.Drawing.Size(75, 23);
-            this.buttonApagar.TabIndex = 6;
+            this.buttonApagar.TabIndex = 2;
             this.buttonApagar.Text = "Apagar";
             this.buttonApagar.UseVisualStyleBackColor = true;
-            this.buttonApagar.Click += new System.EventHandler(this.buttonApagar_Click);
             // 
             // dataGridView1
             // 
@@ -76,13 +77,16 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnId,
             this.ColumnNome,
-            this.ColumnSigla});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 52);
+            this.ColumnUnidadeFederativa,
+            this.ColumnQuantidadeHabitantes,
+            this.ColumnDataHoraFundacao,
+            this.ColumnPib});
+            this.dataGridView1.Location = new System.Drawing.Point(38, 77);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(345, 386);
-            this.dataGridView1.TabIndex = 7;
+            this.dataGridView1.Size = new System.Drawing.Size(646, 361);
+            this.dataGridView1.TabIndex = 3;
             // 
             // ColumnId
             // 
@@ -96,24 +100,42 @@
             this.ColumnNome.Name = "ColumnNome";
             this.ColumnNome.ReadOnly = true;
             // 
-            // ColumnSigla
+            // ColumnUnidadeFederativa
             // 
-            this.ColumnSigla.HeaderText = "Sigla";
-            this.ColumnSigla.Name = "ColumnSigla";
-            this.ColumnSigla.ReadOnly = true;
+            this.ColumnUnidadeFederativa.HeaderText = "Unidade Federativa";
+            this.ColumnUnidadeFederativa.Name = "ColumnUnidadeFederativa";
+            this.ColumnUnidadeFederativa.ReadOnly = true;
             // 
-            // UnidadesFederativasForm
+            // ColumnQuantidadeHabitantes
+            // 
+            this.ColumnQuantidadeHabitantes.HeaderText = "Quantidade de Habitantes";
+            this.ColumnQuantidadeHabitantes.Name = "ColumnQuantidadeHabitantes";
+            this.ColumnQuantidadeHabitantes.ReadOnly = true;
+            // 
+            // ColumnDataHoraFundacao
+            // 
+            this.ColumnDataHoraFundacao.HeaderText = "Data e Hora da Fundação";
+            this.ColumnDataHoraFundacao.Name = "ColumnDataHoraFundacao";
+            this.ColumnDataHoraFundacao.ReadOnly = true;
+            // 
+            // ColumnPib
+            // 
+            this.ColumnPib.HeaderText = "PIB";
+            this.ColumnPib.Name = "ColumnPib";
+            this.ColumnPib.ReadOnly = true;
+            // 
+            // CidadeListagemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(363, 450);
+            this.ClientSize = new System.Drawing.Size(695, 450);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonApagar);
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonCadastrar);
-            this.Name = "UnidadesFederativasForm";
+            this.Name = "CidadeListagemForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UnidadesFederativasForm";
+            this.Text = "Listagem de Cidades";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -127,6 +149,9 @@
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn ColumnId;
         private DataGridViewTextBoxColumn ColumnNome;
-        private DataGridViewTextBoxColumn ColumnSigla;
+        private DataGridViewTextBoxColumn ColumnUnidadeFederativa;
+        private DataGridViewTextBoxColumn ColumnQuantidadeHabitantes;
+        private DataGridViewTextBoxColumn ColumnDataHoraFundacao;
+        private DataGridViewTextBoxColumn ColumnPib;
     }
 }
