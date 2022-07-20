@@ -130,6 +130,7 @@
             // 
             // comboBoxUnidadesFederativas
             // 
+            this.comboBoxUnidadesFederativas.DisplayMember = "Nome";
             this.comboBoxUnidadesFederativas.FormattingEnabled = true;
             this.comboBoxUnidadesFederativas.Location = new System.Drawing.Point(12, 27);
             this.comboBoxUnidadesFederativas.Name = "comboBoxUnidadesFederativas";
@@ -139,9 +140,11 @@
             // maskedTextBoxDataHoraFundacao
             // 
             this.maskedTextBoxDataHoraFundacao.Location = new System.Drawing.Point(12, 162);
+            this.maskedTextBoxDataHoraFundacao.Mask = "00/00/0000 00:00";
             this.maskedTextBoxDataHoraFundacao.Name = "maskedTextBoxDataHoraFundacao";
             this.maskedTextBoxDataHoraFundacao.Size = new System.Drawing.Size(217, 23);
             this.maskedTextBoxDataHoraFundacao.TabIndex = 12;
+            this.maskedTextBoxDataHoraFundacao.ValidatingType = typeof(System.DateTime);
             // 
             // CidadeCadastroEdicaoForm
             // 

@@ -69,7 +69,7 @@ namespace Entra21.BancoDados01.Ado.Net.Views.Cidades
             var unidadeFederativa = comboBoxUnidadesFederativas.SelectedItem as UnidadesFederativas;
             var cidade = new Cidade();
             cidade.Nome = nome;
-            cidade.QuantidadeHabitantes = Convert.ToInt32(quantidadeHabitantes.Trim());
+            cidade.QuantidadeHabitantes = Convert.ToInt32(quantidadeHabitantes);
             cidade.DataHoraFundacao = Convert.ToDateTime(dataHoraFundacao);
             cidade.Pib = Convert.ToDouble(pib.Trim());
             cidade.UnidadesFederativas = unidadeFederativa;

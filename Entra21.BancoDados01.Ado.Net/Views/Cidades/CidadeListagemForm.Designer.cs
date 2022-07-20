@@ -35,9 +35,10 @@
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnUnidadeFederativa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnQuantidadeHabitantes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDataHoraFundacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnHabitantes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDataFundacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPib = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSiglaUnidadeFederativa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,6 +60,7 @@
             this.buttonEditar.TabIndex = 1;
             this.buttonEditar.Text = "Editar";
             this.buttonEditar.UseVisualStyleBackColor = true;
+            this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
             // buttonApagar
             // 
@@ -68,6 +70,7 @@
             this.buttonApagar.TabIndex = 2;
             this.buttonApagar.Text = "Apagar";
             this.buttonApagar.UseVisualStyleBackColor = true;
+            this.buttonApagar.Click += new System.EventHandler(this.buttonApagar_Click);
             // 
             // dataGridView1
             // 
@@ -78,9 +81,10 @@
             this.ColumnId,
             this.ColumnNome,
             this.ColumnUnidadeFederativa,
-            this.ColumnQuantidadeHabitantes,
-            this.ColumnDataHoraFundacao,
-            this.ColumnPib});
+            this.ColumnHabitantes,
+            this.ColumnDataFundacao,
+            this.ColumnPib,
+            this.ColumnSiglaUnidadeFederativa});
             this.dataGridView1.Location = new System.Drawing.Point(38, 77);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -106,23 +110,29 @@
             this.ColumnUnidadeFederativa.Name = "ColumnUnidadeFederativa";
             this.ColumnUnidadeFederativa.ReadOnly = true;
             // 
-            // ColumnQuantidadeHabitantes
+            // ColumnHabitantes
             // 
-            this.ColumnQuantidadeHabitantes.HeaderText = "Quantidade de Habitantes";
-            this.ColumnQuantidadeHabitantes.Name = "ColumnQuantidadeHabitantes";
-            this.ColumnQuantidadeHabitantes.ReadOnly = true;
+            this.ColumnHabitantes.HeaderText = "Quantidade de Habitantes";
+            this.ColumnHabitantes.Name = "ColumnHabitantes";
+            this.ColumnHabitantes.ReadOnly = true;
             // 
-            // ColumnDataHoraFundacao
+            // ColumnDataFundacao
             // 
-            this.ColumnDataHoraFundacao.HeaderText = "Data e Hora da Fundação";
-            this.ColumnDataHoraFundacao.Name = "ColumnDataHoraFundacao";
-            this.ColumnDataHoraFundacao.ReadOnly = true;
+            this.ColumnDataFundacao.HeaderText = "Data e Hora da Fundação";
+            this.ColumnDataFundacao.Name = "ColumnDataFundacao";
+            this.ColumnDataFundacao.ReadOnly = true;
             // 
             // ColumnPib
             // 
             this.ColumnPib.HeaderText = "PIB";
             this.ColumnPib.Name = "ColumnPib";
             this.ColumnPib.ReadOnly = true;
+            // 
+            // ColumnSiglaUnidadeFederativa
+            // 
+            this.ColumnSiglaUnidadeFederativa.HeaderText = "Sigla";
+            this.ColumnSiglaUnidadeFederativa.Name = "ColumnSiglaUnidadeFederativa";
+            this.ColumnSiglaUnidadeFederativa.ReadOnly = true;
             // 
             // CidadeListagemForm
             // 
@@ -150,8 +160,9 @@
         private DataGridViewTextBoxColumn ColumnId;
         private DataGridViewTextBoxColumn ColumnNome;
         private DataGridViewTextBoxColumn ColumnUnidadeFederativa;
-        private DataGridViewTextBoxColumn ColumnQuantidadeHabitantes;
-        private DataGridViewTextBoxColumn ColumnDataHoraFundacao;
+        private DataGridViewTextBoxColumn ColumnHabitantes;
+        private DataGridViewTextBoxColumn ColumnDataFundacao;
         private DataGridViewTextBoxColumn ColumnPib;
+        private DataGridViewTextBoxColumn ColumnSiglaUnidadeFederativa;
     }
 }

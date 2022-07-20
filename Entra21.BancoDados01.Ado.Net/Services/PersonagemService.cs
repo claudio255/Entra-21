@@ -102,7 +102,7 @@ namespace Entra21.BancoDados01.Ado.Net.Services
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"SELECT
+            comando.CommandText = @"SELECT 
 p.id AS 'id',
 p.nome AS 'nome',
 tp.id AS 'tipo_personagem_id',

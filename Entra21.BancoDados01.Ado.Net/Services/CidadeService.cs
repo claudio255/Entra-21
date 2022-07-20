@@ -23,10 +23,10 @@ namespace Entra21.BancoDados01.Ado.Net.Services
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"INSERT INTO cidades(id_unidades_federativas, nome, quantidade_habitantes,
-data_hora_fundacao, pib) VALUES (@ID_UNIDADES_FEDERATIVAS, @NOME, @QUANTIDADE_HABITANTES, @DATA_HORA_FUNDACAO, @PIB);";
+            comando.CommandText = @"INSERT INTO cidades(id_unidade_federativa, nome, quantidade_habitantes,
+data_hora_fundacao, pib) VALUES (@ID_UNIDADE_FEDERATIVA, @NOME, @QUANTIDADE_HABITANTES, @DATA_HORA_FUNDACAO, @PIB);";
 
-            comando.Parameters.AddWithValue("@ID_UNIDADES_FEDERATIVAS", cidades.UnidadesFederativas.Id);
+            comando.Parameters.AddWithValue("@ID_UNIDADE_FEDERATIVA", cidades.UnidadesFederativas.Id);
             comando.Parameters.AddWithValue("@NOME", cidades.Nome);
             comando.Parameters.AddWithValue("@QUANTIDADE_HABITANTES", cidades.QuantidadeHabitantes);
             comando.Parameters.AddWithValue("@DATA_HORA_FUNDACAO", cidades.DataHoraFundacao);
@@ -95,8 +95,8 @@ WHERE id = @ID";
             comando.CommandText = @"SELECT
 c.id AS 'id',
 c.nome AS 'nome',
-c.quantidadeHabitantes AS 'quantidade_habitantes',
-c.dataHoraFundacao AS 'data_hora_fundacao',
+c.quantidade_habitantes AS 'quantidade_habitantes',
+c.data_hora_fundacao AS 'data_hora_fundacao',
 c.pib AS 'pib',
 uf.id AS 'unidade_federativa_id',
 uf.nome AS 'unidade_federativa_nome',
@@ -116,13 +116,13 @@ INNER JOIN unidades_federativas AS uf ON(c.id_unidade_federativa = uf.id)";
                 var cidade = new Cidade();
                 cidade.Id = Convert.ToInt32(registro["id"]);
                 cidade.Nome = registro["nome"].ToString();
+                cidade.UnidadesFederativas = new UnidadesFederativas();
+                cidade.UnidadesFederativas.Id = Convert.ToInt32(registro["unidade_federativa_id"]);
+                cidade.UnidadesFederativas.Nome = registro["unidade_federativa_nome"].ToString();
                 cidade.QuantidadeHabitantes = Convert.ToInt32(registro["quantidade_habitantes"]);
                 cidade.DataHoraFundacao = Convert.ToDateTime(registro["data_hora_fundacao"]);
                 cidade.Pib = Convert.ToDouble(registro["pib"]);
 
-                cidade.UnidadesFederativas = new UnidadesFederativas();
-                cidade.UnidadesFederativas.Id = Convert.ToInt32(registro["unidade_federativa_id"]);
-                cidade.UnidadesFederativas.Nome = registro["unidade_federativa_nome"].ToString();
                 cidade.UnidadesFederativas.Sigla = registro["unidade_federativa_sigla"].ToString();
 
                 cidades.Add(cidade);

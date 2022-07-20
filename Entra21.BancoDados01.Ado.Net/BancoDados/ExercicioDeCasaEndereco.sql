@@ -39,3 +39,4 @@ CREATE TABLE personagens(
 
 	SELECT * FROM unidades_federativas;
 	SELECT * FROM cidades;
+	SELECT * From personagens;
