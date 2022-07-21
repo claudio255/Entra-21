@@ -41,13 +41,13 @@ data_hora_fundacao, pib) VALUES (@ID_UNIDADE_FEDERATIVA, @NOME, @QUANTIDADE_HABI
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"UPDATE cidades SET id_unidades_federativas = @ID_UNIDADES_FEDERATIVAS,
+            comando.CommandText = @"UPDATE cidades SET id_unidade_federativa = @ID_UNIDADE_FEDERATIVA,
 nome = @NOME, 
 quantidade_habitantes = @QUANTIDADE_HABITANTES,
 data_hora_fundacao = @DATA_HORA_FUNDACAO,
 pib = @PIB
 WHERE id = @ID";
-            comando.Parameters.AddWithValue("@ID_UNIDADES_FEDERATIVAS", cidades.UnidadesFederativas.Id);
+            comando.Parameters.AddWithValue("@ID_UNIDADE_FEDERATIVA", cidades.UnidadesFederativas.Id);
             comando.Parameters.AddWithValue("@NOME", cidades.Nome);
             comando.Parameters.AddWithValue("@QUANTIDADE_HABITANTES", cidades.QuantidadeHabitantes);
             comando.Parameters.AddWithValue("@DATA_HORA_FUNDACAO", cidades.DataHoraFundacao);
@@ -64,7 +64,7 @@ WHERE id = @ID";
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
             comando.CommandText = @"SELECT id, id_unidade_federativa, nome, quantidade_habitantes, 
-                data_hora_fundacao, pib WHERE id = @ID";
+                data_hora_fundacao, pib FROM cidades WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
 
             var dataTable = new DataTable();
@@ -77,7 +77,7 @@ WHERE id = @ID";
             var cidade = new Cidade();
             cidade.Id = Convert.ToInt32(registro[0]);
             cidade.UnidadesFederativas = new UnidadesFederativas();
-            cidade.UnidadesFederativas.Id = Convert.ToInt32(registro["id_unidades_federativas"]);
+            cidade.UnidadesFederativas.Id = Convert.ToInt32(registro["id_unidade_federativa"]);
             cidade.Nome = registro["nome"].ToString();
             cidade.QuantidadeHabitantes = Convert.ToInt32(registro["quantidade_habitantes"]);
             cidade.DataHoraFundacao = Convert.ToDateTime(registro["data_hora_fundacao"]);

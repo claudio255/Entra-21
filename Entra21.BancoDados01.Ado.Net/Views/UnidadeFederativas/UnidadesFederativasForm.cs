@@ -23,6 +23,13 @@ namespace Entra21.BancoDados01.Ado.Net.Views.UnidadeFederativas
                 return;
             }
 
+            var respostaUsuario = MessageBox.Show("Deseja realmente apagar esse registro?", "Aviso", MessageBoxButtons.YesNo);
+            if(respostaUsuario != DialogResult.Yes)
+            {
+                MessageBox.Show("O registro não foi apagado! Relaxa pow!!");
+                return;
+            }
+
             var linhaSelecionada = dataGridView1.SelectedRows[0];
             var id = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
 

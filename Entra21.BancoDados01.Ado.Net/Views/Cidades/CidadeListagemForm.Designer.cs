@@ -35,16 +35,16 @@
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnUnidadeFederativa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnHabitantes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDataFundacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSigla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnQuantidadeHabitantes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDataHoraFundacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPib = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSiglaUnidadeFederativa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonCadastrar
             // 
-            this.buttonCadastrar.Location = new System.Drawing.Point(601, 48);
+            this.buttonCadastrar.Location = new System.Drawing.Point(704, 48);
             this.buttonCadastrar.Name = "buttonCadastrar";
             this.buttonCadastrar.Size = new System.Drawing.Size(75, 23);
             this.buttonCadastrar.TabIndex = 0;
@@ -54,7 +54,7 @@
             // 
             // buttonEditar
             // 
-            this.buttonEditar.Location = new System.Drawing.Point(520, 48);
+            this.buttonEditar.Location = new System.Drawing.Point(623, 48);
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(75, 23);
             this.buttonEditar.TabIndex = 1;
@@ -64,7 +64,7 @@
             // 
             // buttonApagar
             // 
-            this.buttonApagar.Location = new System.Drawing.Point(439, 48);
+            this.buttonApagar.Location = new System.Drawing.Point(542, 48);
             this.buttonApagar.Name = "buttonApagar";
             this.buttonApagar.Size = new System.Drawing.Size(75, 23);
             this.buttonApagar.TabIndex = 2;
@@ -81,15 +81,16 @@
             this.ColumnId,
             this.ColumnNome,
             this.ColumnUnidadeFederativa,
-            this.ColumnHabitantes,
-            this.ColumnDataFundacao,
-            this.ColumnPib,
-            this.ColumnSiglaUnidadeFederativa});
-            this.dataGridView1.Location = new System.Drawing.Point(38, 77);
+            this.ColumnSigla,
+            this.ColumnQuantidadeHabitantes,
+            this.ColumnDataHoraFundacao,
+            this.ColumnPib});
+            this.dataGridView1.Location = new System.Drawing.Point(12, 77);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(646, 361);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(769, 361);
             this.dataGridView1.TabIndex = 3;
             // 
             // ColumnId
@@ -97,48 +98,54 @@
             this.ColumnId.HeaderText = "Id";
             this.ColumnId.Name = "ColumnId";
             this.ColumnId.ReadOnly = true;
+            this.ColumnId.Width = 50;
             // 
             // ColumnNome
             // 
             this.ColumnNome.HeaderText = "Nome";
             this.ColumnNome.Name = "ColumnNome";
             this.ColumnNome.ReadOnly = true;
+            this.ColumnNome.Width = 140;
             // 
             // ColumnUnidadeFederativa
             // 
             this.ColumnUnidadeFederativa.HeaderText = "Unidade Federativa";
             this.ColumnUnidadeFederativa.Name = "ColumnUnidadeFederativa";
             this.ColumnUnidadeFederativa.ReadOnly = true;
+            this.ColumnUnidadeFederativa.Width = 130;
             // 
-            // ColumnHabitantes
+            // ColumnSigla
             // 
-            this.ColumnHabitantes.HeaderText = "Quantidade de Habitantes";
-            this.ColumnHabitantes.Name = "ColumnHabitantes";
-            this.ColumnHabitantes.ReadOnly = true;
+            this.ColumnSigla.HeaderText = "Sigla";
+            this.ColumnSigla.Name = "ColumnSigla";
+            this.ColumnSigla.ReadOnly = true;
+            this.ColumnSigla.Width = 50;
             // 
-            // ColumnDataFundacao
+            // ColumnQuantidadeHabitantes
             // 
-            this.ColumnDataFundacao.HeaderText = "Data e Hora da Fundação";
-            this.ColumnDataFundacao.Name = "ColumnDataFundacao";
-            this.ColumnDataFundacao.ReadOnly = true;
+            this.ColumnQuantidadeHabitantes.HeaderText = "Quantidade de Habitantes";
+            this.ColumnQuantidadeHabitantes.Name = "ColumnQuantidadeHabitantes";
+            this.ColumnQuantidadeHabitantes.ReadOnly = true;
+            // 
+            // ColumnDataHoraFundacao
+            // 
+            this.ColumnDataHoraFundacao.HeaderText = "Data/Hora Fundação";
+            this.ColumnDataHoraFundacao.Name = "ColumnDataHoraFundacao";
+            this.ColumnDataHoraFundacao.ReadOnly = true;
+            this.ColumnDataHoraFundacao.Width = 125;
             // 
             // ColumnPib
             // 
             this.ColumnPib.HeaderText = "PIB";
             this.ColumnPib.Name = "ColumnPib";
             this.ColumnPib.ReadOnly = true;
-            // 
-            // ColumnSiglaUnidadeFederativa
-            // 
-            this.ColumnSiglaUnidadeFederativa.HeaderText = "Sigla";
-            this.ColumnSiglaUnidadeFederativa.Name = "ColumnSiglaUnidadeFederativa";
-            this.ColumnSiglaUnidadeFederativa.ReadOnly = true;
+            this.ColumnPib.Width = 130;
             // 
             // CidadeListagemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(695, 450);
+            this.ClientSize = new System.Drawing.Size(788, 450);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonApagar);
             this.Controls.Add(this.buttonEditar);
@@ -160,9 +167,9 @@
         private DataGridViewTextBoxColumn ColumnId;
         private DataGridViewTextBoxColumn ColumnNome;
         private DataGridViewTextBoxColumn ColumnUnidadeFederativa;
-        private DataGridViewTextBoxColumn ColumnHabitantes;
-        private DataGridViewTextBoxColumn ColumnDataFundacao;
+        private DataGridViewTextBoxColumn ColumnSigla;
+        private DataGridViewTextBoxColumn ColumnQuantidadeHabitantes;
+        private DataGridViewTextBoxColumn ColumnDataHoraFundacao;
         private DataGridViewTextBoxColumn ColumnPib;
-        private DataGridViewTextBoxColumn ColumnSiglaUnidadeFederativa;
     }
 }

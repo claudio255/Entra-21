@@ -22,14 +22,14 @@ namespace Entra21.BancoDados01.Ado.Net.Views.Cidades
 
             textBoxNome.Text = cidade.Nome;
             textBoxQuantidadeHabitantes.Text = cidade.QuantidadeHabitantes.ToString();
-            maskedTextBoxDataHoraFundacao.Text = cidade.DataHoraFundacao.ToString();
-            textBoxPib.Text = cidade.Pib.ToString(); 
+            dateTimePickerDataHoraFundacao.Text = cidade.DataHoraFundacao.ToString();
+            textBoxPib.Text = cidade.Pib.ToString();
 
-            for(int i = 0; i < comboBoxUnidadesFederativas.Items.Count; i++)
+            for (int i = 0; i < comboBoxUnidadesFederativas.Items.Count; i++)
             {
                 var unidadeFederativaPercorrida = comboBoxUnidadesFederativas.Items[i] as UnidadesFederativas;
 
-                if(unidadeFederativaPercorrida.Id == cidade.UnidadesFederativas.Id)
+                if (unidadeFederativaPercorrida.Id == cidade.UnidadesFederativas.Id)
                 {
                     comboBoxUnidadesFederativas.SelectedItem = unidadeFederativaPercorrida;
                     break;
@@ -42,7 +42,7 @@ namespace Entra21.BancoDados01.Ado.Net.Views.Cidades
             var unidadeFederativaService = new UnidadesFederativasService();
             var unidadesFederativas = unidadeFederativaService.ObterTodos();
 
-            for(int i = 0; i < unidadesFederativas.Count; i++)
+            for (int i = 0; i < unidadesFederativas.Count; i++)
             {
                 var unidadeFederativa = unidadesFederativas[i];
                 comboBoxUnidadesFederativas.Items.Add(unidadeFederativa);
@@ -56,27 +56,43 @@ namespace Entra21.BancoDados01.Ado.Net.Views.Cidades
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
-            if(comboBoxUnidadesFederativas.SelectedIndex == -1)
+            var nome = textBoxNome.Text.Trim();
+            var quantidadeHabitantes = textBoxQuantidadeHabitantes.Text.Trim();
+            var dataHoraFundacao = dateTimePickerDataHoraFundacao.Text;
+            var pib = Convert.ToDouble(textBoxPib.Text.Trim());
+            var unidadeFederativa = comboBoxUnidadesFederativas.SelectedItem as UnidadesFederativas;
+
+            if (comboBoxUnidadesFederativas.SelectedIndex == -1)
             {
                 MessageBox.Show("Selecione uma Unidade Federativa!");
                 return;
             }
+            if ((textBoxNome.Text.Length < 5) || (textBoxNome.Text.Length > 150))
+            {
+                MessageBox.Show("O nome digitado deve conter no minímo 5 caracteres e no máximo 150");
+                return;
+            }
+            if((textBoxQuantidadeHabitantes.Text.Length <= 3) || (textBoxQuantidadeHabitantes.Text.Length > 50000000))
+            {
+                MessageBox.Show("A quantidade de habitantes deve conter um numero valido!");
+                return;
+            }
+            if((textBoxPib.Text.Length <= 5) || (textBoxPib.Text.Length > 2000000000))
+            {
+                MessageBox.Show("O PIB não pode ser inferior que 100 mil ou superior à 2 trilhões!");
+                return;
+            }
 
-            var nome = textBoxNome.Text.Trim();
-            var quantidadeHabitantes = textBoxQuantidadeHabitantes.Text.Trim();
-            var dataHoraFundacao = maskedTextBoxDataHoraFundacao.Text;
-            var pib = textBoxPib.Text.Trim();
-            var unidadeFederativa = comboBoxUnidadesFederativas.SelectedItem as UnidadesFederativas;
             var cidade = new Cidade();
             cidade.Nome = nome;
             cidade.QuantidadeHabitantes = Convert.ToInt32(quantidadeHabitantes);
             cidade.DataHoraFundacao = Convert.ToDateTime(dataHoraFundacao);
-            cidade.Pib = Convert.ToDouble(pib.Trim());
+            cidade.Pib = Convert.ToDouble(pib);
             cidade.UnidadesFederativas = unidadeFederativa;
 
             var cidadeService = new CidadeService();
 
-            if(_idParaEditar == -1)
+            if (_idParaEditar == -1)
             {
                 cidadeService.Cadastrar(cidade);
 
@@ -93,3 +109,4 @@ namespace Entra21.BancoDados01.Ado.Net.Views.Cidades
         }
     }
 }
+

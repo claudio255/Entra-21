@@ -39,7 +39,7 @@
             this.textBoxQuantidadeHabitantes = new System.Windows.Forms.TextBox();
             this.textBoxPib = new System.Windows.Forms.TextBox();
             this.comboBoxUnidadesFederativas = new System.Windows.Forms.ComboBox();
-            this.maskedTextBoxDataHoraFundacao = new System.Windows.Forms.MaskedTextBox();
+            this.dateTimePickerDataHoraFundacao = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // buttonSalvar
@@ -137,21 +137,20 @@
             this.comboBoxUnidadesFederativas.Size = new System.Drawing.Size(217, 23);
             this.comboBoxUnidadesFederativas.TabIndex = 11;
             // 
-            // maskedTextBoxDataHoraFundacao
+            // dateTimePickerDataHoraFundacao
             // 
-            this.maskedTextBoxDataHoraFundacao.Location = new System.Drawing.Point(12, 162);
-            this.maskedTextBoxDataHoraFundacao.Mask = "00/00/0000 00:00";
-            this.maskedTextBoxDataHoraFundacao.Name = "maskedTextBoxDataHoraFundacao";
-            this.maskedTextBoxDataHoraFundacao.Size = new System.Drawing.Size(217, 23);
-            this.maskedTextBoxDataHoraFundacao.TabIndex = 12;
-            this.maskedTextBoxDataHoraFundacao.ValidatingType = typeof(System.DateTime);
+            this.dateTimePickerDataHoraFundacao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerDataHoraFundacao.Location = new System.Drawing.Point(12, 160);
+            this.dateTimePickerDataHoraFundacao.Name = "dateTimePickerDataHoraFundacao";
+            this.dateTimePickerDataHoraFundacao.Size = new System.Drawing.Size(217, 23);
+            this.dateTimePickerDataHoraFundacao.TabIndex = 12;
             // 
             // CidadeCadastroEdicaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(243, 283);
-            this.Controls.Add(this.maskedTextBoxDataHoraFundacao);
+            this.Controls.Add(this.dateTimePickerDataHoraFundacao);
             this.Controls.Add(this.comboBoxUnidadesFederativas);
             this.Controls.Add(this.textBoxPib);
             this.Controls.Add(this.textBoxQuantidadeHabitantes);
@@ -184,6 +183,6 @@
         private TextBox textBoxQuantidadeHabitantes;
         private TextBox textBoxPib;
         private ComboBox comboBoxUnidadesFederativas;
-        private MaskedTextBox maskedTextBoxDataHoraFundacao;
+        private DateTimePicker dateTimePickerDataHoraFundacao;
     }
 }

@@ -24,8 +24,18 @@ namespace Entra21.BancoDados01.Ado.Net.Views.UnidadeFederativas
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
+            if ((textBoxNome.Text.Length < 3) || (textBoxNome.Text.Length > 150))
+            {
+                MessageBox.Show("O nome da Unidade Federativa deve conter no minímo 5 caracteres e no máximo 150");
+                return;
+            }
+            if(textBoxSigla.Text.Length != 2)
+            {
+                MessageBox.Show("A sigla da Unidade Federativa só pode conter duas letras!");
+                return;
+            }
             var nome = textBoxNome.Text.Trim();
-            var sigla = textBoxSigla.Text.Trim();
+            var sigla = textBoxSigla.Text.Trim().ToUpper();
 
             var unidadeFederativa = new UnidadesFederativas();
             unidadeFederativa.Nome = nome;
