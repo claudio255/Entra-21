@@ -75,15 +75,12 @@ namespace Entra21.BancoDados01.Ado.Net.Views.Cidades
             }
             try
             {
-                var validacaoQuantidadeHabitantes = textBoxQuantidadeHabitantes.Text;
-                if ((textBoxQuantidadeHabitantes.Text.Length <= 3) || (textBoxQuantidadeHabitantes.Text.Length > 50000000))
-                {
-                    return;
-                }
+                cidade.QuantidadeHabitantes = Convert.ToInt32(quantidadeHabitantes);
             }
             catch
             {
-                MessageBox.Show("A quantidade de habitantes deve conter um numero valido!");
+                if (textBoxQuantidadeHabitantes.Text == String.Empty)
+                    MessageBox.Show("A quantidade de habitantes deve conter um numero valido!");
             }
             if ((textBoxPib.Text.Length <= 5) || (textBoxPib.Text.Length > 2000000000))
             {
