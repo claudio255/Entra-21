@@ -59,8 +59,9 @@ namespace Entra21.BancoDados01.Ado.Net.Views.Cidades
             var nome = textBoxNome.Text.Trim();
             var quantidadeHabitantes = textBoxQuantidadeHabitantes.Text.Trim();
             var dataHoraFundacao = dateTimePickerDataHoraFundacao.Text;
-            var pib = Convert.ToDouble(textBoxPib.Text.Trim());
+            var pib = textBoxPib.Text;
             var unidadeFederativa = comboBoxUnidadesFederativas.SelectedItem as UnidadesFederativas;
+            var cidade = new Cidade();
 
             if (comboBoxUnidadesFederativas.SelectedIndex == -1)
             {
@@ -72,18 +73,24 @@ namespace Entra21.BancoDados01.Ado.Net.Views.Cidades
                 MessageBox.Show("O nome digitado deve conter no minímo 5 caracteres e no máximo 150");
                 return;
             }
-            if((textBoxQuantidadeHabitantes.Text.Length <= 3) || (textBoxQuantidadeHabitantes.Text.Length > 50000000))
+            try
+            {
+                var validacaoQuantidadeHabitantes = textBoxQuantidadeHabitantes.Text;
+                if ((textBoxQuantidadeHabitantes.Text.Length <= 3) || (textBoxQuantidadeHabitantes.Text.Length > 50000000))
+                {
+                    return;
+                }
+            }
+            catch
             {
                 MessageBox.Show("A quantidade de habitantes deve conter um numero valido!");
-                return;
             }
-            if((textBoxPib.Text.Length <= 5) || (textBoxPib.Text.Length > 2000000000))
+            if ((textBoxPib.Text.Length <= 5) || (textBoxPib.Text.Length > 2000000000))
             {
                 MessageBox.Show("O PIB não pode ser inferior que 100 mil ou superior à 2 trilhões!");
                 return;
             }
 
-            var cidade = new Cidade();
             cidade.Nome = nome;
             cidade.QuantidadeHabitantes = Convert.ToInt32(quantidadeHabitantes);
             cidade.DataHoraFundacao = Convert.ToDateTime(dataHoraFundacao);
