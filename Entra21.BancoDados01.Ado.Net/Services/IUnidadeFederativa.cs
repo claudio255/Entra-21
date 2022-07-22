@@ -2,7 +2,7 @@
 
 namespace Entra21.BancoDados01.Ado.Net.Services
 {
-    internal interface IUnidadesFederativas
+    internal interface IUnidadeFederativa
     {
         List<UnidadeFederativa> ObterTodos();
 

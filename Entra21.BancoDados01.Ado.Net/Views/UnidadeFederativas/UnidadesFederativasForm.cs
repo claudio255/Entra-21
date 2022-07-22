@@ -4,13 +4,13 @@ namespace Entra21.BancoDados01.Ado.Net.Views.UnidadeFederativas
 {
     public partial class UnidadesFederativasForm : Form
     {
-        private readonly UnidadesFederativasService _unidadesFederativasService;
+        private readonly UnidadeFederativaService _unidadesFederativasService;
 
         public UnidadesFederativasForm()
         {
             InitializeComponent();
 
-            _unidadesFederativasService = new UnidadesFederativasService();
+            _unidadesFederativasService = new UnidadeFederativaService();
 
             PreencherDataGridViewComUnidadesFederativas();
         }

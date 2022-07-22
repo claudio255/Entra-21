@@ -4,7 +4,7 @@ using System.Data;
 
 namespace Entra21.BancoDados01.Ado.Net.Services
 {
-    internal class CidadeService : ICidadesService
+    internal class CidadeService : ICidadeService
     {
         public void Apagar(int id)
         {

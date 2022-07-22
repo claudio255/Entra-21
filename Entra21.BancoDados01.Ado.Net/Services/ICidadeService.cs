@@ -2,7 +2,7 @@
 
 namespace Entra21.BancoDados01.Ado.Net.Services
 {
-    internal interface ICidadesService
+    internal interface ICidadeService
     {
         List<Cidade> ObterTodas();
 

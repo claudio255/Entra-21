@@ -42,7 +42,7 @@ namespace Entra21.BancoDados01.Ado.Net.Views.UnidadeFederativas
             unidadeFederativa.Nome = nome;
             unidadeFederativa.Sigla = sigla;
 
-            var unidadeFederativaService = new UnidadesFederativasService();
+            var unidadeFederativaService = new UnidadeFederativaService();
 
             if (_idParaEditar == -1)
             {

@@ -41,7 +41,7 @@ namespace Entra21.BancoDados01.Ado.Net.Views.Cidades
 
         private void PreencherComboBoxComUnidadesFederativas()
         {
-            var unidadeFederativaService = new UnidadesFederativasService();
+            var unidadeFederativaService = new UnidadeFederativaService();
             var unidadesFederativas = unidadeFederativaService.ObterTodos();
 
             for (int i = 0; i < unidadesFederativas.Count; i++)
