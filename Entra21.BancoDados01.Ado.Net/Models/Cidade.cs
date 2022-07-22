@@ -3,15 +3,10 @@
     public class Cidade
     {
         public int Id { get; set; }
-
         public string Nome { get; set; }
-
         public int QuantidadeHabitantes { get; set; }
-
         public DateTime DataHoraFundacao { get; set; }
-
         public double Pib { get; set; }
-
-        public UnidadesFederativas UnidadesFederativas { get; set; }
+        public UnidadeFederativa UnidadesFederativas { get; set; }
     }
 }

@@ -4,14 +4,14 @@ namespace Entra21.BancoDados01.Ado.Net.Services
 {
     internal interface IUnidadesFederativas
     {
-        List<UnidadesFederativas> ObterTodos();
+        List<UnidadeFederativa> ObterTodos();
 
-        UnidadesFederativas ObterPorId(int id);
+        UnidadeFederativa ObterPorId(int id);
 
-        void Cadastrar(UnidadesFederativas unidadesFederativas);
+        void Cadastrar(UnidadeFederativa unidadesFederativas);
 
         void Apagar(int id);
 
-        void Editar(UnidadesFederativas unidadesFederativas);
+        void Editar(UnidadeFederativa unidadesFederativas);
     }
 }

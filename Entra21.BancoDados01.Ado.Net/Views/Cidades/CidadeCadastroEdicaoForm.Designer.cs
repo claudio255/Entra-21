@@ -120,6 +120,7 @@
             this.textBoxQuantidadeHabitantes.Name = "textBoxQuantidadeHabitantes";
             this.textBoxQuantidadeHabitantes.Size = new System.Drawing.Size(217, 23);
             this.textBoxQuantidadeHabitantes.TabIndex = 9;
+            this.textBoxQuantidadeHabitantes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxQuantidadeHabitantes_KeyPress);
             // 
             // textBoxPib
             // 
@@ -127,6 +128,7 @@
             this.textBoxPib.Name = "textBoxPib";
             this.textBoxPib.Size = new System.Drawing.Size(217, 23);
             this.textBoxPib.TabIndex = 10;
+            this.textBoxPib.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPib_KeyPress);
             // 
             // comboBoxUnidadesFederativas
             // 

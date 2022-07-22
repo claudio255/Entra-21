@@ -66,21 +66,28 @@
             // 
             // buttonUnidadeFederativa
             // 
+            this.buttonUnidadeFederativa.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.buttonUnidadeFederativa.Image = global::Entra21.BancoDados01.Ado.Net.Properties.Resources.brasil;
             this.buttonUnidadeFederativa.Location = new System.Drawing.Point(222, 194);
             this.buttonUnidadeFederativa.Name = "buttonUnidadeFederativa";
-            this.buttonUnidadeFederativa.Size = new System.Drawing.Size(133, 157);
+            this.buttonUnidadeFederativa.Size = new System.Drawing.Size(146, 157);
             this.buttonUnidadeFederativa.TabIndex = 3;
             this.buttonUnidadeFederativa.Text = "Unidades Federativas";
+            this.buttonUnidadeFederativa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonUnidadeFederativa.UseVisualStyleBackColor = true;
             this.buttonUnidadeFederativa.Click += new System.EventHandler(this.buttonUnidadeFederativa_Click);
             // 
             // buttonCidades
             // 
+            this.buttonCidades.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.buttonCidades.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonCidades.Image = global::Entra21.BancoDados01.Ado.Net.Properties.Resources.new_york__2_;
             this.buttonCidades.Location = new System.Drawing.Point(60, 194);
             this.buttonCidades.Name = "buttonCidades";
             this.buttonCidades.Size = new System.Drawing.Size(140, 157);
             this.buttonCidades.TabIndex = 4;
             this.buttonCidades.Text = "Cidades";
+            this.buttonCidades.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonCidades.UseVisualStyleBackColor = true;
             this.buttonCidades.Click += new System.EventHandler(this.buttonCidades_Click);
             // 

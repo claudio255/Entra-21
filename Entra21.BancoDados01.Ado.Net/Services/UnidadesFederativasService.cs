@@ -10,13 +10,13 @@ namespace Entra21.BancoDados01.Ado.Net.Services
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = "DELETE FROM unidades_federativas WHERE id = @ID";
+            comando.CommandText = @"DELETE FROM unidades_federativas WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             comando.ExecuteNonQuery();
-            comando.Connection.Close();
+            comando.Connection.Close();// TODO: Fazer os deletes restantes
         }
 
-        public void Cadastrar(UnidadesFederativas unidadesFederativas)
+        public void Cadastrar(UnidadeFederativa unidadesFederativas)
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
@@ -30,7 +30,7 @@ namespace Entra21.BancoDados01.Ado.Net.Services
             comando.Connection.Close();
         }
 
-        public void Editar(UnidadesFederativas unidadesFederativas)
+        public void Editar(UnidadeFederativa unidadesFederativas)
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
@@ -45,7 +45,7 @@ namespace Entra21.BancoDados01.Ado.Net.Services
             comando.Connection.Close();
         }
 
-        public UnidadesFederativas ObterPorId(int id)
+        public UnidadeFederativa ObterPorId(int id)
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
@@ -61,7 +61,7 @@ namespace Entra21.BancoDados01.Ado.Net.Services
                 return null;
 
             var registro = dataTable.Rows[0];
-            var unidadesFederativas = new UnidadesFederativas();
+            var unidadesFederativas = new UnidadeFederativa();
             unidadesFederativas.Id = Convert.ToInt32(registro[0]);
             unidadesFederativas.Nome = registro["nome"].ToString();
             unidadesFederativas.Sigla = registro["sigla"].ToString();
@@ -71,7 +71,7 @@ namespace Entra21.BancoDados01.Ado.Net.Services
             return unidadesFederativas;
         }
 
-        public List<UnidadesFederativas> ObterTodos()
+        public List<UnidadeFederativa> ObterTodos()
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
@@ -82,13 +82,13 @@ namespace Entra21.BancoDados01.Ado.Net.Services
 
             tabelaEmMemoria.Load(comando.ExecuteReader());
 
-            var unidadesFederativas = new List<UnidadesFederativas>();
+            var unidadesFederativas = new List<UnidadeFederativa>();
 
             for(int i = 0; i < tabelaEmMemoria.Rows.Count; i++)
             {
                 var linha = tabelaEmMemoria.Rows[i];
 
-                var unidadeFederativa = new UnidadesFederativas();
+                var unidadeFederativa = new UnidadeFederativa();
                 unidadeFederativa.Id = Convert.ToInt32(linha["id"].ToString());
                 unidadeFederativa.Nome = linha["nome"].ToString();
                 unidadeFederativa.Sigla = linha["sigla"].ToString();

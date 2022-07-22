@@ -19,6 +19,17 @@ namespace Entra21.BancoDados01.Ado.Net.Services
             comando.Connection.Close();
         }
 
+        public void ApagarPorUnidadeFederativa(int idUnidadeFederativa)
+        {
+            var conexao = new Conexao().Conectar();
+            var comando = conexao.CreateCommand();
+            comando.CommandText = "DELETE FROM cidades WHERE id_unidade_federativa = @ID_UNIDADE_FEDERATIVA";
+            comando.Parameters.AddWithValue("@ID_UNIDADE_FEDERATIVA", idUnidadeFederativa);
+            comando.ExecuteNonQuery();
+
+            comando.Connection.Close();
+        }
+
         public void Cadastrar(Cidade cidades)
         {
             var conexao = new Conexao().Conectar();
@@ -37,7 +48,7 @@ data_hora_fundacao, pib) VALUES (@ID_UNIDADE_FEDERATIVA, @NOME, @QUANTIDADE_HABI
             comando.Connection.Close();
         }
 
-        public void Editar(Cidade cidades)
+        public void Editar(Cidade cidade)
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
@@ -47,12 +58,12 @@ quantidade_habitantes = @QUANTIDADE_HABITANTES,
 data_hora_fundacao = @DATA_HORA_FUNDACAO,
 pib = @PIB
 WHERE id = @ID";
-            comando.Parameters.AddWithValue("@ID_UNIDADE_FEDERATIVA", cidades.UnidadesFederativas.Id);
-            comando.Parameters.AddWithValue("@NOME", cidades.Nome);
-            comando.Parameters.AddWithValue("@QUANTIDADE_HABITANTES", cidades.QuantidadeHabitantes);
-            comando.Parameters.AddWithValue("@DATA_HORA_FUNDACAO", cidades.DataHoraFundacao);
-            comando.Parameters.AddWithValue("@PIB", cidades.Pib);
-            comando.Parameters.AddWithValue("@ID", cidades.Id);
+            comando.Parameters.AddWithValue("@ID_UNIDADE_FEDERATIVA", cidade.UnidadesFederativas.Id);
+            comando.Parameters.AddWithValue("@NOME", cidade.Nome);
+            comando.Parameters.AddWithValue("@QUANTIDADE_HABITANTES", cidade.QuantidadeHabitantes);
+            comando.Parameters.AddWithValue("@DATA_HORA_FUNDACAO", cidade.DataHoraFundacao);
+            comando.Parameters.AddWithValue("@PIB", cidade.Pib);
+            comando.Parameters.AddWithValue("@ID", cidade.Id);
 
             comando.ExecuteNonQuery();
 
@@ -76,7 +87,7 @@ WHERE id = @ID";
             var registro = dataTable.Rows[0];
             var cidade = new Cidade();
             cidade.Id = Convert.ToInt32(registro[0]);
-            cidade.UnidadesFederativas = new UnidadesFederativas();
+            cidade.UnidadesFederativas = new UnidadeFederativa();
             cidade.UnidadesFederativas.Id = Convert.ToInt32(registro["id_unidade_federativa"]);
             cidade.Nome = registro["nome"].ToString();
             cidade.QuantidadeHabitantes = Convert.ToInt32(registro["quantidade_habitantes"]);
@@ -116,7 +127,7 @@ INNER JOIN unidades_federativas AS uf ON(c.id_unidade_federativa = uf.id)";
                 var cidade = new Cidade();
                 cidade.Id = Convert.ToInt32(registro["id"]);
                 cidade.Nome = registro["nome"].ToString();
-                cidade.UnidadesFederativas = new UnidadesFederativas();
+                cidade.UnidadesFederativas = new UnidadeFederativa();
                 cidade.UnidadesFederativas.Id = Convert.ToInt32(registro["unidade_federativa_id"]);
                 cidade.UnidadesFederativas.Nome = registro["unidade_federativa_nome"].ToString();
                 cidade.QuantidadeHabitantes = Convert.ToInt32(registro["quantidade_habitantes"]);

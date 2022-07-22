@@ -14,7 +14,7 @@ namespace Entra21.BancoDados01.Ado.Net.Views.UnidadeFederativas
             _idParaEditar = -1;
         }
 
-        public UnidadesFederativasCadastroEdicaoForm(UnidadesFederativas unidadeFederativa) : this()
+        public UnidadesFederativasCadastroEdicaoForm(UnidadeFederativa unidadeFederativa) : this()
         {
             _idParaEditar = unidadeFederativa.Id;
 
@@ -29,15 +29,16 @@ namespace Entra21.BancoDados01.Ado.Net.Views.UnidadeFederativas
                 MessageBox.Show("O nome da Unidade Federativa deve conter no minímo 5 caracteres e no máximo 150");
                 return;
             }
-            if(textBoxSigla.Text.Length != 2)
+            if (textBoxSigla.Text.Length != 2)
             {
                 MessageBox.Show("A sigla da Unidade Federativa só pode conter duas letras!");
                 return;
             }
+
             var nome = textBoxNome.Text.Trim();
             var sigla = textBoxSigla.Text.Trim().ToUpper();
 
-            var unidadeFederativa = new UnidadesFederativas();
+            var unidadeFederativa = new UnidadeFederativa();
             unidadeFederativa.Nome = nome;
             unidadeFederativa.Sigla = sigla;
 

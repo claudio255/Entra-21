@@ -13,5 +13,7 @@ namespace Entra21.BancoDados01.Ado.Net.Services
         void Editar(Cidade cidades);
 
         void Apagar(int id);
+
+        void ApagarPorUnidadeFederativa(int id);
     }
 }

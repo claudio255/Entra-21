@@ -11,6 +11,8 @@ namespace Entra21.BancoDados01.Ado.Net.Views.Cidades
         {
             InitializeComponent();
 
+            dateTimePickerDataHoraFundacao.MaxDate = DateTime.Today;
+
             PreencherComboBoxComUnidadesFederativas();
 
             _idParaEditar = -1;
@@ -27,7 +29,7 @@ namespace Entra21.BancoDados01.Ado.Net.Views.Cidades
 
             for (int i = 0; i < comboBoxUnidadesFederativas.Items.Count; i++)
             {
-                var unidadeFederativaPercorrida = comboBoxUnidadesFederativas.Items[i] as UnidadesFederativas;
+                var unidadeFederativaPercorrida = comboBoxUnidadesFederativas.Items[i] as UnidadeFederativa;
 
                 if (unidadeFederativaPercorrida.Id == cidade.UnidadesFederativas.Id)
                 {
@@ -60,33 +62,10 @@ namespace Entra21.BancoDados01.Ado.Net.Views.Cidades
             var quantidadeHabitantes = textBoxQuantidadeHabitantes.Text.Trim();
             var dataHoraFundacao = dateTimePickerDataHoraFundacao.Text;
             var pib = textBoxPib.Text;
-            var unidadeFederativa = comboBoxUnidadesFederativas.SelectedItem as UnidadesFederativas;
+            var unidadeFederativa = comboBoxUnidadesFederativas.SelectedItem as UnidadeFederativa;
             var cidade = new Cidade();
 
-            if (comboBoxUnidadesFederativas.SelectedIndex == -1)
-            {
-                MessageBox.Show("Selecione uma Unidade Federativa!");
-                return;
-            }
-            if ((textBoxNome.Text.Length < 5) || (textBoxNome.Text.Length > 150))
-            {
-                MessageBox.Show("O nome digitado deve conter no minímo 5 caracteres e no máximo 150");
-                return;
-            }
-            try
-            {
-                cidade.QuantidadeHabitantes = Convert.ToInt32(quantidadeHabitantes);
-            }
-            catch
-            {
-                if (textBoxQuantidadeHabitantes.Text == String.Empty)
-                    MessageBox.Show("A quantidade de habitantes deve conter um numero valido!");
-            }
-            if ((textBoxPib.Text.Length <= 5) || (textBoxPib.Text.Length > 2000000000))
-            {
-                MessageBox.Show("O PIB não pode ser inferior que 100 mil ou superior à 2 trilhões!");
-                return;
-            }
+            ValidarDados();
 
             cidade.Nome = nome;
             cidade.QuantidadeHabitantes = Convert.ToInt32(quantidadeHabitantes);
@@ -109,6 +88,68 @@ namespace Entra21.BancoDados01.Ado.Net.Views.Cidades
                 cidadeService.Editar(cidade);
                 MessageBox.Show("Cidade alterada com sucesso!");
                 Close();
+            }
+        }
+
+        private bool ValidarDados()
+        {
+            if (comboBoxUnidadesFederativas.SelectedIndex == -1)
+            {
+                MessageBox.Show("Selecione uma Unidade Federativa!");
+                return false;
+            }
+            if ((textBoxNome.Text.Length < 5) || (textBoxNome.Text.Length > 100))
+            {
+                MessageBox.Show("O nome digitado deve conter no minímo 5 caracteres e no máximo 100");
+                return false;
+            }
+            if (textBoxQuantidadeHabitantes.Text == string.Empty)
+            {
+                MessageBox.Show("A quantidade de habitantes deve ser preenchida!");
+                return false;
+            }
+            var validarQuantidadeHabitantes = Convert.ToInt32(textBoxQuantidadeHabitantes.Text);
+            if (validarQuantidadeHabitantes < 1000 || validarQuantidadeHabitantes > 20000000)
+            {
+                MessageBox.Show(@"A quantidade de habitantes não pode ser inferior que mil habitantes ou superior que 20 milhões!!");
+                return false;
+            }
+
+            if (dateTimePickerDataHoraFundacao.Value.Date > DateTime.Today.Date)
+            {
+                MessageBox.Show("A data de fundação não pode ser superior a data de hoje!");
+                return false;
+            }
+            if (textBoxPib.Text == string.Empty)
+            {
+                MessageBox.Show("O PIB deve ser preenchido!");
+                return false;
+            }
+            var validarPib = Convert.ToDouble(textBoxPib.Text);
+            if (validarPib < 100000.00 || validarPib > 5000000000.00 || validarPib == null)
+            {
+                MessageBox.Show("O PIB não pode ser inferior que 100 mil ou superior à 5 trilhões!");
+                return false;
+            }
+
+            return true;
+        }
+
+        private void textBoxQuantidadeHabitantes_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar > (char)8)
+            {
+                MessageBox.Show("Insira apenas numeros!");
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxPib_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar > (char)8)
+            {
+                MessageBox.Show("Insira apenas numeros!");
+                e.Handled = true;
             }
         }
     }
